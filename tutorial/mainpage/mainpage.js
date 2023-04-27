@@ -130,7 +130,7 @@ controller.on("frame", function (frame) {
         if (contador == 4000) {
           console.log("heart");
 
-          //window.location.href = "./mainpage/mainpage.html";
+          window.location.href = "../heartGuide/guide.html";
         }
       } else if (
         parseInt(cursor.style.top.split("px")) > 76 &&
@@ -225,6 +225,7 @@ controller.on("frame", function (frame) {
         cursorMini.style.transition = "top 300ms ease-out, left 300ms ease-out";
         contador = 0;
       }
+      
     });
   }
 });
