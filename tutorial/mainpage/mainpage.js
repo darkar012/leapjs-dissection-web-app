@@ -6,7 +6,7 @@ let YArray = [];
 let yNArray = [];
 let gesturesBtn = document.getElementById("gestures");
 let bookBtn = document.getElementById("books");
-let tutorialBtn = document.getElementById("tutorialbtn");
+let tutorialBtn = document.getElementById("tutorialBtn");
 let gestureGrayBtn = document.getElementById("handsAccess");
 let seeMoreBtn = document.getElementById("vermasBtn");
 let heartAcces = document.getElementById("disection");
@@ -86,131 +86,145 @@ controller.on("frame", function (frame) {
       let y = gesturesBtn.getBoundingClientRect().top;
       let x2 = heartAcces.getBoundingClientRect().left;
       let y2 = heartAcces.getBoundingClientRect().top;
+      let x3 = gestureGrayBtn.getBoundingClientRect().left;
+      let y3 = gestureGrayBtn.getBoundingClientRect().top;
+      let x4 = tutorialBtn.getBoundingClientRect().left;
+      let y4 = tutorialBtn.getBoundingClientRect().top;
+      let x5 = seeMoreBtn.getBoundingClientRect().left;
+      let y5 = seeMoreBtn.getBoundingClientRect().top;
+
       if (
         parseInt(cursor.style.top.split("px")) > y &&
-        parseInt(cursor.style.top.split("px")) < y + 80
+        parseInt(cursor.style.top.split("px")) < y + 80 &&
+        parseInt(cursor.style.left.split("px")) > x &&
+        parseInt(cursor.style.left.split("px")) < x + 80
       ) {
-        if (
-          parseInt(cursor.style.left.split("px")) > x &&
-          parseInt(cursor.style.left.split("px")) < x + 200
-        ) {
-          cursorMini.style.transform =
-            "scale(3) translateX(-10%) translateY(-10%)";
+        cursorMini.style.transform =
+          "scale(3) translateX(-10%) translateY(-10%)";
 
-          cursorMini.style.transition =
-            "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
+        cursorMini.style.transition =
+          "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
 
-          contador += 20;
-          console.log(contador);
+        contador += 20;
+        console.log(contador);
 
-          if (contador == 4000) {
-            console.log('gestures');
-            //window.location.href = "./mainpage/mainpage.html";
-          }
-
-          /*console.log(new Date().getTime());
-            let nTime = new Date().getTime() + 4000;
-  
-            if (new Date().getTime() >= nTime) {
-              console.log("pass time");
-            } if (indexFingerZ < -140) {
-              window.location.href = "./swipe.html";
-            }*/
-        } else {
-          cursorMini.style.transform =
-            "scale(1) translateX(-50%) translateY(-50%)";
-          cursorMini.style.transition =
-            "top 300ms ease-out, left 300ms ease-out";
-          contador = 0;
+        if (contador == 4000) {
+          console.log("gestures");
+          //window.location.href = "./mainpage/mainpage.html";
         }
       } else if (
         parseInt(cursor.style.top.split("px")) > y2 &&
-        parseInt(cursor.style.top.split("px")) < y2 + 80
+        parseInt(cursor.style.top.split("px")) < y2 + 240 &&
+        parseInt(cursor.style.left.split("px")) > x2 &&
+        parseInt(cursor.style.left.split("px")) < x2 + 140
       ) {
-        if (
-          parseInt(cursor.style.left.split("px")) > x2 &&
-          parseInt(cursor.style.left.split("px")) < x2 + 200
-        ) {
-          cursorMini.style.transform =
-            "scale(3) translateX(-10%) translateY(-10%)";
-
-          cursorMini.style.transition =
-            "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
-
-          contador += 20;
-          console.log(contador);
-
-          if (contador == 4000) {
-            console.log('heart');
-
-            //window.location.href = "./mainpage/mainpage.html";
-          }
-
-          /*console.log(new Date().getTime());
-                  let nTime = new Date().getTime() + 4000;
-        
-                  if (new Date().getTime() >= nTime) {
-                    console.log("pass time");
-                  } if (indexFingerZ < -140) {
-                    window.location.href = "./swipe.html";
-                  }*/
-        } else {
-          cursorMini.style.transform =
-            "scale(1) translateX(-50%) translateY(-50%)";
-          cursorMini.style.transition =
-            "top 300ms ease-out, left 300ms ease-out";
-          contador = 0;
-        }
-      } /*else {
         cursorMini.style.transform =
-          "scale(1) translateX(-50%) translateY(-50%)";
+          "scale(3) translateX(-10%) translateY(-10%)";
+
         cursorMini.style.transition =
-          "top 300ms ease-out, left 300ms ease-out";
-        contador = 0;
-      }*/
+          "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
 
-      /*if (
-        parseInt(cursor.style.top.split("px")) > y2 &&
-        parseInt(cursor.style.top.split("px")) < y2 + 80
-      ) {
-        if (
-          parseInt(cursor.style.left.split("px")) > x2 &&
-          parseInt(cursor.style.left.split("px")) < x2 + 200
-        ) {
-          cursorMini.style.transform =
-            "scale(3) translateX(-10%) translateY(-10%)";
+        contador += 20;
+        console.log(contador);
 
-          cursorMini.style.transition =
-            "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
+        if (contador == 4000) {
+          console.log("heart");
 
-          contador += 20;
-          console.log(contador);
-
-          if (contador == 4000) {
-            window.location.href = "./mainpage/mainpage.html";
-          }
-
-          /*console.log(new Date().getTime());
-                  let nTime = new Date().getTime() + 4000;
-        
-                  if (new Date().getTime() >= nTime) {
-                    console.log("pass time");
-                  } if (indexFingerZ < -140) {
-                    window.location.href = "./swipe.html";
-                  }
-        } else {
-          cursorMini.style.transform =
-            "scale(1) translateX(-50%) translateY(-50%)";
-          cursorMini.style.transition =
-            "top 300ms ease-out, left 300ms ease-out";
-          contador = 0;
+          //window.location.href = "./mainpage/mainpage.html";
         }
+      } else if (
+        parseInt(cursor.style.top.split("px")) > 76 &&
+        parseInt(cursor.style.top.split("px")) < 76 + 30 &&
+        parseInt(cursor.style.left.split("px")) > 278 &&
+        parseInt(cursor.style.left.split("px")) < 278 + 27
+      ) {
+        cursorMini.style.transform =
+          "scale(3) translateX(-10%) translateY(-10%)";
+
+        cursorMini.style.transition =
+          "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
+
+        contador += 20;
+        console.log(contador);
+
+        if (contador == 4000) {
+          console.log("book");
+
+          //window.location.href = "./mainpage/mainpage.html";
+        }
+
+      } else if (
+        parseInt(cursor.style.top.split("px")) > y3 &&
+        parseInt(cursor.style.top.split("px")) < y3 + 30 &&
+        parseInt(cursor.style.left.split("px")) > x3 &&
+        parseInt(cursor.style.left.split("px")) < x3 + 27
+      ) {
+        console.log("dentro");
+        cursorMini.style.transform =
+          "scale(3) translateX(-10%) translateY(-10%)";
+
+        cursorMini.style.transition =
+          "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
+
+        contador += 20;
+        console.log(contador);
+
+        if (contador == 4000) {
+          console.log("hand");
+
+          //window.location.href = "./mainpage/mainpage.html";
+        }
+
+      } else if (
+        parseInt(cursor.style.top.split("px")) > y4 &&
+        parseInt(cursor.style.top.split("px")) < y4 + 50 &&
+        parseInt(cursor.style.left.split("px")) > x4 &&
+        parseInt(cursor.style.left.split("px")) < x4 + 144
+      ) {
+        cursorMini.style.transform =
+          "scale(3) translateX(-10%) translateY(-10%)";
+
+        cursorMini.style.transition =
+          "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
+
+        contador += 20;
+        console.log(contador);
+
+        if (contador == 4000) {
+          console.log("tutorial");
+
+          //window.location.href = "./mainpage/mainpage.html";
+        }
+
+       
+      } else if (
+        parseInt(cursor.style.top.split("px")) > y5 &&
+        parseInt(cursor.style.top.split("px")) < y5 + 50 &&
+        parseInt(cursor.style.left.split("px")) > x5 &&
+        parseInt(cursor.style.left.split("px")) < x5 + 144
+      ) {
+        cursorMini.style.transform =
+          "scale(3) translateX(-10%) translateY(-10%)";
+
+        cursorMini.style.transition =
+          "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
+
+        contador += 20;
+        console.log(contador);
+
+        if (contador == 4000) {
+          console.log("more");
+
+          //window.location.href = "./mainpage/mainpage.html";
+        }
+
+       
       } else {
         cursorMini.style.transform =
           "scale(1) translateX(-50%) translateY(-50%)";
         cursorMini.style.transition = "top 300ms ease-out, left 300ms ease-out";
         contador = 0;
-      }*/
+      }
     });
   }
 });
