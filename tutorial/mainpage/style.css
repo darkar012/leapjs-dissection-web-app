@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  transition: opacity 0.5s ease-in-out;
+  position: relative;
+}
+.container .bg {
+  height: 100vh;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.cursor {
+  position: fixed;
+  border-radius: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  pointer-events: none;
+  left: -100px;
+  top: 50%;
+  background-color: transparent;
+  z-index: 10000;
+  border: 2px solid transparent;
+  height: 30px;
+  width: 30px;
+  transition: all 300ms ease-out;
+}
+
+.cursorMini {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  left: -100px;
+  top: 50%;
+  background-color: #5642CE;
+  z-index: 10000;
+  border: 2px solid white;
+  height: 15px;
+  width: 15px;
+  transition: all 300ms ease-out;
+}
+
+.btn {
+  position: absolute;
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.btnTutorial {
+  background-color: #3036d5;
+  color: white;
+  padding: 10px 36px;
+  border-radius: 30px;
+  border: 3px solid white;
+  left: 53.5%;
+  top: 73%;
+}
+
+.btnVermas {
+  background-color: #f7f2fa;
+  color: #393fef;
+  padding: 5px 11.1px;
+  font-size: 13.1px;
+  font-weight: 700;
+  border-radius: 30px;
+  border: 3px solid #393fef;
+  left: 53.6%;
+  top: 14%;
+}
+
+.bookBtn {
+  width: 2%;
+  height: auto;
+  left: 21%;
+  top: 20%;
+}
+.bookBtn img {
+  width: 100%;
+}
+
+.handBtn {
+  width: 2%;
+  height: auto;
+  left: 21%;
+  top: 30%;
+}
+.handBtn img {
+  width: 100%;
+}
+
+.gesturesBtn {
+  width: 6%;
+  height: auto;
+  left: 73.6%;
+  top: 83%;
+}
+.gesturesBtn img {
+  width: 100%;
+}
+
+.dis {
+  position: absolute;
+  width: 10.6%;
+  top: 21.7%;
+  left: 27.6%;
+}
+.dis img {
+  width: 100%;
+}/*# sourceMappingURL=style.css.map */
