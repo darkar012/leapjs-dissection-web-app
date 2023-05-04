@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   overflow: hidden;
 }
@@ -13,38 +17,93 @@ body {
 .container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   transition: opacity 0.5s ease-in-out;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(208.53deg, #36069a 1.77%, #3c2168 101.57%, #4704b5 101.57%);
 }
 .container .bg {
-  height: 107vh;
+  position: absolute;
+  top: -15%;
+  left: 0;
+  -o-object-position: center;
+     object-position: center;
+  width: 100%;
   transition: opacity 0.5s ease-in-out;
+  mix-blend-mode: color-dodge;
+}
+.container .logoMain {
+  z-index: 1;
+  padding-top: 10%;
+  -o-object-position: center;
+     object-position: center;
+}
+.container .tutorial1 {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+}
+.container .tutorial1 .texto {
+  margin-top: -10%;
+  margin-left: 5%;
+  padding: 810px 70px;
+  width: 45%;
+}
+.container .tutorial1 .grid {
+  mix-blend-mode: color-dodge;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  padding: 10px 0px;
+}
+.container .tutorial1 .animation1 {
+  width: 100% !important;
+  margin-top: -3%;
+  z-index: 2;
+  margin-left: -60%;
 }
 
 .anatomyBtn {
   display: flex;
-  flex-direction: column;
-  width: 19%;
-  position: absolute;
-  top: 43.5%;
-  left: 22.5%;
+  justify-content: space-between;
+  width: 40%;
+  margin-top: 5%;
+  flex-direction: row;
+  z-index: 1;
 }
-.anatomyBtn img {
-  position: absolute;
-  right: -40px;
-  top: -40px;
-  width: 34%;
-}
-.anatomyBtn .leapAnatomyBtn {
+.anatomyBtn .tutorialBtn {
   font-family: "Urbanist";
   font-style: normal;
   font-weight: 700;
   font-size: 25px;
   line-height: 47px;
-  color: #FFFFFF;
-  border-radius: 14px;
-  padding: 13px;
-  border: 1px white solid;
-  background-color: #5642cd;
+  border: none;
+  color: #ffffff;
+  background: #8912ff;
+  border-radius: 10px;
+  padding: 3px 10px;
+  width: 50%;
+  height: 100%;
+  margin: 0px 10px;
+}
+.anatomyBtn .mainBtn {
+  height: 100%;
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 47px;
+  margin: 0 10px;
+  width: 50%;
+  border: none;
+  color: #4704B5;
+  z-index: 1;
+  border: none;
+  background: #CABBEB;
+  border-radius: 10px;
+  padding: 3px 10px;
 }
 
 .menuAnatomy {
@@ -82,7 +141,7 @@ body {
   pointer-events: none;
   left: -100px;
   top: 50%;
-  background-color: #5642CE;
+  background-color: #5642ce;
   z-index: 10000;
   border: 2px solid white;
   height: 15px;

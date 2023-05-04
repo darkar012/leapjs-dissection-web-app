@@ -6,6 +6,7 @@ var contador = 0;
 let YArray = [];
 let yNArray = [];
 let btn = "";
+let btn2 = "";
 let cases = 1;
 
 let container = document.getElementById("container");
@@ -84,16 +85,68 @@ controller.on("frame", function (frame) {
 
       switch (cases) {
         case 1:
-          let y = btn.getBoundingClientRect().top;
-          let x = btn.getBoundingClientRect().left;
+          let ymain = btn.getBoundingClientRect().top;
+          let xmain = btn.getBoundingClientRect().left;
+          let ytutorial = btn2.getBoundingClientRect().top;
+          let xtutorial = btn2.getBoundingClientRect().left;
 
           if (
-            parseInt(cursor.style.top.split("px")) > y &&
-            parseInt(cursor.style.top.split("px")) < y + 80
+            parseInt(cursor.style.top.split("px")) > ymain &&
+            parseInt(cursor.style.top.split("px")) < ymain + 80 &&
+            parseInt(cursor.style.left.split("px")) > xmain &&
+            parseInt(cursor.style.left.split("px")) < xmain + 200
+          ) {
+            cursorMini.style.transform =
+              "scale(3) translateX(-10%) translateY(-10%)";
+
+            cursorMini.style.transition =
+              "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
+
+            contador += 20;
+
+            if (contador == 3000) {
+              window.location.href = "./mainpage/mainpage.html";
+            }
+          } else if (
+            parseInt(cursor.style.top.split("px")) > ytutorial &&
+            parseInt(cursor.style.top.split("px")) < ytutorial + 80 &&
+            parseInt(cursor.style.left.split("px")) > xtutorial &&
+            parseInt(cursor.style.left.split("px")) < xtutorial + 200
+          ) {
+            cursorMini.style.transform =
+              "scale(3) translateX(-10%) translateY(-10%)";
+
+            cursorMini.style.transition =
+              "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
+
+            contador += 20;
+            console.log(contador);
+
+            if (contador == 3000) {
+              cases = 2;
+              pintar();
+            }
+          } else {
+            cursorMini.style.transform =
+              "scale(1) translateX(-50%) translateY(-50%)";
+            cursorMini.style.transition =
+              "top 300ms ease-out, left 300ms ease-out";
+            contador = 0;
+          }
+
+          break;
+
+        case 2:
+          let y2 = btn.getBoundingClientRect().top;
+          let x2 = btn.getBoundingClientRect().left;
+
+          if (
+            parseInt(cursor.style.top.split("px")) > y2 &&
+            parseInt(cursor.style.top.split("px")) < y2 + 80
           ) {
             if (
-              parseInt(cursor.style.left.split("px")) > x &&
-              parseInt(cursor.style.left.split("px")) < x + 200
+              parseInt(cursor.style.left.split("px")) > x2 &&
+              parseInt(cursor.style.left.split("px")) < x2 + 200
             ) {
               cursorMini.style.transform =
                 "scale(3) translateX(-10%) translateY(-10%)";
@@ -105,18 +158,8 @@ controller.on("frame", function (frame) {
               console.log(contador);
 
               if (contador == 4000) {
-                cases = 2;
-                pintar();
-              } 
-
-              /*console.log(new Date().getTime());
-                let nTime = new Date().getTime() + 4000;
-      
-                if (new Date().getTime() >= nTime) {
-                  console.log("pass time");
-                } if (indexFingerZ < -140) {
-                  window.location.href = "./swipe.html";
-                }*/
+                window.location.href = "./mainpage/mainpage.html";
+              }
             } else {
               cursorMini.style.transform =
                 "scale(1) translateX(-50%) translateY(-50%)";
@@ -134,58 +177,6 @@ controller.on("frame", function (frame) {
 
           break;
 
-        case 2:
-          
-
-            let y2 = btn.getBoundingClientRect().top;
-            let x2 = btn.getBoundingClientRect().left;
-  
-            if (
-              parseInt(cursor.style.top.split("px")) > y2 &&
-              parseInt(cursor.style.top.split("px")) < y2 + 80
-            ) {
-              if (
-                parseInt(cursor.style.left.split("px")) > x2 &&
-                parseInt(cursor.style.left.split("px")) < x2 + 200
-              ) {
-                cursorMini.style.transform =
-                  "scale(3) translateX(-10%) translateY(-10%)";
-  
-                cursorMini.style.transition =
-                  "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
-  
-                contador += 20;
-                console.log(contador);
-  
-                if (contador == 4000) {
-                  window.location.href = "./mainpage/mainpage.html"
-                } 
-  
-                /*console.log(new Date().getTime());
-                  let nTime = new Date().getTime() + 4000;
-        
-                  if (new Date().getTime() >= nTime) {
-                    console.log("pass time");
-                  } if (indexFingerZ < -140) {
-                    window.location.href = "./swipe.html";
-                  }*/
-              } else {
-                cursorMini.style.transform =
-                  "scale(1) translateX(-50%) translateY(-50%)";
-                cursorMini.style.transition =
-                  "top 300ms ease-out, left 300ms ease-out";
-                contador = 0;
-              }
-            } else {
-              cursorMini.style.transform =
-                "scale(1) translateX(-50%) translateY(-50%)";
-              cursorMini.style.transition =
-                "top 300ms ease-out, left 300ms ease-out";
-              contador = 0;
-            }
-
-          break;
-
         default:
           break;
       }
@@ -198,21 +189,36 @@ function pintar() {
   switch (cases) {
     case 1:
       container.innerHTML = `
-      <div class="anatomyBtn">
-                  <img src="../imgs/signal.png">
-                  <button class="leapAnatomyBtn" id='leapAnatomyBtn'>Leap Anatomy </button>
+      
+              <img class="logoMain" src="../imgs/logoMain.png">
+              <div class="anatomyBtn">
+              <button class="mainBtn" id='mainBtn'>Inicio</button>
+                  <button class="tutorialBtn" id='tutorialBtn'>Ver Tutorial</button>
               </div>
-                  <img class="bg" src="../imgs/Inicio Tutorial.png">
+                  <img class="bg" src="../imgs/bgTutorial.png">
+                  
       `;
-      btn = document.getElementById("leapAnatomyBtn");
+
+      btn = document.getElementById("mainBtn");
+      btn2 = document.getElementById("tutorialBtn");
+      btn2.addEventListener(('click'), (e)=>{
+        cases = 2;
+        pintar()
+      })
       break;
     case 2:
       container.innerHTML = `
-          
-                      <img class="bg" id='bg' src="../imgs/Inicio.png">
+
+      <div class="tutorial1">
+            <img class="texto"  src="../imgs/tutorialIntro.png">
+            <img class="grid"  src="../imgs/grid.png">
+            <iframe src='https://my.spline.design/leapmotion2-6d6e197856539a5365752a5a1ed63168/' frameborder='0' width='100%' height='100%' class="animation1"></iframe>
+            <button class="continuarTutorial1" id='mainBtn'>continuar</button>
+            <div class='overlay'>overlay</div>
+            </div>
           `;
       let image = document.getElementById("bg");
-      setTimeout(function () {
+     /* setTimeout(function () {
         image.style.opacity = 0;
         setTimeout(function () {
           image.src = "../imgs/Inicio2.png";
@@ -238,13 +244,12 @@ function pintar() {
               `;
             }, 500);
             setTimeout(function () {
-
               container.style.opacity = 0;
-     // let image = document.getElementById("bg");
-     // let video = document.getElementById("sourceVideo");
+              // let image = document.getElementById("bg");
+              // let video = document.getElementById("sourceVideo");
               //image.style.opacity = 0;
               //video.style.opacity = 1;
-              console.log('hola');
+              console.log("hola");
               setTimeout(function () {
                 container.innerHTML = `
           
@@ -255,15 +260,15 @@ function pintar() {
           Tu navegador no soporta el elemento de video.
       </video></div>
          `;
-         container.style.opacity = 1;
+                container.style.opacity = 1;
                 /*image.src = "../imgs/selecTutorial.png";
                 image.style.opacity = 1;
                 video.src = "../imgs/videos/selecTutorial.mp4"
-              video.style.opacity = 1;*/
+              video.style.opacity = 1;
               }, 500);
               setTimeout(function () {
                 container.style.opacity = 0;
-                
+
                 setTimeout(function () {
                   container.innerHTML = `
           
@@ -274,11 +279,11 @@ function pintar() {
           Tu navegador no soporta el elemento de video.
       </video></div>
          `;
-         container.style.opacity = 1;
+                  container.style.opacity = 1;
                 }, 500);
                 setTimeout(function () {
                   container.style.opacity = 0;
-                  
+
                   setTimeout(function () {
                     container.innerHTML = `
             <div class="anatomyBtn menuAnatomy">
@@ -288,15 +293,15 @@ function pintar() {
                         <img class="bg" id='bg' src="../imgs/tutorialCompletado.png">
                         
            `;
-           btn = document.getElementById("leapAnatomyBtn");
-           container.style.opacity = 1;
+                    btn = document.getElementById("leapAnatomyBtn");
+                    container.style.opacity = 1;
                   }, 500);
                 }, 8000);
               }, 8000);
             }, 8000);
           }, 6000);
         }, 6000);
-      }, 6000);
+      }, 6000);*/
 
       break;
     default:
