@@ -5,8 +5,8 @@
   box-sizing: border-box;
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 
 body {
@@ -42,31 +42,225 @@ body {
     padding-top: 10%;
     object-position: center;
   }
-.tutorial1{
+  .nextBtn {
+    left: 40%;
+    top: 50%;
+  }
+  .tutorial1 {
     display: flex;
     width: 100%;
     flex-direction: row;
-    .texto{
-        margin-top: -10%;
-        margin-left: 5%;
-        padding: 810px 70px;
-width: 45%;
-    }
-    .grid{
-        mix-blend-mode: color-dodge;
-width: 100%;
 
-object-fit: contain;
-padding: 10px 0px;
+    .texto {
+      margin-top: -10%;
+      margin-left: 5%;
+      padding: 810px 70px;
+      width: 45%;
     }
-    .animation1{
-        width: 100% !important;
-        margin-top: -3%;
-       z-index: 2;
-        margin-left: -60%;
+    .grid {
+      mix-blend-mode: color-dodge;
+      width: 100%;
+      object-fit: contain;
+      padding: 10px 0px;
     }
+    .frame {
+      width: 100% !important;
+      height: auto;
+
+      z-index: 2;
+      margin-left: -80%;
+      overflow: hidden;
+      .animation1 {
+        width: 120%;
+        margin-left: 0;
+      }
+
+      .animation2 {
+        width: 100%;
+        margin-left: 0;
+      }
+      .animation3 {
+        width: 100%;
+        margin-left: 0;
+      }
+    }
+    .marginFrame {
+      margin-left: -100% !important;
+    }
+  }
+  .sign1 {
+    position: absolute;
+    z-index: 6;
+    bottom: 30%;
+    left: 30%;
+    width: 30%;
+  }
 }
 
+.case6 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: auto;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .message {
+    margin-top: 10%;
+    width: 40%;
+    transition: all 500ms ease-in-out;
+  }
+  .continuarTutorial1 {
+    position: initial;
+    margin-top: 4%;
+    width: 30%;
+  }
+}
+
+.case7 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: auto;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .message {
+    width: 60%;
+    margin-top: 4%;
+  }
+  iframe {
+    height: 50vh;
+    width: 800%;
+  }
+  .continuarTutorial1 {
+    position: initial;
+    margin-top: 4%;
+    width: 30%;
+  }
+}
+
+.case8 {
+  .frame {
+    margin-top: 15%;
+  }
+  .texto {
+    margin-top: 0 !important;
+  }
+  .textVideo {
+    width: 35% !important;
+    margin-left: 10% !important;
+  }
+}
+.videonext {
+  position: absolute;
+  top: 20%;
+  right: 5%;
+  width: 40%;
+  z-index: 6;
+}
+
+.case9 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: auto;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .message {
+    width: 60%;
+    margin-top: 2%;
+  }
+  iframe {
+    height: 50vh;
+    width: 800%;
+  }
+  .continuarTutorial1 {
+    position: initial;
+    margin-top: 2%;
+    width: 30%;
+  }
+}
+
+.case11 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: auto;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .tutTest {
+    margin-top: 3% !important;
+  }
+
+  .message {
+    margin-top: 10%;
+    width: 40%;
+    transition: all 500ms ease-in-out;
+  }
+  .continuarTutorial1 {
+    position: initial;
+    margin-top: -17%;
+    width: 17%;
+  }
+}
+
+.case12 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: auto;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .message {
+    margin-top: 5%;
+    width: 40%;
+    transition: all 500ms ease-in-out;
+  }
+  .swipe {
+    position: initial;
+    margin-top: -21.5%;
+    width: 17%;
+    font-family: "Urbanist";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 79px;
+    text-align: center;
+
+    /* White Text */
+
+    color: #eef1fa;
+  }
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: #020321;
+  mix-blend-mode: hard-light;
+  opacity: 0;
+  transition: all 500ms ease-out;
+  z-index: 5;
 }
 
 .anatomyBtn {
@@ -79,10 +273,10 @@ padding: 10px 0px;
 
   .tutorialBtn {
     font-family: "Urbanist";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 25px;
-  line-height: 47px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 47px;
     border: none;
     color: #ffffff;
     background: #8912ff;
@@ -95,18 +289,18 @@ padding: 10px 0px;
   .mainBtn {
     height: 100%;
     font-family: "Urbanist";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 25px;
-  line-height: 47px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 47px;
     margin: 0 10px;
     width: 50%;
     border: none;
 
-    color: #4704B5;
+    color: #4704b5;
     z-index: 1;
     border: none;
-    background: #CABBEB;
+    background: #cabbeb;
     border-radius: 10px;
     padding: 3px 10px;
   }
@@ -123,6 +317,27 @@ padding: 10px 0px;
     padding: 2px !important;
     font-size: 15px !important;
   }
+}
+
+.continuarTutorial1 {
+  position: absolute;
+  left: 13.5%;
+  top: 72%;
+  width: 20%;
+  background: #8912ff;
+  border-radius: 13px;
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 27px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  border: none;
+  color: #ffffff;
+  padding: 10px 13px;
 }
 
 .cursor {

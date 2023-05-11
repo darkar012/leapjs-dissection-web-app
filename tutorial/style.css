@@ -40,6 +40,10 @@ body {
   -o-object-position: center;
      object-position: center;
 }
+.container .nextBtn {
+  left: 40%;
+  top: 50%;
+}
 .container .tutorial1 {
   display: flex;
   width: 100%;
@@ -58,11 +62,193 @@ body {
      object-fit: contain;
   padding: 10px 0px;
 }
-.container .tutorial1 .animation1 {
+.container .tutorial1 .frame {
   width: 100% !important;
-  margin-top: -3%;
+  height: auto;
   z-index: 2;
-  margin-left: -60%;
+  margin-left: -80%;
+  overflow: hidden;
+}
+.container .tutorial1 .frame .animation1 {
+  width: 120%;
+  margin-left: 0;
+}
+.container .tutorial1 .frame .animation2 {
+  width: 100%;
+  margin-left: 0;
+}
+.container .tutorial1 .frame .animation3 {
+  width: 100%;
+  margin-left: 0;
+}
+.container .tutorial1 .marginFrame {
+  margin-left: -100% !important;
+}
+.container .sign1 {
+  position: absolute;
+  z-index: 6;
+  bottom: 30%;
+  left: 30%;
+  width: 30%;
+}
+
+.case6 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: auto;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.case6 .message {
+  margin-top: 10%;
+  width: 40%;
+  transition: all 500ms ease-in-out;
+}
+.case6 .continuarTutorial1 {
+  position: initial;
+  margin-top: 4%;
+  width: 30%;
+}
+
+.case7 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: auto;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.case7 .message {
+  width: 60%;
+  margin-top: 4%;
+}
+.case7 iframe {
+  height: 50vh;
+  width: 800%;
+}
+.case7 .continuarTutorial1 {
+  position: initial;
+  margin-top: 4%;
+  width: 30%;
+}
+
+.case8 .frame {
+  margin-top: 15%;
+}
+.case8 .texto {
+  margin-top: 0 !important;
+}
+.case8 .textVideo {
+  width: 35% !important;
+  margin-left: 10% !important;
+}
+
+.videonext {
+  position: absolute;
+  top: 20%;
+  right: 5%;
+  width: 40%;
+  z-index: 6;
+}
+
+.case9 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: auto;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.case9 .message {
+  width: 60%;
+  margin-top: 2%;
+}
+.case9 iframe {
+  height: 50vh;
+  width: 800%;
+}
+.case9 .continuarTutorial1 {
+  position: initial;
+  margin-top: 2%;
+  width: 30%;
+}
+
+.case11 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: auto;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.case11 .tutTest {
+  margin-top: 3% !important;
+}
+.case11 .message {
+  margin-top: 10%;
+  width: 40%;
+  transition: all 500ms ease-in-out;
+}
+.case11 .continuarTutorial1 {
+  position: initial;
+  margin-top: -17%;
+  width: 17%;
+}
+
+.case12 {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: auto;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.case12 .message {
+  margin-top: 5%;
+  width: 40%;
+  transition: all 500ms ease-in-out;
+}
+.case12 .swipe {
+  position: initial;
+  margin-top: -21.5%;
+  width: 17%;
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 79px;
+  text-align: center;
+  /* White Text */
+  color: #eef1fa;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: #020321;
+  mix-blend-mode: hard-light;
+  opacity: 0;
+  transition: all 500ms ease-out;
+  z-index: 5;
 }
 
 .anatomyBtn {
@@ -98,10 +284,10 @@ body {
   margin: 0 10px;
   width: 50%;
   border: none;
-  color: #4704B5;
+  color: #4704b5;
   z-index: 1;
   border: none;
-  background: #CABBEB;
+  background: #cabbeb;
   border-radius: 10px;
   padding: 3px 10px;
 }
@@ -118,6 +304,27 @@ body {
   font-weight: bold;
   padding: 2px !important;
   font-size: 15px !important;
+}
+
+.continuarTutorial1 {
+  position: absolute;
+  left: 13.5%;
+  top: 72%;
+  width: 20%;
+  background: #8912ff;
+  border-radius: 13px;
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 27px;
+  line-height: 32px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  border: none;
+  color: #ffffff;
+  padding: 10px 13px;
 }
 
 .cursor {
