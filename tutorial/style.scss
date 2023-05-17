@@ -15,6 +15,7 @@ body {
 
 .container {
   display: flex;
+
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -51,9 +52,45 @@ body {
     width: 100%;
     flex-direction: row;
 
+    .addLeap {
+      margin-top: -2%;
+      margin-right: -160%;
+      opacity: 0.16;
+mix-blend-mode: hard-light;
+      margin-left: 25%;
+      z-index: 5;
+      font-size: 220px;
+      font-family: "Urbanist";
+      font-style: normal;
+      font-weight: 700;
+      color: #c2c8dd;
+
+      transform: rotate(-90deg);
+    }
+
+    .addLeapBG{
+      position: absolute;
+      left: 56.5%;
+      top: 41.4%;
+      z-index: 2;
+      font-size: 220px;
+      font-family: "Urbanist";
+      font-style: normal;
+      font-weight: 700;
+      color: #c2c8dd;
+
+      transform: rotate(-90deg);
+    }
+    .getOutBtn{
+      margin-top: 42%;
+      margin-right: -160%;
+      margin-left: 18%;
+      width: 15%;
+      height: 5%;
+    }
     .texto {
       margin-top: -10%;
-      margin-left: 5%;
+      margin-left: 7%;
       padding: 810px 70px;
       width: 45%;
     }
@@ -64,12 +101,17 @@ body {
       padding: 10px 0px;
     }
     .frame {
-      width: 100% !important;
-      height: auto;
-
+      height: 100%;
+      margin-top: 45%;
+      margin-left: 13%;
       z-index: 2;
-      margin-left: -80%;
       overflow: hidden;
+
+      img {
+        height: 30%;
+        width: 100%;
+      }
+
       .animation1 {
         width: 120%;
         margin-left: 0;

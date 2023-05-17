@@ -7,7 +7,7 @@ let YArray = [];
 let yNArray = [];
 let btn = "";
 let btn2 = "";
-let cases = 1;
+let cases = 2;
 let palmPositionOrigin = 0;
 let countMsgLeap = 0;
 var counter = 0;
@@ -606,19 +606,33 @@ function pintar() {
 
       <div class="tutorial1">
       
-            <img class="texto"  src="../imgs/tutorialIntro.png">
-            <img class="grid"  src="../imgs/grid.png">
+            <img class="texto"  src="../imgs/textoCase1.png">
+            <h1 class="addLeapBG">LEAP</h1>
             <figure class='frame'>
-            <iframe loading="eager" src='https://my.spline.design/leapmotion2-6d6e197856539a5365752a5a1ed63168/' frameborder='0' width='100%' height='100%' class="animation1"></iframe>
+              <img src="../imgs/leapCase1.png">
             </figure>
+            
+            <h1 class="addLeap">LEAP</h1>
+            <img class="getOutBtn" src="../imgs/getOutBtn.png">
             
             </div>
 
             <div class='overlay' id='overlay'></div>
 
-            <button class="continuarTutorial1" id='tut1Btn'>Continuar</button>
+            <!--<button class="continuarTutorial1" id='tut1Btn'>Continuar</button>-->
 
           `;
+      container.style.background = "#E2E3EF"
+      let grid = document.querySelector(".tutorial1");
+      
+      grid.style.backgroundImage = "url('../imgs/bgCase1.png')";
+      grid.style.backgroundPosition = "center";
+      grid.style.backgroundSize = "contain";
+      grid.style.backgroundRepeat = "no-repeat"
+      grid.style.transform = "scale(1.1)";
+
+      
+
       btn = document.getElementById("tut1Btn");
       btn.style.zIndex = 7;
       btn.addEventListener("click", (e) => {
@@ -626,14 +640,14 @@ function pintar() {
         pintar();
       });
 
-      setTimeout(function () {
+      /*setTimeout(function () {
         let overlay = document.getElementById("overlay");
         overlay.style.opacity = 1;
         container.innerHTML += `
         <img class="sign1" src="../imgs/sign1.png">
         `;
         container.appendChild(btn);
-      }, 4000);
+      }, 4000);*/
 
       break;
     case 3:
