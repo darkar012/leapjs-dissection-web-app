@@ -614,9 +614,8 @@ function pintar() {
             
             <h1 class="addLeap">LEAP</h1>
             <img class="getOutBtn" src="../imgs/getOutBtn.png">
-            
             </div>
-
+            
             <div class='overlay' id='overlay'></div>
 
             <!--<button class="continuarTutorial1" id='tut1Btn'>Continuar</button>-->
