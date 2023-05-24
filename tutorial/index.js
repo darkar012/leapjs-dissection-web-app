@@ -7,7 +7,7 @@ let YArray = [];
 let yNArray = [];
 let btn = "";
 let btn2 = "";
-let cases = 8;
+let cases = 4;
 let palmPositionOrigin = 0;
 let countMsgLeap = 0;
 var counter = 0;
@@ -63,6 +63,7 @@ controller.on("frame", function (frame) {
       };
       var cursor = document.getElementById("cursor");
       var cursorMini = document.getElementById("cursorMini");
+      var loader = document.querySelector(".loader");
 
       if (indexFingerX > 0) {
         cursor.style.left = indexFingerX * 4 + window.screen.width / 2 + "px";
@@ -100,11 +101,11 @@ controller.on("frame", function (frame) {
             parseInt(cursor.style.left.split("px")) > xmain &&
             parseInt(cursor.style.left.split("px")) < xmain + 200
           ) {
-            cursorMini.style.transform =
-              "scale(3) translateX(-10%) translateY(-10%)";
-
-            cursorMini.style.transition =
-              "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
+            loader.style.display = "block";
+              console.log(cursor.style.width);
+              loader.style.top = parseInt(cursor.style.top.split("px")) - 12.5 +"px";
+              loader.style.left = parseInt(cursor.style.left.split("px")) - 12.5+"px";
+              loader.style.zIndex = 12;
 
             contador += 20;
 
@@ -117,12 +118,11 @@ controller.on("frame", function (frame) {
             parseInt(cursor.style.left.split("px")) > xtutorial &&
             parseInt(cursor.style.left.split("px")) < xtutorial + 200
           ) {
-            cursorMini.style.transform =
-              "scale(3) translateX(-10%) translateY(-10%)";
-
-            cursorMini.style.transition =
-              "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
-
+           loader.style.display = "block";
+              console.log(cursor.style.width);
+              loader.style.top = parseInt(cursor.style.top.split("px")) - 12.5 +"px";
+              loader.style.left = parseInt(cursor.style.left.split("px")) - 12.5+"px";
+              loader.style.zIndex = 12;
             contador += 20;
             console.log(contador);
 
@@ -131,57 +131,44 @@ controller.on("frame", function (frame) {
               pintar();
             }
           } else {
-            cursorMini.style.transform =
-              "scale(1) translateX(-50%) translateY(-50%)";
-            cursorMini.style.transition =
-              "top 300ms ease-out, left 300ms ease-out";
+            loader.style.display = "none";
             contador = 0;
           }
 
           break;
 
         case 2:
+          
           let y2 = btn.getBoundingClientRect().top;
           let x2 = btn.getBoundingClientRect().left;
 
           if (
-            parseInt(cursor.style.top.split("px")) > y2 &&
-            parseInt(cursor.style.top.split("px")) < y2 + 80
+            (parseInt(cursor.style.top.split("px")) > y2 &&
+            parseInt(cursor.style.top.split("px")) < y2 + 70) && (parseInt(cursor.style.left.split("px")) > x2 &&
+            parseInt(cursor.style.left.split("px")) < x2 + 230)
           ) {
-            if (
-              parseInt(cursor.style.left.split("px")) > x2 &&
-              parseInt(cursor.style.left.split("px")) < x2 + 200
-            ) {
-              cursorMini.style.transform =
-                "scale(3) translateX(-10%) translateY(-10%)";
-
-              cursorMini.style.transition =
-                "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
-
+            loader.style.display = "block";
+              loader.style.top = parseInt(cursor.style.top.split("px")) - 12.5 +"px";
+              loader.style.left = parseInt(cursor.style.left.split("px")) - 12.5+"px";
+              loader.style.zIndex = 12;
+              
+              
               contador += 20;
               console.log(contador);
 
-              if (contador == 4000) {
+              if (contador == 3000) {
                 cases = 3;
                 pintar();
               }
-            } else {
-              cursorMini.style.transform =
-                "scale(1) translateX(-50%) translateY(-50%)";
-              cursorMini.style.transition =
-                "top 300ms ease-out, left 300ms ease-out";
-              contador = 0;
-            }
+            
           } else {
-            cursorMini.style.transform =
-              "scale(1) translateX(-50%) translateY(-50%)";
-            cursorMini.style.transition =
-              "top 300ms ease-out, left 300ms ease-out";
+           loader.style.display = "none";
             contador = 0;
           }
 
           break;
         case 3:
+          
           let y3 = btn.getBoundingClientRect().top;
           let x3 = btn.getBoundingClientRect().left;
 
@@ -193,74 +180,30 @@ controller.on("frame", function (frame) {
               parseInt(cursor.style.left.split("px")) > x3 &&
               parseInt(cursor.style.left.split("px")) < x3 + 200
             ) {
-              cursorMini.style.transform =
-                "scale(3) translateX(-10%) translateY(-10%)";
-
-              cursorMini.style.transition =
-                "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
+              loader.style.display = "block";
+              loader.style.top = parseInt(cursor.style.top.split("px")) - 12.5 +"px";
+              loader.style.left = parseInt(cursor.style.left.split("px")) - 12.5+"px";
+              loader.style.zIndex = 6;
 
               contador += 20;
               console.log(contador);
 
-              if (contador == 4000) {
+              if (contador == 3000) {
                 cases = 4;
                 pintar();
               }
             } else {
-              cursorMini.style.transform =
-                "scale(1) translateX(-50%) translateY(-50%)";
-              cursorMini.style.transition =
-                "top 300ms ease-out, left 300ms ease-out";
+              loader.style.display = "none";
               contador = 0;
             }
           } else {
-            cursorMini.style.transform =
-              "scale(1) translateX(-50%) translateY(-50%)";
-            cursorMini.style.transition =
-              "top 300ms ease-out, left 300ms ease-out";
+            loader.style.display = "none";
             contador = 0;
           }
 
           break;
         case 4:
-          let y4 = btn.getBoundingClientRect().top;
-          let x4 = btn.getBoundingClientRect().left;
-
-          if (
-            parseInt(cursor.style.top.split("px")) > y4 &&
-            parseInt(cursor.style.top.split("px")) < y4 + 80
-          ) {
-            if (
-              parseInt(cursor.style.left.split("px")) > x4 &&
-              parseInt(cursor.style.left.split("px")) < x4 + 200
-            ) {
-              cursorMini.style.transform =
-                "scale(3) translateX(-10%) translateY(-10%)";
-
-              cursorMini.style.transition =
-                "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
-
-              contador += 20;
-              console.log(contador);
-
-              if (contador == 4000) {
-                cases = 5;
-                pintar();
-              }
-            } else {
-              cursorMini.style.transform =
-                "scale(1) translateX(-50%) translateY(-50%)";
-              cursorMini.style.transition =
-                "top 300ms ease-out, left 300ms ease-out";
-              contador = 0;
-            }
-          } else {
-            cursorMini.style.transform =
-              "scale(1) translateX(-50%) translateY(-50%)";
-            cursorMini.style.transition =
-              "top 300ms ease-out, left 300ms ease-out";
-            contador = 0;
-          }
+          
 
           break;
         case 5:
@@ -275,31 +218,24 @@ controller.on("frame", function (frame) {
               parseInt(cursor.style.left.split("px")) > x5 &&
               parseInt(cursor.style.left.split("px")) < x5 + 200
             ) {
-              cursorMini.style.transform =
-                "scale(3) translateX(-10%) translateY(-10%)";
-
-              cursorMini.style.transition =
-                "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
+              loader.style.display = "block";
+              loader.style.top = parseInt(cursor.style.top.split("px")) - 12.5 +"px";
+              loader.style.left = parseInt(cursor.style.left.split("px")) - 12.5+"px";
+              loader.style.zIndex = 12;
 
               contador += 20;
               console.log(contador);
 
-              if (contador == 4000) {
+              if (contador == 3000) {
                 cases = 6;
                 pintar();
               }
             } else {
-              cursorMini.style.transform =
-                "scale(1) translateX(-50%) translateY(-50%)";
-              cursorMini.style.transition =
-                "top 300ms ease-out, left 300ms ease-out";
+              loader.style.display = "none";
               contador = 0;
             }
           } else {
-            cursorMini.style.transform =
-              "scale(1) translateX(-50%) translateY(-50%)";
-            cursorMini.style.transition =
-              "top 300ms ease-out, left 300ms ease-out";
+            loader.style.display = "none";
             contador = 0;
           }
 
@@ -316,39 +252,26 @@ controller.on("frame", function (frame) {
               parseInt(cursor.style.left.split("px")) > x6 &&
               parseInt(cursor.style.left.split("px")) < x6 + 200
             ) {
-              cursorMini.style.transform =
-                "scale(3) translateX(-10%) translateY(-10%)";
-
-              cursorMini.style.transition =
-                "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
+              loader.style.display = "block";
+              loader.style.top = parseInt(cursor.style.top.split("px")) - 12.5 +"px";
+              loader.style.left = parseInt(cursor.style.left.split("px")) - 12.5+"px";
+              loader.style.zIndex = 12;
 
               contador += 20;
               console.log(contador);
 
-              if (contador == 4000) {
-                if (countMsgLeap == 1) {
+              if (contador == 3000) {
+                
                   cases = 7;
                   pintar();
-                } else {
-                  let msg = document.getElementById("msg");
-                  msg.style.opacity = 0;
-                  msg.src = "../imgs/messageTut2.png";
-                  msg.style.opacity = 1;
-                  countMsgLeap = 1;
-                }
+               
               }
             } else {
-              cursorMini.style.transform =
-                "scale(1) translateX(-50%) translateY(-50%)";
-              cursorMini.style.transition =
-                "top 300ms ease-out, left 300ms ease-out";
+              loader.style.display = "none";
               contador = 0;
             }
           } else {
-            cursorMini.style.transform =
-              "scale(1) translateX(-50%) translateY(-50%)";
-            cursorMini.style.transition =
-              "top 300ms ease-out, left 300ms ease-out";
+            loader.style.display = "none";
             contador = 0;
           }
 
@@ -365,31 +288,24 @@ controller.on("frame", function (frame) {
               parseInt(cursor.style.left.split("px")) > x7 &&
               parseInt(cursor.style.left.split("px")) < x7 + 200
             ) {
-              cursorMini.style.transform =
-                "scale(3) translateX(-10%) translateY(-10%)";
-
-              cursorMini.style.transition =
-                "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
+              loader.style.display = "block";
+              loader.style.top = parseInt(cursor.style.top.split("px")) - 12.5 +"px";
+              loader.style.left = parseInt(cursor.style.left.split("px")) - 12.5+"px";
+              loader.style.zIndex = 12;
 
               contador += 20;
               console.log(contador);
 
-              if (contador == 4000) {
+              if (contador == 3000) {
                 cases = 8;
                 pintar();
               }
             } else {
-              cursorMini.style.transform =
-                "scale(1) translateX(-50%) translateY(-50%)";
-              cursorMini.style.transition =
-                "top 300ms ease-out, left 300ms ease-out";
+              loader.style.display = "none";
               contador = 0;
             }
           } else {
-            cursorMini.style.transform =
-              "scale(1) translateX(-50%) translateY(-50%)";
-            cursorMini.style.transition =
-              "top 300ms ease-out, left 300ms ease-out";
+            loader.style.display = "none";
             contador = 0;
           }
 
@@ -400,42 +316,39 @@ controller.on("frame", function (frame) {
 
           if (
             parseInt(cursor.style.top.split("px")) > y8 &&
-            parseInt(cursor.style.top.split("px")) < y8 + 80
+            parseInt(cursor.style.top.split("px")) < y8 + 70
           ) {
             if (
               parseInt(cursor.style.left.split("px")) > x8 &&
-              parseInt(cursor.style.left.split("px")) < x8 + 200
+              parseInt(cursor.style.left.split("px")) < x8 + 230
             ) {
-              cursorMini.style.transform =
-                "scale(3) translateX(-10%) translateY(-10%)";
-
-              cursorMini.style.transition =
-                "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
-
+              
+              loader.style.display = "block";
+              console.log(cursor.style.width);
+              loader.style.top = parseInt(cursor.style.top.split("px")) - 12.5 +"px";
+              loader.style.left = parseInt(cursor.style.left.split("px")) - 12.5+"px";
+              loader.style.zIndex = 12;
+            
+              
               contador += 20;
               console.log(contador);
 
-              if (contador == 4000) {
+              if (contador == 3000) {
                 cases = 9;
                 pintar();
               }
             } else {
-              cursorMini.style.transform =
-                "scale(1) translateX(-50%) translateY(-50%)";
-              cursorMini.style.transition =
-                "top 300ms ease-out, left 300ms ease-out";
+              loader.style.display = "none";
               contador = 0;
             }
           } else {
-            cursorMini.style.transform =
-              "scale(1) translateX(-50%) translateY(-50%)";
-            cursorMini.style.transition =
-              "top 300ms ease-out, left 300ms ease-out";
+            loader.style.display = "none";
             contador = 0;
           }
 
           break;
         case 9:
+          loader.style.display = "none";
           let y9 = btn.getBoundingClientRect().top;
           let x9 = btn.getBoundingClientRect().left;
 
@@ -456,7 +369,7 @@ controller.on("frame", function (frame) {
               contador += 20;
               console.log(contador);
 
-              if (contador == 4000) {
+              if (contador == 3000) {
                 cases = 10;
                 pintar();
               }
@@ -497,7 +410,7 @@ controller.on("frame", function (frame) {
               contador += 20;
               console.log(contador);
 
-              if (contador == 4000) {
+              if (contador == 3000) {
                 cases = 12;
                 pintar();
               }
@@ -890,7 +803,7 @@ function pintar() {
             lsdring.style.display = "none";
             setTimeout(function () {
 
-              pintar();
+              //pintar();
             }, 2000);
           }, 6000);
         }, 800);
