@@ -631,7 +631,7 @@ body {
   height: 80px;
   display: none;
   opacity: 0;
-  transition: all 800ms ease-in-out;
+  transition: all 500ms ease-in-out;
 }
 .lds-ring div {
   box-sizing: border-box;
@@ -640,28 +640,47 @@ body {
     width: 50px;
     height: 50px;
     margin: 8px;
+    transition: opacity 1000ms ease-in-out;
+    opacity: 0;
     border: 5px solid #FFFFFF;
     border-radius: 50%;
-    animation: lds-ring 6s cubic-bezier(0.5, 0, 0.5, 1) infinite;
     border-color: #fff transparent transparent transparent;
 }
-.lds-ring div:nth-child(1) {
-  animation-delay: -2.00s;
+
+.ldsanimation div {
+  animation: ldsanimation 6s cubic-bezier(0.5, 0, 0.5, 1);
+
 }
-.lds-ring div:nth-child(2) {
-  animation-delay: -1.60s;
+.ldsanimation div:nth-child(1) {
+  animation-delay: -1.40s;
+  
 }
-.lds-ring div:nth-child(3) {
-  animation-delay: -1.15s;
+.ldsanimation div:nth-child(2) {
+  animation-delay: -1.20s;
+  
+}
+.ldsanimation div:nth-child(3) {
+  animation-delay: -1.00s;
+  
 }
 
-.lds-ring div:nth-child(4) {
-  animation-delay: -0.70s;
+.ldsanimation div:nth-child(4) {
+  animation-delay: -0.80s;
+  
 }
-.lds-ring div:nth-child(5) {
-  animation-delay: -0.10s;
+.ldsanimation div:nth-child(5) {
+  animation-delay: -0.60s;
+  
 }
-@keyframes lds-ring {
+.ldsanimation div:nth-child(6) {
+  animation-delay: -0.40s;
+  
+}
+.ldsanimation div:nth-child(7) {
+  animation-delay: -0.20s;
+  
+}
+@keyframes ldsanimation {
   0% {
     transform: rotate(0deg);
   }

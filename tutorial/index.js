@@ -845,13 +845,7 @@ function pintar() {
 
           </div>
         <img class= "cursorAnimation" src="../imgs/cursorAni.png">
-        <div class="lds-ring">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+        <div class="lds-ring ">
         </div>
 
                   `;
@@ -863,6 +857,7 @@ function pintar() {
       grid.style.backgroundRepeat = "no-repeat";
       grid.style.transform = "scale(1.1)";
 
+      let leadCase = document.querySelector(".leapCase");
       let cursorAnimation = document.querySelector(".cursorAnimation");
       let lsdring = document.querySelector(".lds-ring");
       setTimeout(function () {
@@ -871,54 +866,93 @@ function pintar() {
         lsdring.style.display = "block";
         cursorAnimation.style.mixBlendMode = "overlay";
         setTimeout(function () {
-
           lsdring.style.opacity = 1;
+          for (let i = 0; i < 8; i++) {
+            setTimeout(function () {
+              let ring = document.createElement("div");
+              lsdring.appendChild(ring);
+              setTimeout(function () {
+                ring.style.opacity = 1;
+              }, 500);
+            },500)
+            if (i == 7) {
+              setTimeout(function () {
+                lsdring.classList.add("ldsanimation");
+              }, 2000);
+            }
+          }
+          
+
+
+          setTimeout(function () {
+            leadCase.src ="../imgs/leapCase8_1.png";
+            cursorAnimation.style.display = "none";
+            lsdring.style.display = "none";
+            setTimeout(function () {
+
+              pintar();
+            }, 2000);
+          }, 6000);
         }, 800);
       }, 1000);
 
+      btn= document.querySelector(".continuarBtn");
+      btn.addEventListener("click", (e) => {
+        container.style.opacity = 0;
+        setTimeout(function () {
+          cases = 9;
+          pintar();
+        }, 500);
+      });
+
       break;
     case 9:
+      container.style.opacity = 1;
       container.innerHTML = `
-  
-        <div class="tutorial1">
-              <img class="texto"  src="../imgs/tutorialBg.png">
-              <img class="grid"  src="../imgs/grid.png">
-              
-              </div>
-  
-              <div class='case9'>
-              <img class="message" id="msg" src="../imgs/swipeTut.png">
-              <iframe src='https://my.spline.design/p7-ef38efd0ca55743fde5e29da3938a462/' frameborder='0' width='100%' height='100%'></iframe>
-              <button class="continuarTutorial1 nextBtn" id='tut1Btn'>Continuar</button>
 
-              </div>
-          
-  
-            `;
-      btn = document.getElementById("tut1Btn");
-      btn.style.zIndex = 7;
-      btn.addEventListener("click", (e) => {
-        cases = 10;
-        pintar();
-      });
+      <div class="tutorial1 tutorial3 tutorial4 tutorial7" id="tutorial1">
+        
+        <img class="getOutBtn" src="../imgs/getOutBtn.png">
+        <img class="yellowsign"  src="../imgs/yellowsign.png">
+ 
+        <img class="texto"  src="../imgs/tutorialCase7.png">
+        <img class="continuarBtn" src="../imgs/continueBtnAlt.png">
+
+            <img class="timeline" src="../imgs/timeline2.png">
+            </div>
+        
+                  `;
+
+      grid = document.querySelector(".tutorial1");
+      grid.style.backgroundImage = "url('../imgs/bgCase4.png')";
+      grid.style.backgroundPosition = "center";
+      grid.style.backgroundSize = "cover";
+      grid.style.backgroundRepeat = "no-repeat";
+      grid.style.transform = "scale(1.1)";
       break;
     case 10:
+      container.style.opacity = 1;
       container.innerHTML = `
-  
-  <div class="tutorial1 case8">
-              <img class="texto" id='texto'  src="../imgs/textSwipe.png">
-              <img class="grid"  src="../imgs/grid.png">
-              <figure class='frame'>
-              <iframe src='https://my.spline.design/p8-55b36cd0662c3c007d45b5d5f9bff765/' frameborder='0' width='100%' height='100%'></iframe>
-              
-              </div>
-  
-              `;
 
-      setTimeout(function () {
-        cases = 11;
-        pintar();
-      }, 6000);
+      <div class="tutorial1 tutorial3 tutorial4 tutorial7" id="tutorial1">
+        
+        <img class="getOutBtn" src="../imgs/getOutBtn.png">
+        <img class="yellowsign"  src="../imgs/yellowsign.png">
+ 
+        <img class="texto"  src="../imgs/tutorialCase7.png">
+        <img class="continuarBtn" src="../imgs/continueBtnAlt.png">
+
+            <img class="timeline" src="../imgs/timeline2.png">
+            </div>
+        
+                  `;
+
+      grid = document.querySelector(".tutorial1");
+      grid.style.backgroundImage = "url('../imgs/bgCase4.png')";
+      grid.style.backgroundPosition = "center";
+      grid.style.backgroundSize = "cover";
+      grid.style.backgroundRepeat = "no-repeat";
+      grid.style.transform = "scale(1.1)";
 
       break;
     case 11:
