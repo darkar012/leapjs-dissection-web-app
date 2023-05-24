@@ -7,7 +7,7 @@ let YArray = [];
 let yNArray = [];
 let btn = "";
 let btn2 = "";
-let cases = 7;
+let cases = 8;
 let palmPositionOrigin = 0;
 let countMsgLeap = 0;
 var counter = 0;
@@ -820,52 +820,61 @@ function pintar() {
       grid.style.backgroundRepeat = "no-repeat";
       grid.style.transform = "scale(1.1)";
 
-      /*setTimeout(function () {
+      btn= document.querySelector(".continuarBtn");
+      btn.addEventListener("click", (e) => {
         container.style.opacity = 0;
         setTimeout(function () {
-          cases = 5;
+          cases = 8;
           pintar();
-        }, 1000);
-      }, 3000);*/
+        }, 500);
+      });
 
       break;
     case 8:
+      container.style.opacity = 1;
       container.innerHTML = `
-  
-  <div class="tutorial1 case8">
-              <img class="texto" id='texto'  src="../imgs/selectText.png">
-              <img class="grid"  src="../imgs/grid.png">
-              <figure class='frame'>
-              <iframe src='https://my.spline.design/p5-7f3bfe23ff862a08a5234d00bd92a8b0/' frameborder='0' width='100%' height='100%'></iframe>              </figure>
-              
-              </div>
-  
-          
-  
-            
-    
-              `;
 
-      setTimeout(function () {
-        container.innerHTML += `
-            <div class='overlay' id='overlay'>
-              
+      <div class="tutorial1 tutorial8" id="tutorial1">
+        <div class= "btnText">
+        <img class="getOutBtn" src="../imgs/getOutBtn.png">
+            <img class="texto"  src="../imgs/tutorialCase8.png">
             </div>
-            <img class="videonext" id="videoTutorial" src="../imgs/videoNext.png">
+            <img class="leapCase"  src="../imgs/leapCase8.png">
+            <img class="timeline" src="../imgs/timeline2.png">
+            <img class="continuarBtn" src="../imgs/continueBtn.png">
 
-`;
-        btn = document.getElementById("videoTutorial");
-        btn.addEventListener("click", (e) => {
-          cases = 9;
-          pintar();
-        });
-        let over = document.getElementById("overlay");
-        over.style.opacity = 1;
-        let text = document.getElementById("texto");
-        text.src = "../imgs/textSelect.png";
-        text.style.zIndex = "6";
-        text.classList.add("textVideo");
-      }, 6000);
+          </div>
+        <img class= "cursorAnimation" src="../imgs/cursorAni.png">
+        <div class="lds-ring">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+
+                  `;
+
+      grid = document.querySelector(".tutorial1");
+      grid.style.backgroundImage = "url('../imgs/bgCase6.png')";
+      grid.style.backgroundPosition = "center";
+      grid.style.backgroundSize = "cover";
+      grid.style.backgroundRepeat = "no-repeat";
+      grid.style.transform = "scale(1.1)";
+
+      let cursorAnimation = document.querySelector(".cursorAnimation");
+      let lsdring = document.querySelector(".lds-ring");
+      setTimeout(function () {
+        cursorAnimation.style.top= "39%";
+        cursorAnimation.style.left= "77%";
+        lsdring.style.display = "block";
+        cursorAnimation.style.mixBlendMode = "overlay";
+        setTimeout(function () {
+
+          lsdring.style.opacity = 1;
+        }, 800);
+      }, 1000);
 
       break;
     case 9:

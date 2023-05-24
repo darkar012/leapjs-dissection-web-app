@@ -249,6 +249,52 @@ body {
     top: 67%;
 }
     }
+
+    .tutorial8 {
+      height: 91vh;
+    width: 100%;
+    .btnText {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      .getOutBtn {
+        margin-top: 5%;
+        margin-right: 0%;
+        margin-left: 11%;
+        width: 34%;
+        height: auto;
+      }
+      .texto {
+        margin-top: -3%;
+    margin-left: 35%;
+    padding: 0;
+    width: 54%;
+      }
+    }
+    .leapCase {
+      width: 32%;
+    
+    height: fit-content;
+    margin-top: 2%;
+    margin-left: 7%;
+    }
+    .continuarBtn {
+      left: 17%;
+    top: 68%;
+    }
+    .timeline{
+      left: 17%;
+    top: 82%;
+    }
+  }
+  .cursorAnimation{
+    position: absolute;
+    top: 32%;
+    left: 83%;
+    width: fit-content;
+    transition: all 800ms ease-in-out;
+    height: fit-content;
+  }
   
   .continuarBtn {
     position: absolute;
@@ -572,4 +618,54 @@ body {
 
 .video-player video::-webkit-media-controls-panel {
   display: none !important;
+}
+
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  position: absolute;
+  top: 37%;
+  right: 18.3%;
+  width: 80px;
+  height: 80px;
+  display: none;
+  opacity: 0;
+  transition: all 800ms ease-in-out;
+}
+.lds-ring div {
+  box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    margin: 8px;
+    border: 5px solid #FFFFFF;
+    border-radius: 50%;
+    animation: lds-ring 6s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #fff transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -2.00s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -1.60s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -1.15s;
+}
+
+.lds-ring div:nth-child(4) {
+  animation-delay: -0.70s;
+}
+.lds-ring div:nth-child(5) {
+  animation-delay: -0.10s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
