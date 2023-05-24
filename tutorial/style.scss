@@ -177,12 +177,79 @@ body {
       top: 85%;
     }
     .continuarBtn {
-    opacity: 1;
-    left: 52%;
-    top: 17%;
-    
+      opacity: 1;
+      left: 52%;
+      top: 17%;
     }
   }
+
+  .tutorial4 {
+    .texto {
+      margin-top: -8%;
+      margin-left: 34%;
+      padding: 0;
+      width: 56%;
+    }
+  }
+
+  .tutorial5 {
+    height: 91vh;
+    width: 100%;
+    .btnText {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      .getOutBtn {
+        margin-top: 5%;
+        margin-right: 0%;
+        margin-left: 11%;
+        width: 34%;
+        height: auto;
+      }
+      .texto {
+        margin-top: 14%;
+        margin-left: 35%;
+        padding: 0;
+        width: 58%;
+      }
+    }
+    .leapCase {
+      width: 45%;
+      height: fit-content;
+      margin-top: 2%;
+      margin-left: -2%;
+    }
+    .continuarBtn {
+      left: 17%;
+    top: 61%;
+    }
+    .timeline{
+      left: 17%;
+    top: 82%;
+    }
+  }
+
+  .tutorial7{
+    position: relative;
+    .yellowsign{
+      position: absolute;
+    width: 20%;
+    top: 2%;
+    right: 6%;
+    }
+    .texto{
+      margin-top: 2%;
+    margin-left: 24%;
+    padding: 0;
+    width: 45%;
+    }
+    .continuarBtn{
+      opacity: 1;
+    left: 43%;
+    top: 67%;
+}
+    }
+  
   .continuarBtn {
     position: absolute;
     left: 16%;

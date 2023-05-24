@@ -7,7 +7,7 @@ let YArray = [];
 let yNArray = [];
 let btn = "";
 let btn2 = "";
-let cases = 3;
+let cases = 7;
 let palmPositionOrigin = 0;
 let countMsgLeap = 0;
 var counter = 0;
@@ -577,7 +577,7 @@ controller.on("frame", function (frame) {
 function pintar() {
   let count = 0;
   container.style.background = "#E2E3EF";
-let grid;
+  let grid;
   switch (cases) {
     case 1:
       container.innerHTML = `
@@ -687,13 +687,13 @@ let grid;
       </div>
   
             `;
-             grid = document.querySelector(".tutorial1");
-             btn = document.querySelector(".continuarBtn");
-             grid.style.backgroundImage = "url('../imgs/bgCase3.png')";
-             grid.style.backgroundPosition = "center";
-             grid.style.backgroundSize = "cover";
-             grid.style.backgroundRepeat = "no-repeat";
-             grid.style.transform = "scale(1.1)";
+      grid = document.querySelector(".tutorial1");
+      btn = document.querySelector(".continuarBtn");
+      grid.style.backgroundImage = "url('../imgs/bgCase3.png')";
+      grid.style.backgroundPosition = "center";
+      grid.style.backgroundSize = "cover";
+      grid.style.backgroundRepeat = "no-repeat";
+      grid.style.transform = "scale(1.1)";
       btn.addEventListener("click", (e) => {
         cases = 4;
         pintar();
@@ -703,115 +703,130 @@ let grid;
     case 4:
       container.innerHTML = `
 
-      <div class="tutorial1 tutorial3" id="tutorial1">
+      <div class="tutorial1 tutorial3 tutorial4" id="tutorial1">
         
         <img class="getOutBtn" src="../imgs/getOutBtn.png">
-            <img class="texto"  src="../imgs/tutorialCase3.png">
-            <figure class='frame'>
-              <img class="leapCase" src="../imgs/leapCase3.png">
-            </figure>
-            
-            <img class="continuarBtn" src="../imgs/continueBtn.png">
+            <img class="texto"  src="../imgs/tutorialCase4.png">
+           
             <img class="timeline" src="../imgs/timeline2.png">
             </div>
         
                   `;
-                   grid = document.querySelector(".tutorial1");
-                   btn = document.querySelector(".continuarBtn");
-                   grid.style.backgroundImage = "url('../imgs/bgCase3.png')";
-                   grid.style.backgroundPosition = "center";
-                   grid.style.backgroundSize = "cover";
-                   grid.style.backgroundRepeat = "no-repeat";
-                   grid.style.transform = "scale(1.1)";
-            btn.addEventListener("click", (e) => {
-              cases = 4;
-              pintar();
-            });
 
+      grid = document.querySelector(".tutorial1");
+      grid.style.backgroundImage = "url('../imgs/bgCase4.png')";
+      grid.style.backgroundPosition = "center";
+      grid.style.backgroundSize = "cover";
+      grid.style.backgroundRepeat = "no-repeat";
+      grid.style.transform = "scale(1.1)";
+
+      setTimeout(function () {
+        container.style.opacity = 0;
+        setTimeout(function () {
+          cases = 5;
+          pintar();
+        }, 1000);
+      }, 3000);
       break;
     case 5:
+      container.style.opacity = 1;
       container.innerHTML = `
 
-        <div class="tutorial1">
-              <img class="texto"  src="../imgs/tutorialIntro4.png">
-              <img class="grid"  src="../imgs/grid.png">
-              <figure class='frame'>
-              <iframe loading="eager" src='https://my.spline.design/p4copy-352fac6d4c52790efa7351d2a2dc324e/' frameborder='0' width='100%' height='100%' class="animation2"></iframe>
-              </figure>
-              
-              </div>
+      <div class="tutorial1 tutorial5" id="tutorial1">
+        <div class= "btnText">
+        <img class="getOutBtn" src="../imgs/getOutBtn.png">
+            <img class="texto"  src="../imgs/tutorialCase5.png">
+            </div>
+            <img class="leapCase"  src="../imgs/leapCase5.png">
+            <img class="timeline" src="../imgs/timeline2.png">
+            <img class="continuarBtn" src="../imgs/continueBtnAlt.png">
   
-          
-              <button class="continuarTutorial1" id='tut1Btn'>Continuar</button>
-  
-            `;
-      btn = document.getElementById("tut1Btn");
-      btn.style.zIndex = 7;
+          </div>
+        
+                  `;
+
+      grid = document.querySelector(".tutorial1");
+      grid.style.backgroundImage = "url('../imgs/bgCase4.png')";
+      grid.style.backgroundPosition = "center";
+      grid.style.backgroundSize = "cover";
+      grid.style.backgroundRepeat = "no-repeat";
+      grid.style.transform = "scale(1.1)";
+
+      btn = document.querySelector(".continuarBtn");
       btn.addEventListener("click", (e) => {
-        cases = 6;
-        pintar();
+        container.style.opacity = 0;
+        setTimeout(function () {
+          cases = 6;
+          pintar();
+        }, 500);
       });
 
       break;
     case 6:
+      container.style.opacity = 1;
       container.innerHTML = `
 
-        <div class="tutorial1">
-              <img class="texto"  src="../imgs/tutorialBg.png">
-              <img class="grid"  src="../imgs/grid.png">
-              
-              </div>
+      <div class="tutorial1 tutorial5" id="tutorial1">
+        <div class= "btnText">
+        <img class="getOutBtn" src="../imgs/getOutBtn.png">
+            <img class="texto"  src="../imgs/tutorialCase6.png">
+            </div>
+            <img class="leapCase"  src="../imgs/leapCase6.png">
+            <img class="timeline" src="../imgs/timeline2.png">
+            <img class="continuarBtn" src="../imgs/continueBtnAlt.png">
   
-              <div class='case6'>
-              <img class="message" id="msg" src="../imgs/messageTut.png">
-              <button class="continuarTutorial1 nextBtn" id='tut1Btn'>Continuar</button>
+          </div>
+        
+                  `;
 
-              </div>
-          
-  
-            `;
-      btn = document.getElementById("tut1Btn");
-      btn.style.zIndex = 7;
-      let countMsg = 0;
+      grid = document.querySelector(".tutorial1");
+      grid.style.backgroundImage = "url('../imgs/bgCase4.png')";
+      grid.style.backgroundPosition = "center";
+      grid.style.backgroundSize = "cover";
+      grid.style.backgroundRepeat = "no-repeat";
+      grid.style.transform = "scale(1.1)";
+
+      btn = document.querySelector(".continuarBtn");
       btn.addEventListener("click", (e) => {
-        if (countMsg == 1) {
+        container.style.opacity = 0;
+        setTimeout(function () {
           cases = 7;
           pintar();
-        } else {
-          let msg = document.getElementById("msg");
-          msg.style.opacity = 0;
-          msg.src = "../imgs/messageTut2.png";
-          msg.style.opacity = 1;
-          countMsg = 1;
-          countMsgLeap = 1;
-        }
+        }, 500);
       });
 
       break;
     case 7:
+      container.style.opacity = 1;
       container.innerHTML = `
-  
-          <div class="tutorial1">
-                <img class="texto"  src="../imgs/tutorialBg.png">
-                <img class="grid"  src="../imgs/grid.png">
-                
-                </div>
-    
-                <div class='case7'>
-                <img class="message" id="msg" src="../imgs/topMsgSelect.png">
-                <iframe src='https://my.spline.design/untitled-33e000334ee4d4e51e6cf9690be391a1/' frameborder='0' width='100%' height='100%'></iframe>
-                <button class="continuarTutorial1 nextBtn" id='tut1Btn'>Continuar</button>
-  
-                </div>
-            
-    
-              `;
-      btn = document.getElementById("tut1Btn");
-      btn.style.zIndex = 7;
-      btn.addEventListener("click", (e) => {
-        cases = 8;
-        pintar();
-      });
+
+      <div class="tutorial1 tutorial3 tutorial4 tutorial7" id="tutorial1">
+        
+        <img class="getOutBtn" src="../imgs/getOutBtn.png">
+        <img class="yellowsign"  src="../imgs/yellowsign.png">
+ 
+        <img class="texto"  src="../imgs/tutorialCase7.png">
+        <img class="continuarBtn" src="../imgs/continueBtnAlt.png">
+
+            <img class="timeline" src="../imgs/timeline2.png">
+            </div>
+        
+                  `;
+
+      grid = document.querySelector(".tutorial1");
+      grid.style.backgroundImage = "url('../imgs/bgCase4.png')";
+      grid.style.backgroundPosition = "center";
+      grid.style.backgroundSize = "cover";
+      grid.style.backgroundRepeat = "no-repeat";
+      grid.style.transform = "scale(1.1)";
+
+      /*setTimeout(function () {
+        container.style.opacity = 0;
+        setTimeout(function () {
+          cases = 5;
+          pintar();
+        }, 1000);
+      }, 3000);*/
 
       break;
     case 8:

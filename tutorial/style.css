@@ -170,6 +170,69 @@ body {
   left: 52%;
   top: 17%;
 }
+.container .tutorial4 .texto {
+  margin-top: -8%;
+  margin-left: 34%;
+  padding: 0;
+  width: 56%;
+}
+.container .tutorial5 {
+  height: 91vh;
+  width: 100%;
+}
+.container .tutorial5 .btnText {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.container .tutorial5 .btnText .getOutBtn {
+  margin-top: 5%;
+  margin-right: 0%;
+  margin-left: 11%;
+  width: 34%;
+  height: auto;
+}
+.container .tutorial5 .btnText .texto {
+  margin-top: 14%;
+  margin-left: 35%;
+  padding: 0;
+  width: 58%;
+}
+.container .tutorial5 .leapCase {
+  width: 45%;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-top: 2%;
+  margin-left: -2%;
+}
+.container .tutorial5 .continuarBtn {
+  left: 17%;
+  top: 61%;
+}
+.container .tutorial5 .timeline {
+  left: 17%;
+  top: 82%;
+}
+.container .tutorial7 {
+  position: relative;
+}
+.container .tutorial7 .yellowsign {
+  position: absolute;
+  width: 20%;
+  top: 2%;
+  right: 6%;
+}
+.container .tutorial7 .texto {
+  margin-top: 2%;
+  margin-left: 24%;
+  padding: 0;
+  width: 45%;
+}
+.container .tutorial7 .continuarBtn {
+  opacity: 1;
+  left: 43%;
+  top: 67%;
+}
 .container .continuarBtn {
   position: absolute;
   left: 16%;
