@@ -48,6 +48,8 @@ body {
   display: flex;
   width: 100%;
   flex-direction: row;
+  position: relative;
+  transition: opacity 0.5s ease-in-out;
 }
 .container .tutorial1 .addLeap {
   margin-top: -2%;
@@ -95,6 +97,18 @@ body {
      object-fit: contain;
   padding: 10px 0px;
 }
+.container .tutorial1 .continuarBtn {
+  position: absolute;
+  left: 16%;
+  top: 57%;
+  width: 15%;
+}
+.container .tutorial1 .timeline {
+  position: absolute;
+  left: 16%;
+  top: 63%;
+  width: 25%;
+}
 .container .tutorial1 .frame {
   height: 100%;
   margin-top: 45%;
@@ -120,6 +134,47 @@ body {
 }
 .container .tutorial1 .marginFrame {
   margin-left: -100% !important;
+}
+.container .tutorial3 {
+  flex-direction: column;
+  height: 91vh;
+}
+.container .tutorial3 .getOutBtn {
+  margin-top: 2%;
+  margin-right: 0%;
+  margin-left: 7%;
+  width: 15%;
+  height: auto;
+}
+.container .tutorial3 .texto {
+  margin-top: -4%;
+  margin-left: 21%;
+  padding: 0;
+  width: 61%;
+}
+.container .tutorial3 .frame {
+  width: 50%;
+  margin-top: -14%;
+  margin-left: 25%;
+  z-index: 2;
+}
+.container .tutorial3 .frame img {
+  height: auto;
+  width: 100%;
+}
+.container .tutorial3 .timeline {
+  top: 85%;
+}
+.container .tutorial3 .continuarBtn {
+  opacity: 1;
+  left: 52%;
+  top: 17%;
+}
+.container .continuarBtn {
+  position: absolute;
+  left: 16%;
+  top: 57%;
+  width: 15%;
 }
 .container .yellowBtn {
   margin-top: -22%;
@@ -286,10 +341,10 @@ body {
 .overlay {
   position: absolute;
   width: 100%;
-  height: 100vh;
-  top: 0;
+  height: 150vh;
+  top: 30%;
   left: 0;
-  background: #020321;
+  background: #181e2f;
   mix-blend-mode: hard-light;
   opacity: 0;
   transition: all 500ms ease-out;

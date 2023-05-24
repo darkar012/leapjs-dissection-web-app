@@ -7,11 +7,11 @@ let YArray = [];
 let yNArray = [];
 let btn = "";
 let btn2 = "";
-let cases = 2;
+let cases = 3;
 let palmPositionOrigin = 0;
 let countMsgLeap = 0;
 var counter = 0;
-let swipe =false;
+let swipe = false;
 
 let container = document.getElementById("container");
 
@@ -352,9 +352,6 @@ controller.on("frame", function (frame) {
             contador = 0;
           }
 
-
-
-
           break;
         case 7:
           let y7 = btn.getBoundingClientRect().top;
@@ -397,7 +394,7 @@ controller.on("frame", function (frame) {
           }
 
           break;
-          case 8:
+        case 8:
           let y8 = btn.getBoundingClientRect().top;
           let x8 = btn.getBoundingClientRect().left;
 
@@ -438,7 +435,7 @@ controller.on("frame", function (frame) {
           }
 
           break;
-          case 9:
+        case 9:
           let y9 = btn.getBoundingClientRect().top;
           let x9 = btn.getBoundingClientRect().left;
 
@@ -479,7 +476,7 @@ controller.on("frame", function (frame) {
           }
 
           break;
-          case 11:
+        case 11:
           let y11 = btn.getBoundingClientRect().top;
           let x11 = btn.getBoundingClientRect().left;
 
@@ -520,57 +517,54 @@ controller.on("frame", function (frame) {
           }
 
           break;
-          case 12:
-
+        case 12:
           for (var i = 0; i < frame.hands.length; i++) {
             var hand = frame.hands[i];
             var palmPosition = hand.palmPosition[0];
             var velocity = hand.palmVelocity[0];
-    
+
             if (i === 5) {
               palmPositionOrigin = palmPosition;
             }
             let difPosition = palmPosition - palmPositionOrigin;
             if (difPosition <= -30 && velocity < -1000) {
-                while (counter < 4) {
-                    counter++
-    
-                } if (counter == 4 && !swipe ) {
-                    
-                    btn.innerHTML = 'DERECHA'
-                    
-    counter = 0;
-    console.log('se cumple');
-                    swipe = true;
-                    setTimeout(function(){
-    swipe=false;
-    console.log(swipe);
-                    }, 1000)
-                }
-                console.log(counter);
+              while (counter < 4) {
+                counter++;
+              }
+              if (counter == 4 && !swipe) {
+                btn.innerHTML = "DERECHA";
+
+                counter = 0;
+                console.log("se cumple");
+                swipe = true;
+                setTimeout(function () {
+                  swipe = false;
+                  console.log(swipe);
+                }, 1000);
+              }
+              console.log(counter);
             } else if (difPosition > 30 && velocity > 1000) {
-                while (counter > -4) {
-                    counter--
-    
-                } if (counter == -4 && !swipe ) {
-                  btn.innerHTML = 'IZQUIERDA'
-                  setTimeout(function() {
-                    window.location.href = './mainpage/mainpage.html'
-                  },5000)
-                     
-    counter = 0;
-    console.log('se cumple');
-                    swipe = true;
-                    setTimeout(function(){
-    swipe=false;
-    console.log(swipe);
-                    }, 1000)
-                }
-                console.log(counter);
+              while (counter > -4) {
+                counter--;
+              }
+              if (counter == -4 && !swipe) {
+                btn.innerHTML = "IZQUIERDA";
+                setTimeout(function () {
+                  window.location.href = "./mainpage/mainpage.html";
+                }, 5000);
+
+                counter = 0;
+                console.log("se cumple");
+                swipe = true;
+                setTimeout(function () {
+                  swipe = false;
+                  console.log(swipe);
+                }, 1000);
+              }
+              console.log(counter);
             }
             console.log(counter);
           }
-        
 
           break;
         default:
@@ -582,6 +576,8 @@ controller.on("frame", function (frame) {
 
 function pintar() {
   let count = 0;
+  container.style.background = "#E2E3EF";
+let grid;
   switch (cases) {
     case 1:
       container.innerHTML = `
@@ -604,69 +600,100 @@ function pintar() {
     case 2:
       container.innerHTML = `
 
-      <div class="tutorial1">
+      <div class="tutorial1" id="tutorial1">
       
             <img class="texto"  src="../imgs/textoCase1.png">
             <h1 class="addLeapBG">LEAP</h1>
             <figure class='frame'>
-              <img src="../imgs/leapCase1.png">
+              <img class="leapCase" src="../imgs/leapCase1.png">
             </figure>
             
             <h1 class="addLeap">LEAP</h1>
             <img class="getOutBtn" src="../imgs/getOutBtn.png">
+            <img class="continuarBtn" src="../imgs/getOutBtn.png">
+            <div class='overlay' id='overlay'></div>
             </div>
             
-            <div class='overlay' id='overlay'></div>
 
             <!--<button class="continuarTutorial1" id='tut1Btn'>Continuar</button>-->
 
           `;
-      container.style.background = "#E2E3EF"
-      let grid = document.querySelector(".tutorial1");
-      
+      grid = document.querySelector(".tutorial1");
+      btn = document.querySelector(".continuarBtn");
+      btn.style.opacity = 0;
       grid.style.backgroundImage = "url('../imgs/bgCase1.png')";
       grid.style.backgroundPosition = "center";
       grid.style.backgroundSize = "contain";
-      grid.style.backgroundRepeat = "no-repeat"
+      grid.style.backgroundRepeat = "no-repeat";
       grid.style.transform = "scale(1.1)";
 
-      
+      setTimeout(function () {
+        grid.style.opacity = 0;
+        setTimeout(function () {
+          let text = document.querySelector(".texto");
+          text.src = "../imgs/textoCase2.png";
+          let getOut = document.querySelector(".getOutBtn");
+          getOut.style.marginTop = "46.5%";
+          getOut.style.marginLeft = "15%";
+          let addLeapBG = document.querySelector(".addLeapBG");
+          addLeapBG.style.display = "none";
+          let addLeap = document.querySelector(".addLeap");
+          addLeap.style.mixBlendMode = "normal";
+          let leapCase = document.querySelector(".leapCase");
+          leapCase.src = "../imgs/leapCase1_1.png";
+          leapCase.style.width = "auto";
+          leapCase.style.height = "13%";
+          leapCase.style.marginTop = "50%";
+          leapCase.style.marginLeft = "-2%";
+          addLeap.style.opacity = 1;
+          addLeap.style.zIndex = 1;
 
-      btn = document.getElementById("tut1Btn");
-      btn.style.zIndex = 7;
+          btn.style.opacity = 1;
+          btn.src = "../imgs/continueBtn.png";
+
+          let timeline = document.createElement("img");
+          timeline.classList.add("timeline");
+          timeline.src = "../imgs/timeline1.png";
+          grid.appendChild(timeline);
+          setTimeout(function () {
+            let overlay = document.getElementById("overlay");
+            overlay.style.opacity = 1;
+            btn.style.zIndex = 6;
+            btn.src = "../imgs/continueBtnAlt.png";
+          }, 4000);
+          grid.style.opacity = 1;
+        }, 500);
+      }, 4000);
+
       btn.addEventListener("click", (e) => {
         cases = 3;
         pintar();
       });
 
-      /*setTimeout(function () {
-        let overlay = document.getElementById("overlay");
-        overlay.style.opacity = 1;
-        container.innerHTML += `
-        <img class="sign1" src="../imgs/sign1.png">
-        `;
-        container.appendChild(btn);
-      }, 4000);*/
-
       break;
     case 3:
       container.innerHTML = `
 
-        <div class="tutorial1">
-              <img class="texto"  src="../imgs/tutorialIntro2.png">
-              <img class="grid"  src="../imgs/grid.png">
-              <figure class='frame marginFrame'>
-              <iframe loading="eager" src='https://my.spline.design/leapmotion2copy-9f293461c2ea6d75dbb25e4d8b4ce333/' frameborder='0' width='100%' height='100%' class="animation2"></iframe>
-              </figure>
-              
-              </div>
+<div class="tutorial1 tutorial3" id="tutorial1">
   
-          
-              <button class="continuarTutorial1" id='tut1Btn'>Continuar</button>
+  <img class="getOutBtn" src="../imgs/getOutBtn.png">
+      <img class="texto"  src="../imgs/tutorialCase3.png">
+      <figure class='frame'>
+        <img class="leapCase" src="../imgs/leapCase3.png">
+      </figure>
+      
+      <img class="continuarBtn" src="../imgs/continueBtn.png">
+      <img class="timeline" src="../imgs/timeline2.png">
+      </div>
   
             `;
-      btn = document.getElementById("tut1Btn");
-      btn.style.zIndex = 7;
+             grid = document.querySelector(".tutorial1");
+             btn = document.querySelector(".continuarBtn");
+             grid.style.backgroundImage = "url('../imgs/bgCase3.png')";
+             grid.style.backgroundPosition = "center";
+             grid.style.backgroundSize = "cover";
+             grid.style.backgroundRepeat = "no-repeat";
+             grid.style.transform = "scale(1.1)";
       btn.addEventListener("click", (e) => {
         cases = 4;
         pintar();
@@ -676,25 +703,30 @@ function pintar() {
     case 4:
       container.innerHTML = `
 
-        <div class="tutorial1">
-              <img class="texto"  src="../imgs/tutorialIntro3.png">
-              <img class="grid"  src="../imgs/grid.png">
-              <figure class='frame'>
-              <iframe loading="eager" src='https://my.spline.design/leapmotion2-6d6e197856539a5365752a5a1ed63168/' frameborder='0' width='100%' height='100%' class="animation1"></iframe>
-              </figure>
-              
-              </div>
-  
-          
-              <button class="continuarTutorial1" id='tut1Btn'>Continuar</button>
-  
-            `;
-      btn = document.getElementById("tut1Btn");
-      btn.style.zIndex = 7;
-      btn.addEventListener("click", (e) => {
-        cases = 5;
-        pintar();
-      });
+      <div class="tutorial1 tutorial3" id="tutorial1">
+        
+        <img class="getOutBtn" src="../imgs/getOutBtn.png">
+            <img class="texto"  src="../imgs/tutorialCase3.png">
+            <figure class='frame'>
+              <img class="leapCase" src="../imgs/leapCase3.png">
+            </figure>
+            
+            <img class="continuarBtn" src="../imgs/continueBtn.png">
+            <img class="timeline" src="../imgs/timeline2.png">
+            </div>
+        
+                  `;
+                   grid = document.querySelector(".tutorial1");
+                   btn = document.querySelector(".continuarBtn");
+                   grid.style.backgroundImage = "url('../imgs/bgCase3.png')";
+                   grid.style.backgroundPosition = "center";
+                   grid.style.backgroundSize = "cover";
+                   grid.style.backgroundRepeat = "no-repeat";
+                   grid.style.transform = "scale(1.1)";
+            btn.addEventListener("click", (e) => {
+              cases = 4;
+              pintar();
+            });
 
       break;
     case 5:
@@ -798,31 +830,31 @@ function pintar() {
             
     
               `;
-      
-      setTimeout(function(){
-container.innerHTML +=  `
+
+      setTimeout(function () {
+        container.innerHTML += `
             <div class='overlay' id='overlay'>
               
             </div>
             <img class="videonext" id="videoTutorial" src="../imgs/videoNext.png">
 
-`
-btn = document.getElementById('videoTutorial')
-btn.addEventListener("click", (e) => {
-  cases = 9;
-  pintar();
-});
-let over = document.getElementById('overlay')
-over.style.opacity = 1
-let text = document.getElementById('texto')
-text.src = "../imgs/textSelect.png"
-text.style.zIndex = '6'
-text.classList.add('textVideo')
-      },6000)
+`;
+        btn = document.getElementById("videoTutorial");
+        btn.addEventListener("click", (e) => {
+          cases = 9;
+          pintar();
+        });
+        let over = document.getElementById("overlay");
+        over.style.opacity = 1;
+        let text = document.getElementById("texto");
+        text.src = "../imgs/textSelect.png";
+        text.style.zIndex = "6";
+        text.classList.add("textVideo");
+      }, 6000);
 
       break;
-      case 9:
-        container.innerHTML = `
+    case 9:
+      container.innerHTML = `
   
         <div class="tutorial1">
               <img class="texto"  src="../imgs/tutorialBg.png">
@@ -839,14 +871,14 @@ text.classList.add('textVideo')
           
   
             `;
-    btn = document.getElementById("tut1Btn");
-    btn.style.zIndex = 7;
-    btn.addEventListener("click", (e) => {
-      cases = 10;
-      pintar();
-    });
+      btn = document.getElementById("tut1Btn");
+      btn.style.zIndex = 7;
+      btn.addEventListener("click", (e) => {
+        cases = 10;
+        pintar();
+      });
       break;
-      case 10:
+    case 10:
       container.innerHTML = `
   
   <div class="tutorial1 case8">
@@ -858,17 +890,15 @@ text.classList.add('textVideo')
               </div>
   
               `;
-      
-      setTimeout(function(){
 
-  cases = 11;
-  pintar();
-
-      },6000)
+      setTimeout(function () {
+        cases = 11;
+        pintar();
+      }, 6000);
 
       break;
-      case 11:
-        container.innerHTML = `
+    case 11:
+      container.innerHTML = `
 
         <div class="tutorial1">
               <img class="texto"  src="../imgs/tutorialBg.png">
@@ -884,28 +914,23 @@ text.classList.add('textVideo')
   
             `;
       btn = document.getElementById("tut1Btn");
-      btn.style.display = 'none';
-      setTimeout(function (){
-        
-          let msg = document.getElementById("msg");
-          msg.style.opacity = 0;
-          msg.src = "../imgs/selectTutTest.png";
-          msg.style.opacity = 1;
-          msg.classList.add("tutTest");
-          btn.style.display = 'block';
-          btn.addEventListener("click", function(){
-            
-            cases = 12
-            pintar()
-          })
-        
-      },4000)
-        
-      
+      btn.style.display = "none";
+      setTimeout(function () {
+        let msg = document.getElementById("msg");
+        msg.style.opacity = 0;
+        msg.src = "../imgs/selectTutTest.png";
+        msg.style.opacity = 1;
+        msg.classList.add("tutTest");
+        btn.style.display = "block";
+        btn.addEventListener("click", function () {
+          cases = 12;
+          pintar();
+        });
+      }, 4000);
 
       break;
-      case 12:
-        container.innerHTML = `
+    case 12:
+      container.innerHTML = `
 
         <div class="tutorial1">
               <img class="texto"  src="../imgs/tutorialBg.png">
@@ -921,11 +946,6 @@ text.classList.add('textVideo')
   
             `;
       btn = document.getElementById("tut1Btn");
-
-      
-      
-        
-      
 
       break;
     default:

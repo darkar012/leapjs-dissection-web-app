@@ -51,12 +51,14 @@ body {
     display: flex;
     width: 100%;
     flex-direction: row;
+    position: relative;
+    transition: opacity 0.5s ease-in-out;
 
     .addLeap {
       margin-top: -2%;
       margin-right: -160%;
       opacity: 0.16;
-mix-blend-mode: hard-light;
+      mix-blend-mode: hard-light;
       margin-left: 25%;
       z-index: 5;
       font-size: 220px;
@@ -68,7 +70,7 @@ mix-blend-mode: hard-light;
       transform: rotate(-90deg);
     }
 
-    .addLeapBG{
+    .addLeapBG {
       position: absolute;
       left: 56.5%;
       top: 41.4%;
@@ -81,7 +83,7 @@ mix-blend-mode: hard-light;
 
       transform: rotate(-90deg);
     }
-    .getOutBtn{
+    .getOutBtn {
       margin-top: 42%;
       margin-right: -160%;
       margin-left: 18%;
@@ -89,7 +91,6 @@ mix-blend-mode: hard-light;
       height: 5%;
     }
 
-    
     .texto {
       margin-top: -10%;
       margin-left: 7%;
@@ -101,6 +102,19 @@ mix-blend-mode: hard-light;
       width: 100%;
       object-fit: contain;
       padding: 10px 0px;
+    }
+
+    .continuarBtn {
+      position: absolute;
+      left: 16%;
+      top: 57%;
+      width: 15%;
+    }
+    .timeline {
+      position: absolute;
+      left: 16%;
+      top: 63%;
+      width: 25%;
     }
     .frame {
       height: 100%;
@@ -132,7 +146,50 @@ mix-blend-mode: hard-light;
       margin-left: -100% !important;
     }
   }
-  .yellowBtn{
+
+  .tutorial3 {
+    flex-direction: column;
+    height: 91vh;
+    .getOutBtn {
+      margin-top: 2%;
+      margin-right: 0%;
+      margin-left: 7%;
+      width: 15%;
+      height: auto;
+    }
+    .texto {
+      margin-top: -4%;
+      margin-left: 21%;
+      padding: 0;
+      width: 61%;
+    }
+    .frame {
+      width: 50%;
+      margin-top: -14%;
+      margin-left: 25%;
+      z-index: 2;
+      img {
+        height: auto;
+        width: 100%;
+      }
+    }
+    .timeline {
+      top: 85%;
+    }
+    .continuarBtn {
+    opacity: 1;
+    left: 52%;
+    top: 17%;
+    
+    }
+  }
+  .continuarBtn {
+    position: absolute;
+    left: 16%;
+    top: 57%;
+    width: 15%;
+  }
+  .yellowBtn {
     margin-top: -22%;
     margin-right: -160%;
     margin-left: 18%;
@@ -305,10 +362,10 @@ mix-blend-mode: hard-light;
 .overlay {
   position: absolute;
   width: 100%;
-  height: 100vh;
-  top: 0;
+  height: 150vh;
+  top: 30%;
   left: 0;
-  background: #020321;
+  background: #181e2f;
   mix-blend-mode: hard-light;
   opacity: 0;
   transition: all 500ms ease-out;
