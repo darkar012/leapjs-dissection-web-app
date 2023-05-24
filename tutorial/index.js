@@ -7,7 +7,7 @@ let YArray = [];
 let yNArray = [];
 let btn = "";
 let btn2 = "";
-let cases = 4;
+let cases = 14;
 let palmPositionOrigin = 0;
 let countMsgLeap = 0;
 var counter = 0;
@@ -102,10 +102,12 @@ controller.on("frame", function (frame) {
             parseInt(cursor.style.left.split("px")) < xmain + 200
           ) {
             loader.style.display = "block";
-              console.log(cursor.style.width);
-              loader.style.top = parseInt(cursor.style.top.split("px")) - 12.5 +"px";
-              loader.style.left = parseInt(cursor.style.left.split("px")) - 12.5+"px";
-              loader.style.zIndex = 12;
+            console.log(cursor.style.width);
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
 
             contador += 20;
 
@@ -118,11 +120,13 @@ controller.on("frame", function (frame) {
             parseInt(cursor.style.left.split("px")) > xtutorial &&
             parseInt(cursor.style.left.split("px")) < xtutorial + 200
           ) {
-           loader.style.display = "block";
-              console.log(cursor.style.width);
-              loader.style.top = parseInt(cursor.style.top.split("px")) - 12.5 +"px";
-              loader.style.left = parseInt(cursor.style.left.split("px")) - 12.5+"px";
-              loader.style.zIndex = 12;
+            loader.style.display = "block";
+            console.log(cursor.style.width);
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
             contador += 20;
             console.log(contador);
 
@@ -138,37 +142,36 @@ controller.on("frame", function (frame) {
           break;
 
         case 2:
-          
           let y2 = btn.getBoundingClientRect().top;
           let x2 = btn.getBoundingClientRect().left;
 
           if (
-            (parseInt(cursor.style.top.split("px")) > y2 &&
-            parseInt(cursor.style.top.split("px")) < y2 + 70) && (parseInt(cursor.style.left.split("px")) > x2 &&
-            parseInt(cursor.style.left.split("px")) < x2 + 230)
+            parseInt(cursor.style.top.split("px")) > y2 &&
+            parseInt(cursor.style.top.split("px")) < y2 + 70 &&
+            parseInt(cursor.style.left.split("px")) > x2 &&
+            parseInt(cursor.style.left.split("px")) < x2 + 230
           ) {
             loader.style.display = "block";
-              loader.style.top = parseInt(cursor.style.top.split("px")) - 12.5 +"px";
-              loader.style.left = parseInt(cursor.style.left.split("px")) - 12.5+"px";
-              loader.style.zIndex = 12;
-              
-              
-              contador += 20;
-              console.log(contador);
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
 
-              if (contador == 3000) {
-                cases = 3;
-                pintar();
-              }
-            
+            contador += 20;
+            console.log(contador);
+
+            if (contador == 3000) {
+              cases = 3;
+              pintar();
+            }
           } else {
-           loader.style.display = "none";
+            loader.style.display = "none";
             contador = 0;
           }
 
           break;
         case 3:
-          
           let y3 = btn.getBoundingClientRect().top;
           let x3 = btn.getBoundingClientRect().left;
 
@@ -181,8 +184,10 @@ controller.on("frame", function (frame) {
               parseInt(cursor.style.left.split("px")) < x3 + 200
             ) {
               loader.style.display = "block";
-              loader.style.top = parseInt(cursor.style.top.split("px")) - 12.5 +"px";
-              loader.style.left = parseInt(cursor.style.left.split("px")) - 12.5+"px";
+              loader.style.top =
+                parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+              loader.style.left =
+                parseInt(cursor.style.left.split("px")) - 12.5 + "px";
               loader.style.zIndex = 6;
 
               contador += 20;
@@ -203,8 +208,6 @@ controller.on("frame", function (frame) {
 
           break;
         case 4:
-          
-
           break;
         case 5:
           let y5 = btn.getBoundingClientRect().top;
@@ -219,8 +222,10 @@ controller.on("frame", function (frame) {
               parseInt(cursor.style.left.split("px")) < x5 + 200
             ) {
               loader.style.display = "block";
-              loader.style.top = parseInt(cursor.style.top.split("px")) - 12.5 +"px";
-              loader.style.left = parseInt(cursor.style.left.split("px")) - 12.5+"px";
+              loader.style.top =
+                parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+              loader.style.left =
+                parseInt(cursor.style.left.split("px")) - 12.5 + "px";
               loader.style.zIndex = 12;
 
               contador += 20;
@@ -253,18 +258,18 @@ controller.on("frame", function (frame) {
               parseInt(cursor.style.left.split("px")) < x6 + 200
             ) {
               loader.style.display = "block";
-              loader.style.top = parseInt(cursor.style.top.split("px")) - 12.5 +"px";
-              loader.style.left = parseInt(cursor.style.left.split("px")) - 12.5+"px";
+              loader.style.top =
+                parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+              loader.style.left =
+                parseInt(cursor.style.left.split("px")) - 12.5 + "px";
               loader.style.zIndex = 12;
 
               contador += 20;
               console.log(contador);
 
               if (contador == 3000) {
-                
-                  cases = 7;
-                  pintar();
-               
+                cases = 7;
+                pintar();
               }
             } else {
               loader.style.display = "none";
@@ -289,8 +294,10 @@ controller.on("frame", function (frame) {
               parseInt(cursor.style.left.split("px")) < x7 + 200
             ) {
               loader.style.display = "block";
-              loader.style.top = parseInt(cursor.style.top.split("px")) - 12.5 +"px";
-              loader.style.left = parseInt(cursor.style.left.split("px")) - 12.5+"px";
+              loader.style.top =
+                parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+              loader.style.left =
+                parseInt(cursor.style.left.split("px")) - 12.5 + "px";
               loader.style.zIndex = 12;
 
               contador += 20;
@@ -322,14 +329,14 @@ controller.on("frame", function (frame) {
               parseInt(cursor.style.left.split("px")) > x8 &&
               parseInt(cursor.style.left.split("px")) < x8 + 230
             ) {
-              
               loader.style.display = "block";
               console.log(cursor.style.width);
-              loader.style.top = parseInt(cursor.style.top.split("px")) - 12.5 +"px";
-              loader.style.left = parseInt(cursor.style.left.split("px")) - 12.5+"px";
+              loader.style.top =
+                parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+              loader.style.left =
+                parseInt(cursor.style.left.split("px")) - 12.5 + "px";
               loader.style.zIndex = 12;
-            
-              
+
               contador += 20;
               console.log(contador);
 
@@ -348,46 +355,69 @@ controller.on("frame", function (frame) {
 
           break;
         case 9:
-          loader.style.display = "none";
-          let y9 = btn.getBoundingClientRect().top;
-          let x9 = btn.getBoundingClientRect().left;
-
+          let dot1 = document.querySelector(".dot1");
+          let dot2 = document.querySelector(".dot2");
+          let dot3 = document.querySelector(".dot3");
+          let dot4 = document.querySelector(".dot4");
+          console.log(dot1.offsetLeft);
           if (
-            parseInt(cursor.style.top.split("px")) > y9 &&
-            parseInt(cursor.style.top.split("px")) < y9 + 80
+            parseInt(cursor.style.top.split("px")) > dot1.offsetTop - 25 &&
+            parseInt(cursor.style.top.split("px")) < dot1.offsetTop + 25 &&
+            parseInt(cursor.style.left.split("px")) > dot1.offsetLeft - 25 &&
+            parseInt(cursor.style.left.split("px")) < dot1.offsetLeft + 25
           ) {
-            if (
-              parseInt(cursor.style.left.split("px")) > x9 &&
-              parseInt(cursor.style.left.split("px")) < x9 + 200
-            ) {
-              cursorMini.style.transform =
-                "scale(3) translateX(-10%) translateY(-10%)";
+            var imgSrc = dot1.getAttribute("src");
+            var imgFileName = imgSrc.substring(imgSrc.lastIndexOf("/") + 1);
 
-              cursorMini.style.transition =
-                "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
-
-              contador += 20;
-              console.log(contador);
-
-              if (contador == 3000) {
-                cases = 10;
-                pintar();
-              }
-            } else {
-              cursorMini.style.transform =
-                "scale(1) translateX(-50%) translateY(-50%)";
-              cursorMini.style.transition =
-                "top 300ms ease-out, left 300ms ease-out";
-              contador = 0;
+            if (imgFileName === "dot.png") {
+              contador += 1;
+              dot1.src = "../imgs/dotAlt.png";
             }
-          } else {
-            cursorMini.style.transform =
-              "scale(1) translateX(-50%) translateY(-50%)";
-            cursorMini.style.transition =
-              "top 300ms ease-out, left 300ms ease-out";
-            contador = 0;
+          } else if (
+            parseInt(cursor.style.top.split("px")) > dot2.offsetTop &&
+            parseInt(cursor.style.top.split("px")) < dot2.offsetTop + 50 &&
+            parseInt(cursor.style.left.split("px")) > dot2.offsetLeft &&
+            parseInt(cursor.style.left.split("px")) < dot2.offsetLeft + 50
+          ) {
+            var imgSrc = dot2.getAttribute("src");
+            var imgFileName = imgSrc.substring(imgSrc.lastIndexOf("/") + 1);
+
+            if (imgFileName === "dot.png") {
+              contador += 1;
+              dot2.src = "../imgs/dotAlt.png";
+            }
+          } else if (
+            parseInt(cursor.style.top.split("px")) > dot3.offsetTop &&
+            parseInt(cursor.style.top.split("px")) < dot3.offsetTop + 50 &&
+            parseInt(cursor.style.left.split("px")) > dot3.offsetLeft &&
+            parseInt(cursor.style.left.split("px")) < dot3.offsetLeft + 50
+          ) {
+            var imgSrc = dot3.getAttribute("src");
+            var imgFileName = imgSrc.substring(imgSrc.lastIndexOf("/") + 1);
+
+            if (imgFileName === "dot.png") {
+              contador += 1;
+              dot3.src = "../imgs/dotAlt.png";
+            }
+          } else if (
+            parseInt(cursor.style.top.split("px")) > dot4.offsetTop &&
+            parseInt(cursor.style.top.split("px")) < dot4.offsetTop + 50 &&
+            parseInt(cursor.style.left.split("px")) > dot4.offsetLeft &&
+            parseInt(cursor.style.left.split("px")) < dot4.offsetLeft + 50
+          ) {
+            var imgSrc = dot4.getAttribute("src");
+            var imgFileName = imgSrc.substring(imgSrc.lastIndexOf("/") + 1);
+
+            if (imgFileName === "dot.png") {
+              contador += 1;
+              dot4.src = "../imgs/dotAlt.png";
+            }
           }
 
+          if (contador == 4) {
+            cases = 10;
+            pintar();
+          }
           break;
         case 11:
           let y11 = btn.getBoundingClientRect().top;
@@ -395,90 +425,90 @@ controller.on("frame", function (frame) {
 
           if (
             parseInt(cursor.style.top.split("px")) > y11 &&
-            parseInt(cursor.style.top.split("px")) < y11 + 80
+            parseInt(cursor.style.top.split("px")) < y11 + 70 &&
+            parseInt(cursor.style.left.split("px")) > x11 &&
+            parseInt(cursor.style.left.split("px")) < x11 + 230
           ) {
-            if (
-              parseInt(cursor.style.left.split("px")) > x11 &&
-              parseInt(cursor.style.left.split("px")) < x11 + 300
-            ) {
-              cursorMini.style.transform =
-                "scale(3) translateX(-10%) translateY(-10%)";
+            loader.style.display = "block";
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
 
-              cursorMini.style.transition =
-                "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
+            contador += 20;
+            console.log(contador);
 
-              contador += 20;
-              console.log(contador);
-
-              if (contador == 3000) {
-                cases = 12;
-                pintar();
-              }
-            } else {
-              cursorMini.style.transform =
-                "scale(1) translateX(-50%) translateY(-50%)";
-              cursorMini.style.transition =
-                "top 300ms ease-out, left 300ms ease-out";
-              contador = 0;
+            if (contador == 3000) {
+              cases = 12;
+              pintar();
             }
           } else {
-            cursorMini.style.transform =
-              "scale(1) translateX(-50%) translateY(-50%)";
-            cursorMini.style.transition =
-              "top 300ms ease-out, left 300ms ease-out";
+            loader.style.display = "none";
             contador = 0;
           }
-
           break;
         case 12:
-          for (var i = 0; i < frame.hands.length; i++) {
-            var hand = frame.hands[i];
-            var palmPosition = hand.palmPosition[0];
-            var velocity = hand.palmVelocity[0];
+          loader.style.display = "none";
 
-            if (i === 5) {
-              palmPositionOrigin = palmPosition;
+          break;
+        case 13:
+          let y13 = btn.getBoundingClientRect().top;
+          let x13 = btn.getBoundingClientRect().left;
+
+          if (
+            parseInt(cursor.style.top.split("px")) > y13 &&
+            parseInt(cursor.style.top.split("px")) < y13 + 70 &&
+            parseInt(cursor.style.left.split("px")) > x13 &&
+            parseInt(cursor.style.left.split("px")) < x13 + 230
+          ) {
+            loader.style.display = "block";
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
+
+            contador += 20;
+            console.log(contador);
+
+            if (contador == 3000) {
+              cases = 14;
+              pintar();
             }
-            let difPosition = palmPosition - palmPositionOrigin;
-            if (difPosition <= -30 && velocity < -1000) {
-              while (counter < 4) {
-                counter++;
-              }
-              if (counter == 4 && !swipe) {
-                btn.innerHTML = "DERECHA";
-
-                counter = 0;
-                console.log("se cumple");
-                swipe = true;
-                setTimeout(function () {
-                  swipe = false;
-                  console.log(swipe);
-                }, 1000);
-              }
-              console.log(counter);
-            } else if (difPosition > 30 && velocity > 1000) {
-              while (counter > -4) {
-                counter--;
-              }
-              if (counter == -4 && !swipe) {
-                btn.innerHTML = "IZQUIERDA";
-                setTimeout(function () {
-                  window.location.href = "./mainpage/mainpage.html";
-                }, 5000);
-
-                counter = 0;
-                console.log("se cumple");
-                swipe = true;
-                setTimeout(function () {
-                  swipe = false;
-                  console.log(swipe);
-                }, 1000);
-              }
-              console.log(counter);
-            }
-            console.log(counter);
+          } else {
+            loader.style.display = "none";
+            contador = 0;
           }
+          break;
+          case 14:
+          let y14 = btn.getBoundingClientRect().top;
+          let x14 = btn.getBoundingClientRect().left;
 
+          if (
+            parseInt(cursor.style.top.split("px")) > y14 &&
+            parseInt(cursor.style.top.split("px")) < y14 + 70 &&
+            parseInt(cursor.style.left.split("px")) > x14 &&
+            parseInt(cursor.style.left.split("px")) < x14 + 230
+          ) {
+            loader.style.display = "block";
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
+
+            contador += 20;
+            console.log(contador);
+
+            if (contador == 3000) {
+              cases = 15;
+              pintar();
+            }
+          } else {
+            loader.style.display = "none";
+            contador = 0;
+          }
           break;
         default:
           break;
@@ -733,7 +763,7 @@ function pintar() {
       grid.style.backgroundRepeat = "no-repeat";
       grid.style.transform = "scale(1.1)";
 
-      btn= document.querySelector(".continuarBtn");
+      btn = document.querySelector(".continuarBtn");
       btn.addEventListener("click", (e) => {
         container.style.opacity = 0;
         setTimeout(function () {
@@ -774,8 +804,8 @@ function pintar() {
       let cursorAnimation = document.querySelector(".cursorAnimation");
       let lsdring = document.querySelector(".lds-ring");
       setTimeout(function () {
-        cursorAnimation.style.top= "39%";
-        cursorAnimation.style.left= "77%";
+        cursorAnimation.style.top = "39%";
+        cursorAnimation.style.left = "77%";
         lsdring.style.display = "block";
         cursorAnimation.style.mixBlendMode = "overlay";
         setTimeout(function () {
@@ -787,29 +817,26 @@ function pintar() {
               setTimeout(function () {
                 ring.style.opacity = 1;
               }, 500);
-            },500)
+            }, 500);
             if (i == 7) {
               setTimeout(function () {
                 lsdring.classList.add("ldsanimation");
               }, 2000);
             }
           }
-          
-
 
           setTimeout(function () {
-            leadCase.src ="../imgs/leapCase8_1.png";
+            leadCase.src = "../imgs/leapCase8_1.png";
             cursorAnimation.style.display = "none";
             lsdring.style.display = "none";
             setTimeout(function () {
-
               //pintar();
             }, 2000);
           }, 6000);
         }, 800);
       }, 1000);
 
-      btn= document.querySelector(".continuarBtn");
+      btn = document.querySelector(".continuarBtn");
       btn.addEventListener("click", (e) => {
         container.style.opacity = 0;
         setTimeout(function () {
@@ -823,21 +850,27 @@ function pintar() {
       container.style.opacity = 1;
       container.innerHTML = `
 
-      <div class="tutorial1 tutorial3 tutorial4 tutorial7" id="tutorial1">
+      <div class="tutorial1 tutorial3 tutorial4 tutorial7 tutorial9" id="tutorial1">
         
         <img class="getOutBtn" src="../imgs/getOutBtn.png">
         <img class="yellowsign"  src="../imgs/yellowsign.png">
  
-        <img class="texto"  src="../imgs/tutorialCase7.png">
-        <img class="continuarBtn" src="../imgs/continueBtnAlt.png">
+        <img class="texto"  src="../imgs/tutorialCase9.png">
 
             <img class="timeline" src="../imgs/timeline2.png">
+            <img class="dot dot1" id='dot1' src= "../imgs/dot.png">
+            <img class="dot dot2" src= "../imgs/dot.png">
+            <img class="dot dot3" src= "../imgs/dot.png">
+            <img class="dot dot4" src= "../imgs/dot.png">
             </div>
         
                   `;
 
+      let dot1 = document.getElementById("dot1");
+      console.log(dot1.offsetTop);
+
       grid = document.querySelector(".tutorial1");
-      grid.style.backgroundImage = "url('../imgs/bgCase4.png')";
+      grid.style.backgroundImage = "url('../imgs/bgCase9.png')";
       grid.style.backgroundPosition = "center";
       grid.style.backgroundSize = "cover";
       grid.style.backgroundRepeat = "no-repeat";
@@ -847,12 +880,103 @@ function pintar() {
       container.style.opacity = 1;
       container.innerHTML = `
 
-      <div class="tutorial1 tutorial3 tutorial4 tutorial7" id="tutorial1">
+      <div class="tutorial1 tutorial3 tutorial4 tutorial7 tutorial10" id="tutorial1">
         
         <img class="getOutBtn" src="../imgs/getOutBtn.png">
         <img class="yellowsign"  src="../imgs/yellowsign.png">
  
-        <img class="texto"  src="../imgs/tutorialCase7.png">
+        <img class="texto"  src="../imgs/tutorialCase10.png">
+
+            <img class="timeline" src="../imgs/timeline2.png">
+            </div>
+        
+                  `;
+
+      grid = document.querySelector(".tutorial1");
+      grid.style.backgroundImage = "url('../imgs/bgCase4.png')";
+      grid.style.backgroundPosition = "center";
+      grid.style.backgroundSize = "cover";
+      grid.style.backgroundRepeat = "no-repeat";
+      grid.style.transform = "scale(1.1)";
+
+      setTimeout(function () {
+        container.style.opacity = 0;
+        setTimeout(function () {
+          cases = 11;
+          pintar();
+        }, 500);
+      }, 4000);
+
+      break;
+    case 11:
+      container.style.opacity = 1;
+      container.innerHTML = `
+
+      <div class="tutorial1 tutorial3 tutorial4 tutorial7 tutorial11" id="tutorial1">
+        
+        <img class="getOutBtn" src="../imgs/getOutBtn.png">
+        <img class="yellowsign"  src="../imgs/yellowsign.png">
+ 
+        <img class="texto"  src="../imgs/tutorialCase11.png">
+        <img class="continuarBtn" src="../imgs/continueBtnAlt.png">
+
+            <img class="timeline" src="../imgs/timeline2.png">
+            </div>
+        
+                  `;
+
+      grid = document.querySelector(".tutorial1");
+      grid.style.backgroundImage = "url('../imgs/bgCase9.png')";
+      grid.style.backgroundPosition = "center";
+      grid.style.backgroundSize = "cover";
+      grid.style.backgroundRepeat = "no-repeat";
+      grid.style.transform = "scale(1.1)";
+
+      btn = document.querySelector(".continuarBtn");
+
+      break;
+    case 12:
+      container.style.opacity = 1;
+      container.innerHTML = `
+
+      <div class="tutorial1 tutorial3 tutorial4 tutorial7 tutorial10" id="tutorial1">
+        
+        <img class="getOutBtn" src="../imgs/getOutBtn.png">
+        <img class="yellowsign"  src="../imgs/yellowsign.png">
+ 
+        <img class="texto"  src="../imgs/tutorialCase12.png">
+
+            <img class="timeline" src="../imgs/timeline2.png">
+            </div>
+        
+                  `;
+
+      grid = document.querySelector(".tutorial1");
+      grid.style.backgroundImage = "url('../imgs/bgCase4.png')";
+      grid.style.backgroundPosition = "center";
+      grid.style.backgroundSize = "cover";
+      grid.style.backgroundRepeat = "no-repeat";
+      grid.style.transform = "scale(1.1)";
+
+      setTimeout(function () {
+        container.style.opacity = 0;
+        setTimeout(function () {
+          cases = 13;
+          pintar();
+        }, 500);
+      }, 4000);
+
+      break;
+    case 13:
+      container.style.opacity = 1;
+      container.innerHTML = `
+
+      <div class="tutorial1 tutorial3 tutorial4 tutorial7 tutorial13" id="tutorial1">
+        
+        <img class="getOutBtn" src="../imgs/getOutBtn.png">
+        <img class="yellowsign"  src="../imgs/yellowsign.png">
+ 
+        <img class="texto"  src="../imgs/tutorialCase13.png">
         <img class="continuarBtn" src="../imgs/continueBtnAlt.png">
 
             <img class="timeline" src="../imgs/timeline2.png">
@@ -867,56 +991,114 @@ function pintar() {
       grid.style.backgroundRepeat = "no-repeat";
       grid.style.transform = "scale(1.1)";
 
-      break;
-    case 11:
-      container.innerHTML = `
-
-        <div class="tutorial1">
-              <img class="texto"  src="../imgs/tutorialBg.png">
-              <img class="grid"  src="../imgs/grid.png">
-              
-              </div>
-  
-              <div class='case11'>
-              <img class="message" id="msg" src="../imgs/msgproves.png">
-              <button class="continuarTutorial1 nextBtn" id='tut1Btn'>Continuar</button>
-              </div>
-          
-  
-            `;
-      btn = document.getElementById("tut1Btn");
-      btn.style.display = "none";
-      setTimeout(function () {
-        let msg = document.getElementById("msg");
-        msg.style.opacity = 0;
-        msg.src = "../imgs/selectTutTest.png";
-        msg.style.opacity = 1;
-        msg.classList.add("tutTest");
-        btn.style.display = "block";
-        btn.addEventListener("click", function () {
-          cases = 12;
+      btn = document.querySelector(".continuarBtn");
+      btn.addEventListener("click", (e) => {
+        container.style.opacity = 0;
+        setTimeout(function () {
+          cases = 14;
           pintar();
-        });
-      }, 4000);
+        }, 500);
+      });
 
       break;
-    case 12:
+    case 14:
+      container.style.opacity = 1;
+      container.style.opacity = 1;
       container.innerHTML = `
-
-        <div class="tutorial1">
-              <img class="texto"  src="../imgs/tutorialBg.png">
-              <img class="grid"  src="../imgs/grid.png">
-              
-              </div>
   
-              <div class='case12'>
-              <img class="message" id="msg" src="../imgs/swipetTutTest.png">
-              <p class="swipe" id='tut1Btn'>HAZ SWIPE</p>
+        <div class="tutorial1 tutorial8 tutorial14" id="tutorial1">
+          <div class= "btnText">
+          <img class="getOutBtn" src="../imgs/getOutBtn.png">
+              <img class="texto"  src="../imgs/tutorialCase14.png">
               </div>
+              <img class="leapCase"  src="../imgs/leapCase14.png">
+              <img class="hand"  src="../imgs/handSwipe.png">
+<div class="swipeOverflow">
+  <img class="swipeA"  src="../imgs/swipeA.png">
+  <img class="swipeB"  src="../imgs/swipeB.png">
+</div>
+              <img class="timeline" src="../imgs/timeline2.png">
+              <img class="continuarBtn" src="../imgs/continueBtn.png">
+  
+            </div>
           
   
-            `;
-      btn = document.getElementById("tut1Btn");
+                    `;
+
+      grid = document.querySelector(".tutorial1");
+      grid.style.backgroundImage = "url('../imgs/bgCase6.png')";
+      grid.style.backgroundPosition = "center";
+      grid.style.backgroundSize = "cover";
+      grid.style.backgroundRepeat = "no-repeat";
+      grid.style.transform = "scale(1.1)";
+
+      let swipeA = document.querySelector(".swipeA");
+      let hand = document.querySelector(".hand");
+
+      setTimeout(function () {
+
+        hand.style.transform = "rotate(-8deg) translateX(-200px)";
+        setTimeout(function () {
+          swipeA.style.marginLeft = -375 + "px";
+          setTimeout(function () {
+            hand.style.transform = "rotate(25deg) translateX(60px)";
+            setTimeout(function () {
+              swipeA.style.marginLeft = 0 + "px";
+            }, 600);
+          }, 2000);
+        }, 600);
+      }, 1000);
+
+      btn = document.querySelector(".continuarBtn");
+      btn.addEventListener("click", (e) => {
+        container.style.opacity = 0;
+        setTimeout(function () {
+          cases = 15;
+          pintar();
+        }, 500);
+      });
+
+      break;
+      case 15:
+      container.style.opacity = 1;
+      container.innerHTML = `
+  
+        <div class="tutorial1 tutorial8 tutorial14" id="tutorial1">
+          <div class= "btnText">
+          <img class="getOutBtn" src="../imgs/getOutBtn.png">
+              <img class="texto"  src="../imgs/tutorialCase14.png">
+              </div>
+              <img class="leapCase"  src="../imgs/leapCase14.png">
+              <img class="hand"  src="../imgs/handSwipe.png">
+<div class="swipeOverflow">
+  <img class="swipeA"  src="../imgs/swipeA.png">
+  <img class="swipeB"  src="../imgs/swipeB.png">
+</div>
+              <img class="timeline" src="../imgs/timeline2.png">
+              <img class="continuarBtn" src="../imgs/continueBtn.png">
+  
+            </div>
+          
+  
+                    `;
+
+      grid = document.querySelector(".tutorial1");
+      grid.style.backgroundImage = "url('../imgs/bgCase6.png')";
+      grid.style.backgroundPosition = "center";
+      grid.style.backgroundSize = "cover";
+      grid.style.backgroundRepeat = "no-repeat";
+      grid.style.transform = "scale(1.1)";
+
+      
+
+      btn = document.querySelector(".continuarBtn");
+      btn.addEventListener("click", (e) => {
+        container.style.opacity = 0;
+        setTimeout(function () {
+          cases = 15;
+          pintar();
+        }, 500);
+      });
 
       break;
     default:

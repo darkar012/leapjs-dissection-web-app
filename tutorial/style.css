@@ -270,6 +270,38 @@ body {
   left: 17%;
   top: 82%;
 }
+.container .tutorial9 .texto {
+  margin-top: 14%;
+  margin-left: 29%;
+}
+.container .tutorial9 .dot {
+  position: absolute;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  top: 50%;
+  left: 50%;
+}
+.container .tutorial9 .dot1 {
+  top: 20%;
+  left: 15%;
+}
+.container .tutorial9 .dot2 {
+  top: 75%;
+  left: 15%;
+}
+.container .tutorial9 .dot3 {
+  top: 35%;
+}
+.container .tutorial9 .dot4 {
+  top: 75%;
+  left: 80%;
+}
+.container .tutorial10 .texto {
+  margin-top: 14%;
+  margin-left: 29%;
+}
 .container .cursorAnimation {
   position: absolute;
   top: 32%;
@@ -300,6 +332,61 @@ body {
   bottom: 30%;
   left: 30%;
   width: 30%;
+}
+.container .tutorial11 .texto {
+  margin-top: -1%;
+  margin-left: 33%;
+  padding: 0;
+  width: 35%;
+}
+.container .tutorial13 .texto {
+  margin-top: 7%;
+  margin-left: 28%;
+}
+.container .tutorial14 .texto {
+  margin-left: 34% !important;
+  width: 46% !important;
+}
+.container .tutorial14 .leapCase {
+  width: 48%;
+  margin-top: 2%;
+  margin-left: -4%;
+  z-index: 3;
+}
+.container .tutorial14 .hand {
+  position: absolute;
+  top: 44%;
+  left: 72%;
+  width: 17%;
+  height: -moz-fit-content;
+  height: fit-content;
+  transform: rotate(30deg);
+  z-index: 5;
+  transition: all 1000ms ease-in-out;
+}
+.container .tutorial14 .swipeOverflow {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  width: 26%;
+  height: -moz-fit-content;
+  height: fit-content;
+  position: absolute;
+  top: 17%;
+  left: 60%;
+  z-index: 2;
+}
+.container .tutorial14 .swipeOverflow .swipeA {
+  width: 100%;
+  margin-right: 20px;
+  height: -moz-fit-content;
+  height: fit-content;
+  transition: all 800ms ease-in-out;
+}
+.container .tutorial14 .swipeOverflow .swipeB {
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .case6 {
@@ -671,7 +758,7 @@ body {
   border: 2px solid white;
   height: 30px;
   width: 30px;
-  transition: all 500ms ease-out;
+  transition: all 300ms ease-out;
 }
 
 .loader {
