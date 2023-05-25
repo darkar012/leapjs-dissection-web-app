@@ -16,98 +16,60 @@ a {
   overflow: hidden;
 }
 .container .menu {
+  background: linear-gradient(180deg, rgba(141, 168, 200, 0.38) 0%, rgba(193, 213, 251, 0.38) 45.83%, rgba(169, 181, 194, 0.38) 100%);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  height: 95%;
   margin-top: 1.5%;
   margin-left: 1.5%;
-  height: 95%;
+  width: 15%;
 }
-.container .options {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  height: 82%;
-  width: 13%;
-  margin-left: 2%;
-  margin-top: -47%;
-}
-.container .options .mainOptions {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 38%;
-}
-.container .options .tutorial {
+.container .menu .options {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  align-items: center;
 }
-.container .content {
-  width: 77%;
-  margin-top: -52.8%;
-  margin-left: 19%;
+.container .menu .options .mainOptions {
+  margin-top: 7%;
+  width: 100%;
+  height: 45%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+}
+.container .menu .options .mainOptions img {
+  width: 92%;
+}
+.container .menu .options .tutorial {
+  width: 92%;
+  margin-bottom: 5%;
+}
+.container .content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 24%;
+  margin-top: -53%;
+  height: 94%;
+  width: 69%;
 }
 .container .content .banner {
-  width: 74%;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: 100%;
 }
-.container .content .bottomContent {
-  display: flex;
-  flex-direction: column;
-  width: 73%;
-  margin-left: -1%;
-  justify-content: space-between;
-  margin-top: 2%;
+.container .content .sketchfab-embed-wrapper {
+  width: 60%;
+  height: 100%;
 }
-.container .content .bottomContent .title {
-  width: 40%;
-  margin: 10px 0;
-}
-.container .content .bottomContent .guides {
-  display: flex;
-  flex-wrap: wrap;
+.container .content .sketchfab-embed-wrapper iframe {
   width: 100%;
-  justify-content: space-between;
-}
-.container .content .bottomContent .guides .corazon {
-  width: 32%;
-  margin-left: -1%;
-}
-.container .content .bottomContent .guides .ojo {
-  margin-top: 1%;
-  width: 31%;
-  margin-left: -1%;
-}
-.container .content .bottomContent .guides .pulmon {
-  margin-top: -1%;
-  width: 31%;
-}
-.container .content .bottomContent .guides img {
-  width: 30%;
-  height: -moz-fit-content;
-  height: fit-content;
-}
-.container .overlay {
-  width: 100%;
-  height: 100vh;
-  background-color: #181E2F;
-  opacity: 0.94;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.container .overlay .sign {
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-.container .overlay .texto {
-  position: absolute;
-  right: 23%;
-  top: 23%;
-}
-.container .overlay .continuarBtn {
-  position: absolute;
-  right: 29%;
-  top: 48%;
+  height: 100%;
 }
 
 .cursor {
@@ -116,6 +78,21 @@ a {
   pointer-events: none;
   left: -100px;
   top: 50%;
+  background-color: #5642ce;
+  z-index: 10000;
+  border: 2px solid white;
+  height: 30px;
+  width: 30px;
+  transition: all 300ms ease-out;
+}
+
+.cursorDrag {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  left: 81%;
+  top: 44%;
+  z-index: 12;
   background-color: #5642ce;
   z-index: 10000;
   border: 2px solid white;
@@ -164,4 +141,4 @@ a {
     border-bottom-color: rgb(0, 190, 223);
     border-right-color: rgb(0, 190, 223);
   }
-}/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=atlas.css.map */
