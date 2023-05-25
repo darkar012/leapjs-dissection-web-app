@@ -51,33 +51,39 @@ a {
 }
 .container .content .bottomContent {
   display: flex;
-  width: 75%;
+  flex-direction: column;
+  width: 73%;
+  margin-left: -1%;
   justify-content: space-between;
-  margin-top: -10%;
+  margin-top: 2%;
 }
-.container .content .bottomContent .tips {
-  width: 37%;
+.container .content .bottomContent .title {
+  width: 40%;
+  margin: 10px 0;
 }
 .container .content .bottomContent .guides {
-  width: -moz-fit-content;
-  width: fit-content;
-  margin-left: 4%;
-}
-.container .content .bottomContent .guides .title {
-  margin-left: -5%;
-}
-.container .content .bottomContent .guides .guidesCard {
-  width: 94%;
-  flex-direction: row;
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
   justify-content: space-between;
 }
-.container .content .bottomContent .guides .guidesCard img {
-  width: 50%;
+.container .content .bottomContent .guides .corazon {
+  width: 32%;
+  margin-left: -1%;
 }
-.container .content .bottomContent .guides .guidesCard .heart {
-  width: 52%;
-  margin-right: 20px;
+.container .content .bottomContent .guides .ojo {
+  margin-top: 1%;
+  width: 31%;
+  margin-left: -1%;
+}
+.container .content .bottomContent .guides .pulmon {
+  margin-top: -1%;
+  width: 31%;
+}
+.container .content .bottomContent .guides img {
+  width: 30%;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 .container .overlay {
   width: 100%;

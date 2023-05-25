@@ -2,14 +2,31 @@ import "../../node_modules/leapjs/leap-1.1.1.js";
 let indexFingerX = 0;
 let indexFingerY = 0;
 var contador = 0;
+let overlayBtn = false
 let YArray = [];
 let yNArray = [];
-let gesturesBtn = document.getElementById("gestures");
-let bookBtn = document.getElementById("books");
-let tutorialBtn = document.getElementById("tutorialBtn");
-let gestureGrayBtn = document.getElementById("handsAccess");
-let seeMoreBtn = document.getElementById("vermasBtn");
-let heartAcces = document.getElementById("disection");
+let guideBtn = document.querySelector(".guiasBtn");
+let labBtn = document.querySelector(".labBtn");
+let atlasBtn = document.querySelector(".atlasBtn");
+let tutorialBtn = document.querySelector(".tutorial");
+let guideDissections = document.querySelector(".heart");
+let container = document.querySelector(".container");
+
+let overlay = document.createElement("div");
+overlay.classList.add("overlay");
+
+overlay.innerHTML = `
+<img src="../../imgs/home/signOverlay.png" class="sign" alt="">
+<img src="../../imgs/home/textoOverlay.png" class="texto" alt="">
+<img src="../../imgs/home/continuarOverlay.png" class="continuarBtn" alt="">
+`
+setTimeout(() => {
+container.appendChild(overlay);
+overlayBtn = true
+}, 2000)
+
+
+
 
 for (let i = 0; i < 300; i++) {
   YArray.push(300 - i);
@@ -58,6 +75,7 @@ controller.on("frame", function (frame) {
       };
       var cursor = document.getElementById("cursor");
       var cursorMini = document.getElementById("cursorMini");
+      var loader = document.querySelector(".loader");
 
       if (indexFingerX > 0) {
         cursor.style.left = indexFingerX * 4 + window.screen.width / 2 + "px";
@@ -82,149 +100,149 @@ controller.on("frame", function (frame) {
           window.screen.height / 2 + cursoY(indexFingerY) * 4 + "px";
       }
 
-      let x = gesturesBtn.getBoundingClientRect().left;
-      let y = gesturesBtn.getBoundingClientRect().top;
-      let x2 = heartAcces.getBoundingClientRect().left;
-      let y2 = heartAcces.getBoundingClientRect().top;
-      let x3 = gestureGrayBtn.getBoundingClientRect().left;
-      let y3 = gestureGrayBtn.getBoundingClientRect().top;
-      let x4 = tutorialBtn.getBoundingClientRect().left;
-      let y4 = tutorialBtn.getBoundingClientRect().top;
-      let x5 = seeMoreBtn.getBoundingClientRect().left;
-      let y5 = seeMoreBtn.getBoundingClientRect().top;
+      if (overlayBtn){
+        let continuarBtn = document.querySelector(".continuarBtn")
+let yContinuar = continuarBtn.getBoundingClientRect().top;
+let xContinuar = continuarBtn.getBoundingClientRect().left;
 
-      if (
-        parseInt(cursor.style.top.split("px")) > y &&
-        parseInt(cursor.style.top.split("px")) < y + 80 &&
-        parseInt(cursor.style.left.split("px")) > x &&
-        parseInt(cursor.style.left.split("px")) < x + 80
-      ) {
-        cursorMini.style.transform =
-          "scale(3) translateX(-10%) translateY(-10%)";
-
-        cursorMini.style.transition =
-          "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
-
-        contador += 20;
-        console.log(contador);
-
-        if (contador == 4000) {
-          console.log("gestures");
-          //window.location.href = "./mainpage/mainpage.html";
+        if (
+          parseInt(cursor.style.top.split("px")) > yContinuar &&
+          parseInt(cursor.style.top.split("px")) < yContinuar + 80 &&
+          parseInt(cursor.style.left.split("px")) > xContinuar &&
+          parseInt(cursor.style.left.split("px")) < xContinuar + 200
+        ) {
+          loader.style.display = "block";
+          console.log(cursor.style.width);
+          loader.style.top =
+            parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+          loader.style.left =
+            parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+          loader.style.zIndex = 12;
+  
+          contador += 20;
+  
+          if (contador == 3000) {
+            container.removeChild(overlay);
+            overlayBtn = false
+          }
+        } else {
+          loader.style.display = "none";
+          contador = 0;
         }
-      } else if (
-        parseInt(cursor.style.top.split("px")) > y2 &&
-        parseInt(cursor.style.top.split("px")) < y2 + 240 &&
-        parseInt(cursor.style.left.split("px")) > x2 &&
-        parseInt(cursor.style.left.split("px")) < x2 + 140
-      ) {
-        cursorMini.style.transform =
-          "scale(3) translateX(-10%) translateY(-10%)";
-
-        cursorMini.style.transition =
-          "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
-
-        contador += 20;
-        console.log(contador);
-
-        if (contador == 4000) {
-          console.log("heart");
-
-          window.location.href = "../heartGuide/guide.html";
-        }
-      } else if (
-        parseInt(cursor.style.top.split("px")) > 76 &&
-        parseInt(cursor.style.top.split("px")) < 76 + 30 &&
-        parseInt(cursor.style.left.split("px")) > 278 &&
-        parseInt(cursor.style.left.split("px")) < 278 + 27
-      ) {
-        cursorMini.style.transform =
-          "scale(3) translateX(-10%) translateY(-10%)";
-
-        cursorMini.style.transition =
-          "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
-
-        contador += 20;
-        console.log(contador);
-
-        if (contador == 4000) {
-          console.log("book");
-
-          //window.location.href = "./mainpage/mainpage.html";
-        }
-
-      } else if (
-        parseInt(cursor.style.top.split("px")) > y3 &&
-        parseInt(cursor.style.top.split("px")) < y3 + 30 &&
-        parseInt(cursor.style.left.split("px")) > x3 &&
-        parseInt(cursor.style.left.split("px")) < x3 + 27
-      ) {
-        console.log("dentro");
-        cursorMini.style.transform =
-          "scale(3) translateX(-10%) translateY(-10%)";
-
-        cursorMini.style.transition =
-          "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
-
-        contador += 20;
-        console.log(contador);
-
-        if (contador == 4000) {
-          console.log("hand");
-
-          //window.location.href = "./mainpage/mainpage.html";
-        }
-
-      } else if (
-        parseInt(cursor.style.top.split("px")) > y4 &&
-        parseInt(cursor.style.top.split("px")) < y4 + 50 &&
-        parseInt(cursor.style.left.split("px")) > x4 &&
-        parseInt(cursor.style.left.split("px")) < x4 + 144
-      ) {
-        cursorMini.style.transform =
-          "scale(3) translateX(-10%) translateY(-10%)";
-
-        cursorMini.style.transition =
-          "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
-
-        contador += 20;
-        console.log(contador);
-
-        if (contador == 4000) {
-          console.log("tutorial");
-
-          //window.location.href = "./mainpage/mainpage.html";
-        }
-
-       
-      } else if (
-        parseInt(cursor.style.top.split("px")) > y5 &&
-        parseInt(cursor.style.top.split("px")) < y5 + 50 &&
-        parseInt(cursor.style.left.split("px")) > x5 &&
-        parseInt(cursor.style.left.split("px")) < x5 + 144
-      ) {
-        cursorMini.style.transform =
-          "scale(3) translateX(-10%) translateY(-10%)";
-
-        cursorMini.style.transition =
-          "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
-
-        contador += 20;
-        console.log(contador);
-
-        if (contador == 4000) {
-          console.log("more");
-
-          //window.location.href = "./mainpage/mainpage.html";
-        }
-
-       
       } else {
-        cursorMini.style.transform =
-          "scale(1) translateX(-50%) translateY(-50%)";
-        cursorMini.style.transition = "top 300ms ease-out, left 300ms ease-out";
-        contador = 0;
+        let yGuide = guideBtn.getBoundingClientRect().top;
+        let xGuide = guideBtn.getBoundingClientRect().left;
+        let yLab = labBtn.getBoundingClientRect().top;
+        let xLab = labBtn.getBoundingClientRect().left;
+        let yAtlas = atlasBtn.getBoundingClientRect().top;
+        let xAtlas = atlasBtn.getBoundingClientRect().left;
+        let yTutorial = tutorialBtn.getBoundingClientRect().top;
+        let xTutorial = tutorialBtn.getBoundingClientRect().left;
+        let yGuidesDis = guideDissections.getBoundingClientRect().top;
+        let xGuidesDis = guideDissections.getBoundingClientRect().left;
+
+          if (
+            parseInt(cursor.style.top.split("px")) > yGuide &&
+            parseInt(cursor.style.top.split("px")) < yGuide + 80 &&
+            parseInt(cursor.style.left.split("px")) > xGuide &&
+            parseInt(cursor.style.left.split("px")) < xGuide + 200
+          ) {
+            loader.style.display = "block";
+            console.log(cursor.style.width);
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
+    
+            contador += 20;
+    
+            if (contador == 3000) {
+              console.log("hola");
+            }
+          } else  if (
+            parseInt(cursor.style.top.split("px")) > yLab &&
+            parseInt(cursor.style.top.split("px")) < yLab + 80 &&
+            parseInt(cursor.style.left.split("px")) > xLab &&
+            parseInt(cursor.style.left.split("px")) < xLab + 200
+          ) {
+            loader.style.display = "block";
+            console.log(cursor.style.width);
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
+    
+            contador += 20;
+    
+            if (contador == 3000) {
+              console.log("hola");
+            }
+          }else  if (
+            parseInt(cursor.style.top.split("px")) > yAtlas &&
+            parseInt(cursor.style.top.split("px")) < yAtlas + 80 &&
+            parseInt(cursor.style.left.split("px")) > xAtlas &&
+            parseInt(cursor.style.left.split("px")) < xAtlas + 200
+          ) {
+            loader.style.display = "block";
+            console.log(cursor.style.width);
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
+    
+            contador += 20;
+    
+            if (contador == 3000) {
+              console.log("hola");
+            }
+          } else  if (
+            parseInt(cursor.style.top.split("px")) > yTutorial &&
+            parseInt(cursor.style.top.split("px")) < yTutorial + 80 &&
+            parseInt(cursor.style.left.split("px")) > xTutorial &&
+            parseInt(cursor.style.left.split("px")) < xTutorial + 200
+          ) {
+            loader.style.display = "block";
+            console.log(cursor.style.width);
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
+    
+            contador += 20;
+    
+            if (contador == 3000) {
+              window.location.href = "../index.html";
+            }
+          }else  if (
+            parseInt(cursor.style.top.split("px")) > yGuidesDis &&
+            parseInt(cursor.style.top.split("px")) < yGuidesDis + 260 &&
+            parseInt(cursor.style.left.split("px")) > xGuidesDis &&
+            parseInt(cursor.style.left.split("px")) < xGuidesDis + 230
+          ) {
+            loader.style.display = "block";
+            console.log(cursor.style.width);
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
+    
+            contador += 20;
+    
+            if (contador == 3000) {
+              window.location.href = "../guides/guides.html";
+            }
+          } else {
+            loader.style.display = "none";
+            contador = 0;
+          }
       }
+
+      
       
     });
   }

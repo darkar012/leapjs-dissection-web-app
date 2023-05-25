@@ -1,5 +1,5 @@
 
-    @import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -52,34 +52,40 @@ margin-left: 1.5%;
     }
     .bottomContent{
         display: flex;
-        width: 75%;
+        flex-direction: column;
+        width: 73%;
+        margin-left: -1%;
         justify-content: space-between;
-        margin-top: -10%;
-        .tips{
-            width: 37%;
+        margin-top: 2%;
+        .title{
+                
+            width: 40%;
+            margin: 10px 0;
+
         }
         .guides{
-            width: fit-content;
-            margin-left: 4%;
-            .title{
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: space-between;     
+            .corazon{
+                width: 32%;
+    margin-left: -1%;
+            }
+            .ojo{
+                margin-top: 1%;
+                width: 31%;
+                margin-left: -1%;
+            }
+            .pulmon{
+                margin-top: -1%;
+                width: 31%;
+            }
+            img{
                 
-                margin-left: -5%;
-
-            }
-            .guidesCard{
-                width: 94%;
-                flex-direction: row;
-                display: flex;
-                justify-content: space-between;
-                img{
-                    width: 50%;
-                    
-                }
-                .heart{
-                    width: 52%;
-                    margin-right: 20px;
-                }
-            }
+                width: 30%;
+                height: fit-content;
+            }     
         }
     } 
     }
