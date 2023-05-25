@@ -388,6 +388,62 @@ body {
   height: -moz-fit-content;
   height: fit-content;
 }
+.container .tutorial15 .texto {
+  margin-top: -2%;
+  margin-left: 29%;
+  width: 43%;
+}
+.container .tutorial15 .continuarBtn {
+  left: 43%;
+  top: 78%;
+}
+.container .tutorial15 .swipeOverflow {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  width: 26%;
+  height: -moz-fit-content;
+  height: fit-content;
+  position: absolute;
+  top: 42%;
+  left: 37.7%;
+  z-index: 2;
+}
+.container .tutorial15 .swipeOverflow .swipe {
+  width: 100%;
+  margin-right: 20px;
+  height: -moz-fit-content;
+  height: fit-content;
+  transition: all 800ms ease-in-out;
+}
+.container .tutorial15 .swipeOverflow .swipe1 {
+  margin-left: -375px;
+}
+.container .tutorial15 .arrows {
+  display: flex;
+  width: 10%;
+  height: -moz-fit-content;
+  height: fit-content;
+  flex-direction: row;
+  position: absolute;
+  top: 68%;
+  left: 46%;
+}
+.container .tutorial15 .arrows .arrowR {
+  transform: rotateY(180deg);
+  width: 50%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.container .tutorial15 .arrows .arrowL {
+  width: 50%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.container .tutorial16 .texto {
+  margin-top: 4%;
+  margin-left: 28%;
+}
 
 .case6 {
   position: absolute;
@@ -675,7 +731,7 @@ body {
   margin: 8px;
   transition: opacity 1000ms ease-in-out;
   opacity: 0;
-  border: 5px solid #FFFFFF;
+  border: 5px solid #ffffff;
   border-radius: 50%;
   border-color: #fff transparent transparent transparent;
 }
@@ -742,7 +798,7 @@ body {
   margin: 8px;
   transition: opacity 1000ms ease-in-out;
   opacity: 0;
-  border: 5px solid #FFFFFF;
+  border: 5px solid #ffffff;
   border-radius: 50%;
   border-color: #fff transparent transparent transparent;
 }

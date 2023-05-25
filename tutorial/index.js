@@ -3,11 +3,12 @@ import "../node_modules/leapjs/leap-1.1.1.js";
 let indexFingerX = 0;
 let indexFingerY = 0;
 var contador = 0;
+var swipeCounter = 0;
 let YArray = [];
 let yNArray = [];
 let btn = "";
 let btn2 = "";
-let cases = 14;
+let cases = 16;
 let palmPositionOrigin = 0;
 let countMsgLeap = 0;
 var counter = 0;
@@ -481,7 +482,7 @@ controller.on("frame", function (frame) {
             contador = 0;
           }
           break;
-          case 14:
+        case 14:
           let y14 = btn.getBoundingClientRect().top;
           let x14 = btn.getBoundingClientRect().left;
 
@@ -510,6 +511,113 @@ controller.on("frame", function (frame) {
             contador = 0;
           }
           break;
+        case 15:
+          let swipe1 = document.querySelector(".swipe1");
+          let arrowR = document.querySelector(".arrowR");
+          let arrowL = document.querySelector(".arrowL");
+          if (extendedFingers >= 4) {
+            for (var i = 0; i < frame.hands.length; i++) {
+              var hand = frame.hands[i];
+              var palmPosition = hand.palmPosition[0];
+              var velocity = hand.palmVelocity[0];
+
+              if (i === 5) {
+                palmPositionOrigin = palmPosition;
+              }
+              let difPosition = palmPosition - palmPositionOrigin;
+              if (difPosition <= -30 && velocity < -200) {
+                swipe1.style.marginLeft = -375 - 375 + "px";
+                var imgSrc = arrowR.getAttribute("src");
+                var imgFileName = imgSrc.substring(imgSrc.lastIndexOf("/") + 1);
+                if (imgFileName === "arrow.png") {
+                  swipeCounter += 1;
+                  arrowR.style.transform = "rotateY(0deg)";
+                  arrowR.style.marginTop = "-4px";
+                  arrowR.style.padding = "10px";
+                  arrowR.src = "../imgs/arrowCheck.png";
+                }
+              } else if (difPosition > 30 && velocity > 200) {
+                swipe1.style.marginLeft = 0 + "px";
+                var imgSrc = arrowL.getAttribute("src");
+                var imgFileName = imgSrc.substring(imgSrc.lastIndexOf("/") + 1);
+                if (imgFileName === "arrow.png") {
+                  swipeCounter += 1;
+                  arrowL.style.transform = "rotateY(0deg)";
+                  arrowL.style.marginTop = "-4px";
+                  arrowL.style.padding = "10px";
+                  arrowL.src = "../imgs/arrowCheck.png";
+                }
+              }
+            }
+            if (swipeCounter == 2) {
+              btn.src = "../imgs/continueBtnAlt.png";
+            }
+          } else {
+            if (swipeCounter == 2) {
+              let y14 = btn.getBoundingClientRect().top;
+              let x14 = btn.getBoundingClientRect().left;
+
+              if (
+                parseInt(cursor.style.top.split("px")) > y14 &&
+                parseInt(cursor.style.top.split("px")) < y14 + 70 &&
+                parseInt(cursor.style.left.split("px")) > x14 &&
+                parseInt(cursor.style.left.split("px")) < x14 + 230
+              ) {
+                loader.style.display = "block";
+                loader.style.top =
+                  parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+                loader.style.left =
+                  parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+                loader.style.zIndex = 12;
+
+                contador += 20;
+
+                console.log(contador == 3000);
+
+                if (contador === 3000) {
+                  console.log("hola");
+                  cases = 16;
+                  pintar();
+                }
+              } else {
+                loader.style.display = "none";
+                contador = 0;
+              }
+            }
+          }
+          break;
+          case 16:
+            
+                let y15 = btn.getBoundingClientRect().top;
+                let x15 = btn.getBoundingClientRect().left;
+  
+                if (
+                  parseInt(cursor.style.top.split("px")) > y15 &&
+                  parseInt(cursor.style.top.split("px")) < y15 + 70 &&
+                  parseInt(cursor.style.left.split("px")) > x15 &&
+                  parseInt(cursor.style.left.split("px")) < x15 + 230
+                ) {
+                  loader.style.display = "block";
+                  loader.style.top =
+                    parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+                  loader.style.left =
+                    parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+                  loader.style.zIndex = 12;
+  
+                  contador += 20;
+  
+                  console.log(contador == 3000);
+  
+                  if (contador === 3000) {
+                    window.location.href = "./mainpage/mainpage.html";
+                  }
+                } else {
+                  loader.style.display = "none";
+                  contador = 0;
+                }
+              
+            
+            break;
         default:
           break;
       }
@@ -1036,7 +1144,6 @@ function pintar() {
       let hand = document.querySelector(".hand");
 
       setTimeout(function () {
-
         hand.style.transform = "rotate(-8deg) translateX(-200px)";
         setTimeout(function () {
           swipeA.style.marginLeft = -375 + "px";
@@ -1059,43 +1166,80 @@ function pintar() {
       });
 
       break;
-      case 15:
+    case 15:
       container.style.opacity = 1;
       container.innerHTML = `
   
-        <div class="tutorial1 tutorial8 tutorial14" id="tutorial1">
-          <div class= "btnText">
-          <img class="getOutBtn" src="../imgs/getOutBtn.png">
-              <img class="texto"  src="../imgs/tutorialCase14.png">
-              </div>
-              <img class="leapCase"  src="../imgs/leapCase14.png">
-              <img class="hand"  src="../imgs/handSwipe.png">
-<div class="swipeOverflow">
-  <img class="swipeA"  src="../imgs/swipeA.png">
-  <img class="swipeB"  src="../imgs/swipeB.png">
-</div>
-              <img class="timeline" src="../imgs/timeline2.png">
-              <img class="continuarBtn" src="../imgs/continueBtn.png">
-  
-            </div>
+        <div class="tutorial1 tutorial3 tutorial4 tutorial7 tutorial9 tutorial15" id="tutorial1">
           
+          <img class="getOutBtn" src="../imgs/getOutBtn.png">
+          <img class="yellowsign"  src="../imgs/yellowsign.png">
+   
+          <img class="texto"  src="../imgs/tutorialCase15.png">
   
+              <img class="timeline" src="../imgs/timeline2.png">
+              
+              <div class="swipeOverflow">
+  <img class="swipe swipe1"  src="../imgs/swipeTest1.png">
+  <img class="swipe swipe2"  src="../imgs/swipeTest2.png">
+  <img class="swipe swipe3"  src="../imgs/swipeTest3.png">
+</div>
+<div class="arrows">
+<img class="arrowL"  src="../imgs/arrow.png">
+  <img class="arrowR"  src="../imgs/arrow.png">
+  </div>
+  <img class="continuarBtn" src="../imgs/continueBtnIn.png">
+
+              </div>
+          
                     `;
 
       grid = document.querySelector(".tutorial1");
-      grid.style.backgroundImage = "url('../imgs/bgCase6.png')";
+      grid.style.backgroundImage = "url('../imgs/bgCase9.png')";
       grid.style.backgroundPosition = "center";
       grid.style.backgroundSize = "cover";
       grid.style.backgroundRepeat = "no-repeat";
       grid.style.transform = "scale(1.1)";
 
-      
+      btn = document.querySelector(".continuarBtn");
+      btn.addEventListener("click", (e) => {
+        container.style.opacity = 0;
+        setTimeout(function () {
+          cases = 16;
+          pintar();
+        }, 500);
+      });
+
+      break;
+    case 16:
+      container.style.opacity = 1;
+      container.innerHTML = `
+  
+        <div class="tutorial1 tutorial3 tutorial4 tutorial7 tutorial16" id="tutorial1">
+          
+          <img class="getOutBtn" src="../imgs/getOutBtn.png">
+          <img class="yellowsign"  src="../imgs/yellowsign.png">
+   
+          <img class="texto"  src="../imgs/tutorialCase16.png">
+          <img class="continuarBtn" src="../imgs/continueBtnAlt.png">
+  
+              <img class="timeline" src="../imgs/timeline2.png">
+              </div>
+          
+                    `;
+
+      grid = document.querySelector(".tutorial1");
+      grid.style.backgroundImage = "url('../imgs/bgCase4.png')";
+      grid.style.backgroundPosition = "center";
+      grid.style.backgroundSize = "cover";
+      grid.style.backgroundRepeat = "no-repeat";
+      grid.style.transform = "scale(1.1)";
 
       btn = document.querySelector(".continuarBtn");
       btn.addEventListener("click", (e) => {
         container.style.opacity = 0;
         setTimeout(function () {
-          cases = 15;
+          cases = 8;
           pintar();
         }, 500);
       });

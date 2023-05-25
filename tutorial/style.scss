@@ -221,37 +221,37 @@ body {
     }
     .continuarBtn {
       left: 17%;
-    top: 61%;
+      top: 61%;
     }
-    .timeline{
+    .timeline {
       left: 17%;
-    top: 82%;
+      top: 82%;
     }
   }
 
-  .tutorial7{
+  .tutorial7 {
     position: relative;
-    .yellowsign{
+    .yellowsign {
       position: absolute;
-    width: 20%;
-    top: 2%;
-    right: 6%;
+      width: 20%;
+      top: 2%;
+      right: 6%;
     }
-    .texto{
+    .texto {
       margin-top: 2%;
-    margin-left: 24%;
-    padding: 0;
-    width: 45%;
+      margin-left: 24%;
+      padding: 0;
+      width: 45%;
     }
-    .continuarBtn{
+    .continuarBtn {
       opacity: 1;
-    left: 43%;
-    top: 67%;
-}
+      left: 43%;
+      top: 67%;
     }
+  }
 
-    .tutorial8 {
-      height: 91vh;
+  .tutorial8 {
+    height: 91vh;
     width: 100%;
     .btnText {
       display: flex;
@@ -266,66 +266,65 @@ body {
       }
       .texto {
         margin-top: -3%;
-    margin-left: 35%;
-    padding: 0;
-    width: 54%;
+        margin-left: 35%;
+        padding: 0;
+        width: 54%;
       }
     }
     .leapCase {
       width: 32%;
-    
-    height: fit-content;
-    margin-top: 2%;
-    margin-left: 7%;
+
+      height: fit-content;
+      margin-top: 2%;
+      margin-left: 7%;
     }
     .continuarBtn {
       left: 17%;
-    top: 68%;
+      top: 68%;
     }
-    .timeline{
+    .timeline {
       left: 17%;
-    top: 82%;
+      top: 82%;
     }
   }
 
-.tutorial9{
-  .texto{
-    margin-top: 14%;
-    margin-left: 29%;
+  .tutorial9 {
+    .texto {
+      margin-top: 14%;
+      margin-left: 29%;
+    }
+    .dot {
+      position: absolute;
+      width: fit-content;
+      height: fit-content;
+      top: 50%;
+      left: 50%;
+    }
+    .dot1 {
+      top: 20%;
+      left: 15%;
+    }
+    .dot2 {
+      top: 75%;
+      left: 15%;
+    }
+    .dot3 {
+      top: 35%;
+    }
+    .dot4 {
+      top: 75%;
+      left: 80%;
+    }
   }
-  .dot {
-    position: absolute;
-    width: fit-content;
-    height: fit-content;
-    top: 50%;
-    left: 50%;
-  }
-  .dot1{
-    top: 20%;
-    left: 15%;
-  }
-  .dot2{
-    top: 75%;
-    left: 15%;
-  }
-  .dot3{
-    top: 35%;
-  }
-  .dot4{
-    top: 75%;
-    left: 80%;
-  }
-}
 
-.tutorial10{
-  .texto{
-    margin-top: 14%;
-  margin-left: 29%;
+  .tutorial10 {
+    .texto {
+      margin-top: 14%;
+      margin-left: 29%;
+    }
   }
-  
-}
 
-  .cursorAnimation{
+  .cursorAnimation {
     position: absolute;
     top: 32%;
     left: 83%;
@@ -333,7 +332,7 @@ body {
     transition: all 800ms ease-in-out;
     height: fit-content;
   }
-  
+
   .continuarBtn {
     position: absolute;
     left: 16%;
@@ -356,64 +355,116 @@ body {
     width: 30%;
   }
 
-  .tutorial11{
-    .texto{
+  .tutorial11 {
+    .texto {
       margin-top: -1%;
       margin-left: 33%;
       padding: 0;
       width: 35%;
-  
     }
   }
-  .tutorial13{
-    .texto{
+  .tutorial13 {
+    .texto {
       margin-top: 7%;
       margin-left: 28%;
     }
   }
-  .tutorial14{
-    .texto{
-      margin-left: 34% !important; 
+  .tutorial14 {
+    .texto {
+      margin-left: 34% !important;
       width: 46% !important;
-  
     }
-    .leapCase{
+    .leapCase {
       width: 48%;
       margin-top: 2%;
       margin-left: -4%;
       z-index: 3;
     }
-    .hand{
+    .hand {
       position: absolute;
-    top: 44%;
-    left: 72%;
-    width: 17%;
-    height: fit-content;
-    transform: rotate(30deg);
-    z-index: 5;
-    transition: all 1000ms ease-in-out;
-    
+      top: 44%;
+      left: 72%;
+      width: 17%;
+      height: fit-content;
+      transform: rotate(30deg);
+      z-index: 5;
+      transition: all 1000ms ease-in-out;
     }
-    .swipeOverflow{
+    .swipeOverflow {
       display: flex;
-    flex-direction: row;
-    overflow: hidden;
-    width: 26%;
-    height: fit-content;
-    position: absolute;
-    top: 17%;
-    left: 60%;
-    z-index: 2;
-      .swipeA{
+      flex-direction: row;
+      overflow: hidden;
+      width: 26%;
+      height: fit-content;
+      position: absolute;
+      top: 17%;
+      left: 60%;
+      z-index: 2;
+      .swipeA {
         width: 100%;
         margin-right: 20px;
         height: fit-content;
         transition: all 800ms ease-in-out;
       }
-      .swipeB{
+      .swipeB {
         width: 100%;
         height: fit-content;
       }
+    }
+  }
+  .tutorial15 {
+    .texto {
+      margin-top: -2%;
+      margin-left: 29%;
+      width: 43%;
+    }
+    .continuarBtn {
+    left: 43%;
+    top: 78%;
+    }
+    .swipeOverflow {
+      display: flex;
+      flex-direction: row;
+      overflow: hidden;
+      width: 26%;
+      height: fit-content;
+      position: absolute;
+      top: 42%;
+      left: 37.7%;
+      z-index: 2;
+      .swipe {
+        width: 100%;
+        margin-right: 20px;
+        height: fit-content;
+        transition: all 800ms ease-in-out;
+      }
+      .swipe1{
+        margin-left: -375px;
+      }
+    }
+    .arrows {
+      display: flex;
+      width: 10%;
+      height: fit-content;
+      flex-direction: row;
+      position: absolute;
+      top: 68%;
+      left: 46%;
+      .arrowR {
+transform: rotateY(180deg);
+      width: 50%;
+      height: fit-content;
+      }
+      .arrowL {
+        width: 50%;
+        height: fit-content;
+      }
+    }
+  }
+  .tutorial16{
+    .texto{
+          margin-top: 4%;
+    margin-left: 28%;
     }
   }
 }
@@ -661,7 +712,6 @@ body {
   padding: 10px 13px;
 }
 
-
 .video-player {
   position: absolute;
   left: 49.5%;
@@ -690,7 +740,6 @@ body {
   display: none !important;
 }
 
-
 .lds-ring {
   display: inline-block;
   position: relative;
@@ -705,50 +754,42 @@ body {
 }
 .lds-ring div {
   box-sizing: border-box;
-    display: block;
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    margin: 8px;
-    transition: opacity 1000ms ease-in-out;
-    opacity: 0;
-    border: 5px solid #FFFFFF;
-    border-radius: 50%;
-    border-color: #fff transparent transparent transparent;
+  display: block;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  margin: 8px;
+  transition: opacity 1000ms ease-in-out;
+  opacity: 0;
+  border: 5px solid #ffffff;
+  border-radius: 50%;
+  border-color: #fff transparent transparent transparent;
 }
 
 .ldsanimation div {
   animation: ldsanimation 6s cubic-bezier(0.5, 0, 0.5, 1);
-
 }
 .ldsanimation div:nth-child(1) {
-  animation-delay: -1.40s;
-  
+  animation-delay: -1.4s;
 }
 .ldsanimation div:nth-child(2) {
-  animation-delay: -1.20s;
-  
+  animation-delay: -1.2s;
 }
 .ldsanimation div:nth-child(3) {
-  animation-delay: -1.00s;
-  
+  animation-delay: -1s;
 }
 
 .ldsanimation div:nth-child(4) {
-  animation-delay: -0.80s;
-  
+  animation-delay: -0.8s;
 }
 .ldsanimation div:nth-child(5) {
-  animation-delay: -0.60s;
-  
+  animation-delay: -0.6s;
 }
 .ldsanimation div:nth-child(6) {
-  animation-delay: -0.40s;
-  
+  animation-delay: -0.4s;
 }
 .ldsanimation div:nth-child(7) {
-  animation-delay: -0.20s;
-  
+  animation-delay: -0.2s;
 }
 @keyframes ldsanimation {
   0% {
@@ -773,16 +814,16 @@ body {
 }
 .lds-ringGlobal div {
   box-sizing: border-box;
-    display: block;
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    margin: 8px;
-    transition: opacity 1000ms ease-in-out;
-    opacity: 0;
-    border: 5px solid #FFFFFF;
-    border-radius: 50%;
-    border-color: #fff transparent transparent transparent;
+  display: block;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  margin: 8px;
+  transition: opacity 1000ms ease-in-out;
+  opacity: 0;
+  border: 5px solid #ffffff;
+  border-radius: 50%;
+  border-color: #fff transparent transparent transparent;
 }
 
 .cursor {
@@ -823,27 +864,21 @@ body {
   25% {
     transform: rotate(90deg);
     border-top-color: white;
-    border-left-color:white ;
+    border-left-color: white;
     border-bottom-color: transparent;
   }
-  50%{
+  50% {
     transform: rotate(270deg);
     border-top-color: white;
-    border-left-color:white ;
+    border-left-color: white;
     border-bottom-color: white;
-    border-right-color: transparent ;
+    border-right-color: transparent;
   }
   100% {
     transform: rotate(270deg);
     border-top-color: white;
-    border-left-color:white ;
+    border-left-color: white;
     border-bottom-color: white;
-    border-right-color: white ;
+    border-right-color: white;
   }
 }
-
-
-
-
-
-
