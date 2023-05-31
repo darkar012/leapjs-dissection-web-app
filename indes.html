@@ -3,8 +3,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Math - Leap</title>
     <link rel="stylesheet" href="./style.css">
-    <script src='./leap-0.6.4.min.js'></script>
-    <script type="module" src="./leap.js"></script>
+    
 
   </head>
 
@@ -16,8 +15,17 @@
 <div id="counters">If you have an attached LeapMotion then counters should be appearing here</div>
 <div class='cursor' id="cursor"></div>
 <div class='cursorMini' id="cursorMini"></div>
-<button class="btn-avanzar" id="btn">avanzar</button>
+<div class="container">
+  <div class="iframe-container">
+      <iframe title="Sketchfab Viewer" src="" id="api-frame"></iframe>
+   </div>
+   <div class="controls" id="controls">
+     <pre id="Info"></pre>
+   </div>
+</div>
 
   </body>
-
+  <script src='./leap-0.6.4.min.js'></script>
+  <script type="text/javascript" src="https://static.sketchfab.com/api/sketchfab-viewer-1.12.1.js"></script>
+  <script type="module" src="./leap.js"></script>
 </html>

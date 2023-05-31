@@ -415,7 +415,7 @@ controller.on("frame", function (frame) {
             }
           }
 
-          if (contador == 4) {
+          if (contador >= 4) {
             cases = 10;
             pintar();
           }
