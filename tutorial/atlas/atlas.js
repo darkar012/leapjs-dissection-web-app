@@ -4,6 +4,7 @@ let indexFingerY = 0;
 var contador = 0;
 let counterSwipe = 0;
 let palmPositionOrigin = 0;
+let swipe = false;
 let YArray = [];
 let yNArray = [];
 let guideBtn = document.querySelector(".mainMenu");
@@ -38,55 +39,17 @@ var error = function error() {
 var success = function success(api) {
   api.start(function () {
     //Be carefull, the mouse can't be detected on the iframe
-    //If you want to fix this, you have to put an overlay on the iframe
-    setTimeout(() => {
-      var box = iframe.getBoundingClientRect();
-      var frameX = box.left + box.width / 2;
-      var frameY = box.top + box.height / 2;
-
-      let targetPos;
-      /*api.getCameraLookAt(function (err, camera) {
-        targetPos = camera.target;
-        console.log(camera.position);
-        console.log(camera.position[0]);
-        var x = camera.position[0] - 70;
-        var y = camera.position[1] - 50;
-        var z = camera.position[2];
-
-        //behind -140 100
-        //front
-        //right 0 70
-        //left -70 -50
-
-        api.setCameraLookAt(
-          [x, y, z],
-          [targetPos[0], targetPos[1], targetPos[2]]
-        );
-      });*/
-
-      //var distance = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2));
-      //x = (x / distance) * 6;
-      //y = (y / distance) * 6;
-      //z = (z / distance) * 6;
-
-      //api.setCameraLookAt([y, -x, z], [0, 0, 0], 0);
-    }, 3000);
-
-    console.log("hola");
+    //If you want counterSwipe
     // Calculate the location of the middle of the frame (Where we want the model to stay)
 
     controller.on("frame", function (frame) {
+     
 
-      api.getCameraLookAt(function (err, camera) {
-        
-        console.log(camera.position);
-        console.log(camera.position);
-      });
-
+      console.log(counterSwipe);
       //right [217.89168938971284, -163.93913312110294, 20.83554270367943]
-//front [199.4854237053254, -216.65696409335774, 34.30155649654449]
-// left [142.30534731533515, -230.4023923695799, 14.653942467343814]
-// behind [117.4828651924686, -147.46855843995084, 13.606529140784527]
+      //front [199.4854237053254, -216.65696409335774, 34.30155649654449]
+      // left [142.30534731533515, -230.4023923695799, 14.653942467343814]
+      // behind [117.4828651924686, -147.46855843995084, 13.606529140784527]
       var extendedFingers = 0;
       // Iterate through each hand in the frame
       for (var i = 0; i < frame.hands.length; i++) {
@@ -160,15 +123,16 @@ var success = function success(api) {
               }
               let difPosition = palmPosition - palmPositionOrigin;
               if (difPosition <= -30 && velocity < -200) {
+                console.log('right');
                 let targetPos;
                 api.getCameraLookAt(function (err, camera) {
                   targetPos = camera.target;
                   counterSwipe++;
-                 /* /right [217.89168938971284, -163.93913312110294, 20.83554270367943]
+                  /* /right [217.89168938971284, -163.93913312110294, 20.83554270367943]
 //front [199.4854237053254, -216.65696409335774, 34.30155649654449]
 // left [142.30534731533515, -230.4023923695799, 14.653942467343814]
 // behind [117.4828651924686, -147.46855843995084, 13.606529140784527]*/
-                  if (counterSwipe == 1) {
+                  if (counterSwipe == 1 && !swipe) {
                     var x = 218;
                     var y = -164;
                     var z = 21;
@@ -177,8 +141,13 @@ var success = function success(api) {
                       [x, y, z],
                       [targetPos[0], targetPos[1], targetPos[2]]
                     );
+                    swipe = true;
+                    setTimeout(() => {
+                      swipe = false;
+                      counterSwipe = 1;
+                    }, 1000);
                     // The disposition of x, y and z depend on how the model was made
-                  } else if (counterSwipe == 2) {
+                  } else if (counterSwipe == 2 && !swipe) {
                     var x = 117;
                     var y = -147;
                     var z = 14;
@@ -187,7 +156,13 @@ var success = function success(api) {
                       [x, y, z],
                       [targetPos[0], targetPos[1], targetPos[2]]
                     );
-                  } else if (counterSwipe == 3) {
+                    swipe = true;
+
+                    setTimeout(() => {
+                      swipe = false;
+                      counterSwipe = 2;
+                    }, 1000);
+                  } else if (counterSwipe == 3 && !swipe) {
                     var x = 142;
                     var y = -230;
                     var z = 14;
@@ -196,7 +171,12 @@ var success = function success(api) {
                       [x, y, z],
                       [targetPos[0], targetPos[1], targetPos[2]]
                     );
-                  } else if (counterSwipe > 3) {
+                    swipe = true;
+                    setTimeout(() => {
+                      swipe = false;
+                      counterSwipe = 3;
+                    }, 1000);
+                  } else if (counterSwipe > 3 && !swipe) {
                     var x = 200;
                     var y = -217;
                     var z = 34;
@@ -205,11 +185,14 @@ var success = function success(api) {
                       [x, y, z],
                       [targetPos[0], targetPos[1], targetPos[2]]
                     );
-                    counterSwipe = 0;
+                    swipe = true;
+
+                    setTimeout(() => {
+                      swipe = false;
+                      counterSwipe = 0;
+                    }, 1000);
                   }
                 });
-              } else if (difPosition > 30 && velocity > 200) {
-                console.log("left");
               }
             }
           } else {
