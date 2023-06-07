@@ -112,7 +112,7 @@ controller.on("frame", function (frame) {
 
             contador += 20;
 
-            if (contador == 3000) {
+            if (contador == 2000) {
               window.location.href = "./mainpage/mainpage.html";
             }
           } else if (
@@ -131,7 +131,7 @@ controller.on("frame", function (frame) {
             contador += 20;
             console.log(contador);
 
-            if (contador == 3000) {
+            if (contador == 2000) {
               cases = 2;
               pintar();
             }
@@ -162,7 +162,7 @@ controller.on("frame", function (frame) {
             contador += 20;
             console.log(contador);
 
-            if (contador == 3000) {
+            if (contador == 2000) {
               cases = 3;
               pintar();
             }
@@ -194,7 +194,7 @@ controller.on("frame", function (frame) {
               contador += 20;
               console.log(contador);
 
-              if (contador == 3000) {
+              if (contador == 2000) {
                 cases = 4;
                 pintar();
               }
@@ -232,7 +232,7 @@ controller.on("frame", function (frame) {
               contador += 20;
               console.log(contador);
 
-              if (contador == 3000) {
+              if (contador == 2000) {
                 cases = 6;
                 pintar();
               }
@@ -268,7 +268,7 @@ controller.on("frame", function (frame) {
               contador += 20;
               console.log(contador);
 
-              if (contador == 3000) {
+              if (contador == 2000) {
                 cases = 7;
                 pintar();
               }
@@ -304,7 +304,7 @@ controller.on("frame", function (frame) {
               contador += 20;
               console.log(contador);
 
-              if (contador == 3000) {
+              if (contador == 2000) {
                 cases = 8;
                 pintar();
               }
@@ -341,7 +341,7 @@ controller.on("frame", function (frame) {
               contador += 20;
               console.log(contador);
 
-              if (contador == 3000) {
+              if (contador == 2000) {
                 cases = 9;
                 pintar();
               }
@@ -440,7 +440,7 @@ controller.on("frame", function (frame) {
             contador += 20;
             console.log(contador);
 
-            if (contador == 3000) {
+            if (contador == 2000) {
               cases = 12;
               pintar();
             }
@@ -473,7 +473,7 @@ controller.on("frame", function (frame) {
             contador += 20;
             console.log(contador);
 
-            if (contador == 3000) {
+            if (contador == 2000) {
               cases = 14;
               pintar();
             }
@@ -502,7 +502,7 @@ controller.on("frame", function (frame) {
             contador += 20;
             console.log(contador);
 
-            if (contador == 3000) {
+            if (contador == 2000) {
               cases = 15;
               pintar();
             }
@@ -572,9 +572,9 @@ controller.on("frame", function (frame) {
 
                 contador += 20;
 
-                console.log(contador == 3000);
+                console.log(contador == 2000);
 
-                if (contador === 3000) {
+                if (contador === 2000) {
                   console.log("hola");
                   cases = 16;
                   pintar();
@@ -606,9 +606,9 @@ controller.on("frame", function (frame) {
   
                   contador += 20;
   
-                  console.log(contador == 3000);
+                  console.log(contador == 2000);
   
-                  if (contador === 3000) {
+                  if (contador === 2000) {
                     window.location.href = "./mainpage/mainpage.html";
                   }
                 } else {
@@ -777,7 +777,7 @@ function pintar() {
           cases = 5;
           pintar();
         }, 1000);
-      }, 3000);
+      }, 2000);
       break;
     case 5:
       container.style.opacity = 1;

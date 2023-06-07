@@ -222,7 +222,7 @@ var success = function success(api) {
 
               contador += 20;
 
-              if (contador == 3000) {
+              if (contador == 2000) {
                 window.location.href = "../mainpage/mainpage.html";
               }
             } else if (
@@ -241,7 +241,7 @@ var success = function success(api) {
 
               contador += 20;
 
-              if (contador == 3000) {
+              if (contador == 2000) {
                 console.log("hola");
               }
             } else if (
@@ -260,7 +260,7 @@ var success = function success(api) {
 
               contador += 20;
 
-              if (contador == 3000) {
+              if (contador == 2000) {
                 window.location.href = "../guides/guides.html";
               }
             } else if (
@@ -279,7 +279,7 @@ var success = function success(api) {
 
               contador += 20;
 
-              if (contador == 3000) {
+              if (contador == 2000) {
                 window.location.href = "../index.html";
               }
             } else if (
@@ -416,7 +416,7 @@ controller.on("frame", function (frame) {
 
           contador += 20;
 
-          if (contador == 3000) {
+          if (contador == 2000) {
             window.location.href = "../mainpage/mainpage.html";
           }
         } else if (
@@ -435,7 +435,7 @@ controller.on("frame", function (frame) {
 
           contador += 20;
 
-          if (contador == 3000) {
+          if (contador == 2000) {
             console.log("hola");
           }
         } else if (
@@ -454,7 +454,7 @@ controller.on("frame", function (frame) {
 
           contador += 20;
 
-          if (contador == 3000) {
+          if (contador == 2000) {
             window.location.href = "../guides/guides.html";
           }
         } else if (
@@ -473,7 +473,7 @@ controller.on("frame", function (frame) {
 
           contador += 20;
 
-          if (contador == 3000) {
+          if (contador == 2000) {
             window.location.href = "../index.html";
           }
         } else if (

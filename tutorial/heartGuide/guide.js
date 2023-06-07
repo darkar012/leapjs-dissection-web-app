@@ -2,17 +2,21 @@ import "../../node_modules/leapjs/leap-1.1.1.js";
 let indexFingerX = 0;
 let indexFingerY = 0;
 var contador = 0;
-var counter = 0;
-let YArray = [];
+let counterSwipe = 0;
 let palmPositionOrigin = 0;
-let transX = 0;
-let yNArray = [];
 let swipe = false;
-let gesturesBtn = document.getElementById("gestures");
-let gestureGrayBtn = document.getElementById("handsAccess");
-let menuBack = document.getElementById("menu");
-let frameGuide = document.getElementById("frame");
-
+let YArray = [];
+let yNArray = [];
+let menuBtn = document.querySelector(".mainMenu");
+let labBtn = document.querySelector(".labBtn");
+let atlasBtn = document.querySelector(".atlasBtn");
+let tutorialBtn = document.querySelector(".tutorial");
+let continuarBtn = document.querySelector(".continuarBtn");
+let ubicacionBtn = document.querySelector(".ubicacion");
+let vasosBtn = document.querySelector(".vasos");
+let configuracionBtn = document.querySelector(".config");
+let quizBtn = document.querySelector(".quiz");
+let gesture = document.querySelector(".gestures");
 for (let i = 0; i < 300; i++) {
   YArray.push(300 - i);
 }
@@ -20,12 +24,11 @@ for (let i = 0; i < 300; i++) {
 for (let i = 0; i < 300; i++) {
   yNArray.push(i + 300);
 }
-
 var controller = new Leap.Controller();
 controller.connect();
-
-// Add listener for frame events
 controller.on("frame", function (frame) {
+     
+
   var extendedFingers = 0;
   // Iterate through each hand in the frame
   for (var i = 0; i < frame.hands.length; i++) {
@@ -39,13 +42,13 @@ controller.on("frame", function (frame) {
     }
   }
 
+  // Check if all five fingers are extended
   if (extendedFingers >= 1 && extendedFingers <= 5) {
     frame.hands.forEach(function (hand) {
       // Iterate through each finger on the hand
       let indexFingerZ = hand.fingers[1].tipPosition[2];
       indexFingerX = hand.fingers[1].tipPosition[0];
       indexFingerY = hand.fingers[1].tipPosition[1];
-
       let cursoY = function (value) {
         let intFingerY = Math.trunc(value);
         if (intFingerY < 300) {
@@ -58,15 +61,19 @@ controller.on("frame", function (frame) {
           }
         }
       };
+
       var cursor = document.getElementById("cursor");
       var cursorMini = document.getElementById("cursorMini");
+      var loader = document.querySelector(".loader");
 
       if (indexFingerX > 0) {
-        cursor.style.left = indexFingerX * 4 + window.screen.width / 2 + "px";
+        cursor.style.left =
+          indexFingerX * 4 + window.screen.width / 2 + "px";
         cursorMini.style.left =
           indexFingerX * 4 + window.screen.width / 2 + "px";
       } else {
-        cursor.style.left = indexFingerX * 4 + window.screen.width / 2 + "px";
+        cursor.style.left =
+          indexFingerX * 4 + window.screen.width / 2 + "px";
         cursorMini.style.left =
           indexFingerX * 4 + window.screen.width / 2 + "px";
       }
@@ -84,125 +91,211 @@ controller.on("frame", function (frame) {
           window.screen.height / 2 + cursoY(indexFingerY) * 4 + "px";
       }
 
-      let x = gesturesBtn.getBoundingClientRect().left;
-      let y = gesturesBtn.getBoundingClientRect().top;
-      let x2 = gestureGrayBtn.getBoundingClientRect().left;
-      let y2 = gestureGrayBtn.getBoundingClientRect().top;
-      let x3 = menuBack.getBoundingClientRect().left;
-      let y3 = menuBack.getBoundingClientRect().top;
+      
+        /*let yGuide = guideBtn.getBoundingClientRect().top;
+        let xGuide = guideBtn.getBoundingClientRect().left;
+        let yLab = labBtn.getBoundingClientRect().top;
+        let xLab = labBtn.getBoundingClientRect().left;
+        let yAtlas = atlasBtn.getBoundingClientRect().top;
+        let xAtlas = atlasBtn.getBoundingClientRect().left;
+        let yTutorial = tutorialBtn.getBoundingClientRect().top;
+        let xTutorial = tutorialBtn.getBoundingClientRect().left;
+        let nextAnnotation = document.querySelector(".nextAnnotation");
+*/
+        if (
+          parseInt(cursor.style.top.split("px")) > menuBtn.offsetTop &&
+          parseInt(cursor.style.top.split("px")) < menuBtn.offsetTop + menuBtn.offsetHeight &&
+          parseInt(cursor.style.left.split("px")) > menuBtn.offsetLeft &&
+          parseInt(cursor.style.left.split("px")) < menuBtn.offsetLeft + menuBtn.offsetWidth
+        ) {
+          loader.style.display = "block";
+          console.log(cursor.style.width);
+          loader.style.top =
+            parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+          loader.style.left =
+            parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+          loader.style.zIndex = 12;
 
-      if (
-        parseInt(cursor.style.top.split("px")) > y &&
-        parseInt(cursor.style.top.split("px")) < y + 30 &&
-        parseInt(cursor.style.left.split("px")) > x &&
-        parseInt(cursor.style.left.split("px")) < x + 30
-      ) {
-        cursorMini.style.transform =
-          "scale(3) translateX(-10%) translateY(-10%)";
+          contador += 20;
 
-        cursorMini.style.transition =
-          "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
+          if (contador == 2000) {
+            window.location.href = "../mainpage/mainpage.html";
+          }
+        }  else if (
+          parseInt(cursor.style.top.split("px")) > labBtn.offsetTop &&
+          parseInt(cursor.style.top.split("px")) < labBtn.offsetTop + labBtn.offsetHeight &&
+          parseInt(cursor.style.left.split("px")) > labBtn.offsetLeft &&
+          parseInt(cursor.style.left.split("px")) < labBtn.offsetLeft + labBtn.offsetWidth
+        ) {
+          loader.style.display = "block";
+          console.log(cursor.style.width);
+          loader.style.top =
+            parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+          loader.style.left =
+            parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+          loader.style.zIndex = 12;
 
-        contador += 20;
-        console.log(contador);
+          contador += 20;
 
-        if (contador == 4000) {
-          console.log("gestures");
-          //window.location.href = "./mainpage/mainpage.html";
+          if (contador == 2000) {
+            console.log('hola');
+          }
+        } else if (
+          parseInt(cursor.style.top.split("px")) > tutorialBtn.offsetTop &&
+          parseInt(cursor.style.top.split("px")) < tutorialBtn.offsetTop + tutorialBtn.offsetHeight &&
+          parseInt(cursor.style.left.split("px")) > tutorialBtn.offsetLeft &&
+          parseInt(cursor.style.left.split("px")) < tutorialBtn.offsetLeft + tutorialBtn.offsetWidth
+        ) {
+          loader.style.display = "block";
+          console.log(cursor.style.width);
+          loader.style.top =
+            parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+          loader.style.left =
+            parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+          loader.style.zIndex = 12;
+
+          contador += 20;
+
+          if (contador == 2000) {
+            window.location.href = "../index.html";
+          }
+        }else if (
+          parseInt(cursor.style.top.split("px")) > atlasBtn.offsetTop &&
+          parseInt(cursor.style.top.split("px")) < atlasBtn.offsetTop + atlasBtn.offsetHeight &&
+          parseInt(cursor.style.left.split("px")) > atlasBtn.offsetLeft &&
+          parseInt(cursor.style.left.split("px")) < atlasBtn.offsetLeft + atlasBtn.offsetWidth
+        ) {
+          loader.style.display = "block";
+          console.log(cursor.style.width);
+          loader.style.top =
+            parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+          loader.style.left =
+            parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+          loader.style.zIndex = 12;
+
+          contador += 20;
+
+          if (contador == 2000) {
+            window.location.href = "../atlas/atlas.html";
+          }
+        } else if (
+          parseInt(cursor.style.top.split("px")) > continuarBtn.offsetTop &&
+          parseInt(cursor.style.top.split("px")) < continuarBtn.offsetTop + continuarBtn.offsetHeight &&
+          parseInt(cursor.style.left.split("px")) > continuarBtn.offsetLeft &&
+          parseInt(cursor.style.left.split("px")) < continuarBtn.offsetLeft + continuarBtn.offsetWidth
+        ) {
+          loader.style.display = "block";
+          console.log(cursor.style.width);
+          loader.style.top =
+            parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+          loader.style.left =
+            parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+          loader.style.zIndex = 12;
+
+          contador += 20;
+
+          if (contador == 2000) {
+            window.location.href="./paso1/paso1.html"
+          }
+        } else if (
+          parseInt(cursor.style.top.split("px")) > gesture.offsetTop &&
+          parseInt(cursor.style.top.split("px")) < gesture.offsetTop + gesture.offsetHeight &&
+          parseInt(cursor.style.left.split("px")) > gesture.offsetLeft &&
+          parseInt(cursor.style.left.split("px")) < gesture.offsetLeft + gesture.offsetWidth
+        ) {
+          loader.style.display = "block";
+          console.log(cursor.style.width);
+          loader.style.top =
+            parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+          loader.style.left =
+            parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+          loader.style.zIndex = 12;
+
+          contador += 20;
+
+          if (contador == 2000) {
+           console.log('hola');
+          }
+        } else if (
+          parseInt(cursor.style.top.split("px")) > ubicacionBtn.offsetTop &&
+          parseInt(cursor.style.top.split("px")) < ubicacionBtn.offsetTop + ubicacionBtn.offsetHeight &&
+          parseInt(cursor.style.left.split("px")) > ubicacionBtn.offsetLeft &&
+          parseInt(cursor.style.left.split("px")) < ubicacionBtn.offsetLeft + ubicacionBtn.offsetWidth
+        ) {
+          loader.style.display = "block";
+          console.log(cursor.style.width);
+          loader.style.top =
+            parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+          loader.style.left =
+            parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+          loader.style.zIndex = 12;
+
+          contador += 20;
+
+          if (contador == 2000) {
+            window.location.href="./paso1/paso1.html"
+          }
+        } else if (
+          parseInt(cursor.style.top.split("px")) > configuracionBtn.offsetTop &&
+          parseInt(cursor.style.top.split("px")) < configuracionBtn.offsetTop + configuracionBtn.offsetHeight &&
+          parseInt(cursor.style.left.split("px")) > configuracionBtn.offsetLeft &&
+          parseInt(cursor.style.left.split("px")) < configuracionBtn.offsetLeft + configuracionBtn.offsetWidth
+        ) {
+          loader.style.display = "block";
+          console.log(cursor.style.width);
+          loader.style.top =
+            parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+          loader.style.left =
+            parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+          loader.style.zIndex = 12;
+
+          contador += 20;
+
+          if (contador == 2000) {
+           // window.location.href = "../index.html";
+          }
+        }else if (
+          parseInt(cursor.style.top.split("px")) > vasosBtn.offsetTop &&
+          parseInt(cursor.style.top.split("px")) < vasosBtn.offsetTop + vasosBtn.offsetHeight &&
+          parseInt(cursor.style.left.split("px")) > vasosBtn.offsetLeft &&
+          parseInt(cursor.style.left.split("px")) < vasosBtn.offsetLeft + vasosBtn.offsetWidth
+        ) {
+          loader.style.display = "block";
+          console.log(cursor.style.width);
+          loader.style.top =
+            parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+          loader.style.left =
+            parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+          loader.style.zIndex = 12;
+
+          contador += 20;
+
+          if (contador == 2000) {
+            //window.location.href = "../index.html";
+          }
+        } else if (
+          parseInt(cursor.style.top.split("px")) > quizBtn.offsetTop &&
+          parseInt(cursor.style.top.split("px")) < quizBtn.offsetTop + quizBtn.offsetHeight &&
+          parseInt(cursor.style.left.split("px")) > quizBtn.offsetLeft &&
+          parseInt(cursor.style.left.split("px")) < quizBtn.offsetLeft + quizBtn.offsetWidth
+        ) {
+          loader.style.display = "block";
+          console.log(cursor.style.width);
+          loader.style.top =
+            parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+          loader.style.left =
+            parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+          loader.style.zIndex = 12;
+
+          contador += 20;
+ 
+          if (contador == 2000) {
+            //window.location.href = "../index.html";
+          }
+        }else {
+          loader.style.display = "none";
+          contador = 0;
         }
-      } else if (
-        parseInt(cursor.style.top.split("px")) > y2 &&
-        parseInt(cursor.style.top.split("px")) < y2 + 30 &&
-        parseInt(cursor.style.left.split("px")) > x2 &&
-        parseInt(cursor.style.left.split("px")) < x2 + 30
-      ) {
-        cursorMini.style.transform =
-          "scale(3) translateX(-10%) translateY(-10%)";
-
-        cursorMini.style.transition =
-          "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
-
-        contador += 20;
-        console.log(contador);
-
-        if (contador == 4000) {
-          console.log("heart");
-
-          //window.location.href = "../heartGuide/guide.html";
-        }
-      } else if (
-        parseInt(cursor.style.top.split("px")) > y3 &&
-        parseInt(cursor.style.top.split("px")) < y3 + 30 &&
-        parseInt(cursor.style.left.split("px")) > x3 &&
-        parseInt(cursor.style.left.split("px")) < x3 + 27
-      ) {
-        cursorMini.style.transform =
-          "scale(3) translateX(-10%) translateY(-10%)";
-
-        cursorMini.style.transition =
-          "transform 4s ease-out, top 300ms ease-out, left 300ms ease-out";
-
-        contador += 20;
-        console.log(contador);
-
-        if (contador == 4000) {
-          //console.log("book");
-
-          window.location.href = "../mainpage/mainpage.html";
-        }
-      } else {
-        cursorMini.style.transform =
-          "scale(1) translateX(-50%) translateY(-50%)";
-        cursorMini.style.transition = "top 300ms ease-out, left 300ms ease-out";
-        contador = 0;
-      }
-
-      for (var i = 0; i < frame.hands.length; i++) {
-        var hand = frame.hands[i];
-        var palmPosition = hand.palmPosition[0];
-        var velocity = hand.palmVelocity[0];
-
-        if (i === 5) {
-          palmPositionOrigin = palmPosition;
-        }
-        let difPosition = palmPosition - palmPositionOrigin;
-        if (difPosition <= -30 && velocity < -1000) {
-            while (counter < 4) {
-                counter++
-
-            } if (counter == 4 && !swipe && transX > -1390) {
-                
-                transX = transX-695;
-                frameGuide.style.transform = 'translateX('+transX+ 'px)'    
-counter = 0;
-console.log('se cumple');
-                swipe = true;
-                setTimeout(function(){
-swipe=false;
-console.log(swipe);
-                }, 1000)
-            }
-            console.log(counter);
-        } else if (difPosition > 30 && velocity > 1000) {
-            while (counter > -4) {
-                counter--
-
-            } if (counter == -4 && !swipe && transX < 0) {
-                
-                transX = transX + 695;
-                frameGuide.style.transform = 'translateX('+transX+ 'px)'    
-counter = 0;
-console.log('se cumple');
-                swipe = true;
-                setTimeout(function(){
-swipe=false;
-console.log(swipe);
-                }, 1000)
-            }
-            console.log(counter);
-        }
-        console.log(counter);
-      }
     });
   }
 });

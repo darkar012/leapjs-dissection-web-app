@@ -5,101 +5,142 @@
   box-sizing: border-box;
 }
 
-body {
-  overflow: hidden;
+a {
+  text-decoration: none;
 }
 
 .container {
-  display: flex;
-  justify-content: center;
-  transition: opacity 0.5s ease-in-out;
-  position: relative;
-}
-.container .bg {
+  background-color: #f3f3f3;
   height: 100vh;
-  transition: opacity 0.5s ease-in-out;
+  width: 100%;
+  overflow: hidden;
+}
+.container .menu {
+  background: linear-gradient(180deg, rgba(141, 168, 200, 0.38) 0%, rgba(193, 213, 251, 0.38) 45.83%, rgba(169, 181, 194, 0.38) 100%);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  height: 95%;
+  margin-top: 1.5%;
+  margin-left: 1.5%;
+  padding: 10px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.container .menu .options {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  align-items: center;
+}
+.container .menu .options .mainOptions {
+  margin-top: 7%;
+  width: 100%;
+  height: 59%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.container .menu .options .mainOptions .guiasBtn {
+  transform: scale3d(1.23, 1.23, 1);
+  margin-bottom: -9px;
+}
+.container .menu .options .mainOptions img {
+  width: 92%;
+}
+.container .menu .options .tutorial {
+  width: 92%;
+  margin-bottom: 5%;
+}
+.container .content {
+  margin-top: -53%;
+  margin-left: 26%;
+  width: 74%;
+}
+.container .content .banner {
+  width: 79%;
+}
+.container .content .list .title {
+  margin: 30px 0;
+}
+.container .content .list .steps {
+  width: 75%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.container .content .list .steps img {
+  width: 48.5%;
+  margin-bottom: 20px;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.container .continuarBtn {
+  position: absolute;
+  top: 16%;
+  left: 59%;
+}
+.container .gestures {
+  position: absolute;
+  top: 2%;
+  right: 2%;
 }
 
 .cursor {
   position: fixed;
   border-radius: 50%;
-  transform: translateX(-50%) translateY(-50%);
   pointer-events: none;
   left: -100px;
   top: 50%;
-  background-color: transparent;
+  background-color: #5642ce;
   z-index: 10000;
-  border: 2px solid transparent;
+  border: 2px solid white;
   height: 30px;
   width: 30px;
   transition: all 300ms ease-out;
 }
 
-.cursorMini {
-  position: fixed;
+.loader {
+  width: 55px;
+  height: 55px;
+  border: 8px solid transparent;
+  border-top-color: rgb(0, 190, 223);
   border-radius: 50%;
-  pointer-events: none;
-  left: -100px;
-  top: 50%;
-  background-color: #5642CE;
-  z-index: 10000;
-  border: 2px solid white;
-  height: 15px;
-  width: 15px;
-  transition: all 300ms ease-out;
-}
-
-.slider {
-  width: 50%;
-  top: 7%;
-  margin-left: 10px;
   position: absolute;
-  overflow: hidden;
-}
-.slider #frame {
-  display: flex;
-  flex-direction: row;
-  transition: transform 1s ease-in-out;
-}
-.slider #frame img {
-  width: 100%;
-  margin-right: 30px;
+  top: 0;
+  left: 0;
+  display: none;
+  transition: all 500ms ease-out;
+  animation: spin 4s linear infinite;
 }
 
-.handBtn {
-  width: 2%;
-  height: auto;
-  left: 21%;
-  top: 30%;
-}
-.handBtn img {
-  width: 100%;
-}
-
-.gesturesBtn {
-  width: 6%;
-  height: auto;
-  left: 73.6%;
-  top: 83%;
-}
-.gesturesBtn img {
-  width: 100%;
-}
-
-.btn {
-  position: absolute;
-  font-family: "Urbanist";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-}
-
-.menuBtn {
-  width: 2%;
-  height: auto;
-  left: 20.9%;
-  top: 8.9%;
-}
-.menuBtn img {
-  width: 100%;
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    border-top-color: rgb(0, 190, 223);
+    border-bottom-color: transparent;
+  }
+  25% {
+    transform: rotate(90deg);
+    border-top-color: rgb(0, 190, 223);
+    border-left-color: rgb(0, 190, 223);
+    border-bottom-color: transparent;
+  }
+  50% {
+    transform: rotate(270deg);
+    border-top-color: rgb(0, 190, 223);
+    border-left-color: rgb(0, 190, 223);
+    border-bottom-color: rgb(0, 190, 223);
+    border-right-color: transparent;
+  }
+  100% {
+    transform: rotate(270deg);
+    border-top-color: rgb(0, 190, 223);
+    border-left-color: rgb(0, 190, 223);
+    border-bottom-color: rgb(0, 190, 223);
+    border-right-color: rgb(0, 190, 223);
+  }
 }/*# sourceMappingURL=guide.css.map */

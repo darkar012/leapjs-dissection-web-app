@@ -121,7 +121,7 @@ let xContinuar = continuarBtn.getBoundingClientRect().left;
   
           contador += 20;
   
-          if (contador == 3000) {
+          if (contador == 2000) {
             container.removeChild(overlay);
             overlayBtn = false
           }
@@ -157,7 +157,7 @@ let xContinuar = continuarBtn.getBoundingClientRect().left;
     
             contador += 20;
     
-            if (contador == 3000) {
+            if (contador == 2000) {
               window.location.href = "../guides/guides.html"
             }
           } else  if (
@@ -176,7 +176,7 @@ let xContinuar = continuarBtn.getBoundingClientRect().left;
     
             contador += 20;
     
-            if (contador == 3000) {
+            if (contador == 2000) {
               console.log("hola");
             }
           }else  if (
@@ -195,8 +195,8 @@ let xContinuar = continuarBtn.getBoundingClientRect().left;
     
             contador += 20;
     
-            if (contador == 3000) {
-              console.log("hola");
+            if (contador == 2000) {
+              window.location.href = "../atlas/atlas.html";
             }
           } else  if (
             parseInt(cursor.style.top.split("px")) > yTutorial &&
@@ -214,7 +214,7 @@ let xContinuar = continuarBtn.getBoundingClientRect().left;
     
             contador += 20;
     
-            if (contador == 3000) {
+            if (contador == 2000) {
               window.location.href = "../index.html";
             }
           }else  if (
@@ -233,7 +233,7 @@ let xContinuar = continuarBtn.getBoundingClientRect().left;
     
             contador += 20;
     
-            if (contador == 3000) {
+            if (contador == 2000) {
               window.location.href = "../guides/guides.html";
             }
           } else {
