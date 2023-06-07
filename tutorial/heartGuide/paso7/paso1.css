@@ -95,6 +95,12 @@ a {
 .container .videoPassBtn {
   display: none;
 }
+.container .note {
+  display: none;
+  position: absolute;
+  top: 20%;
+  left: 63%;
+}
 .container .content {
   display: flex;
   margin-top: -52%;

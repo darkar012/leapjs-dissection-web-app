@@ -22,6 +22,7 @@ let videoPass = document.querySelector(".videoPassBtn");
 let popUp = document.querySelector(".overlayImg");
 let overlay = document.querySelector(".overlay");
 let popUpBtn = document.querySelector(".popUpBtn");
+let note = document.querySelector(".note");
 let visualChange = false;
 let videoChange = false;
 let play = false;
@@ -112,9 +113,9 @@ setTimeout(() => {
             let difPosition = palmPosition - palmPositionOrigin;
             if (difPosition <= -30 && velocity < -200 && vertical < -0.9) {
               console.log("right");
-              window.location.href = "../paso7/paso1.html";
+              window.location.href = "../paso8/paso1.html";
             } else if (difPosition > 30 && velocity > 200 && vertical < -0.9) {
-              window.location.href = "../paso5/paso1.html";
+              window.location.href = "../paso6/paso1.html";
             }
           }
         } else {
@@ -341,6 +342,7 @@ setTimeout(() => {
                 videoPass.style.display = "flex";
                 imageBtn.style.display = "none";
                 swipeBtn.style.display = "flex";
+                note.style.display = "flex";
                 videoChange = true;
               } else {
                 videoBtn.src = "../../../imgs/heartGuide/paso5/videoBtn.png";
@@ -349,6 +351,7 @@ setTimeout(() => {
                 videoPass.style.display = "none";
                 imageBtn.style.display = "flex";
                 swipeBtn.style.display = "none";
+                note.style.display = "none";
                 videoChange = false;
               }
             }
