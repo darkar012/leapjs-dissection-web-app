@@ -15,6 +15,11 @@ let atlasAcces = document.querySelector(".atlasAccess");
 let gesture = document.querySelector(".gestures");
 let visual = document.querySelector(".visual");
 let visualChange = false;
+let popUpCases = 0;
+let help = document.querySelector(".help");
+let overlayTutorial = document.querySelector(".overlayTutorial");
+let tutorialPopUp = document.querySelector(".tutorialPopUp");
+
 let imageBtn = document.querySelector(".imageBtn");
 
 for (let i = 0; i < 300; i++) {
@@ -235,6 +240,140 @@ setTimeout(() => {
               window.location.href = "../../atlas/atlas.html";
             }
           } else if (
+            parseInt(cursor.style.top.split("px")) >
+              tutorialPopUp.offsetTop + tutorialPopUp.offsetHeight * 0.55 &&
+            parseInt(cursor.style.top.split("px")) <
+              tutorialPopUp.offsetTop + tutorialPopUp.offsetHeight &&
+            parseInt(cursor.style.left.split("px")) >
+              tutorialPopUp.offsetLeft + tutorialPopUp.offsetWidth * 0.52 &&
+            parseInt(cursor.style.left.split("px")) <
+              tutorialPopUp.offsetLeft + tutorialPopUp.offsetWidth &&
+            popUpCases == 0
+          ) {
+
+            loader.style.display = "block";
+
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
+
+            contador += 20;
+
+            if (contador == 2000) {
+              
+              popUpCases = 2;
+              changePopUp(popUpCases);
+            }
+          } else if (
+            parseInt(cursor.style.top.split("px")) >
+              tutorialPopUp.offsetTop + tutorialPopUp.offsetHeight * 0.55 &&
+            parseInt(cursor.style.top.split("px")) <
+              tutorialPopUp.offsetTop + tutorialPopUp.offsetHeight &&
+            parseInt(cursor.style.left.split("px")) >
+              tutorialPopUp.offsetLeft &&
+            parseInt(cursor.style.left.split("px")) <
+              tutorialPopUp.offsetLeft + tutorialPopUp.offsetWidth * 0.52 &&
+            popUpCases == 0
+          ) {
+            loader.style.display = "block";
+
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
+
+            contador += 20;
+
+            if (contador == 2000) {
+              
+              popUpCases = 1;
+              changePopUp(popUpCases);
+            }
+          }else if (
+            parseInt(cursor.style.top.split("px")) >
+              tutorialPopUp.offsetTop &&
+            parseInt(cursor.style.top.split("px")) <
+              tutorialPopUp.offsetTop + tutorialPopUp.offsetHeight &&
+            parseInt(cursor.style.left.split("px")) >
+              tutorialPopUp.offsetLeft &&
+            parseInt(cursor.style.left.split("px")) <
+              tutorialPopUp.offsetLeft + tutorialPopUp.offsetWidth &&
+            popUpCases >= 2
+          ) {
+            loader.style.display = "block";
+
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
+
+            contador += 20;
+
+            if (contador == 2000) {
+              popUpCases += 1;
+              changePopUp(popUpCases);
+              if (popUpCases == 7){
+                overlayTutorial.style.display = "none";
+                changePopUp(0)
+            }
+          }
+          } else if (
+            parseInt(cursor.style.top.split("px")) >
+              tutorialPopUp.offsetTop + tutorialPopUp.offsetHeight * 0.55 &&
+            parseInt(cursor.style.top.split("px")) <
+              tutorialPopUp.offsetTop + tutorialPopUp.offsetHeight &&
+            parseInt(cursor.style.left.split("px")) >
+              tutorialPopUp.offsetLeft &&
+            parseInt(cursor.style.left.split("px")) <
+              tutorialPopUp.offsetLeft + tutorialPopUp.offsetWidth &&
+            popUpCases == 1
+          ) {
+            
+            loader.style.display = "block";
+
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
+
+            contador += 20;
+
+            if (contador == 2000) {
+              overlayTutorial.style.display = "none";
+              changePopUp(0)
+            }
+          }else if (
+            parseInt(cursor.style.top.split("px")) >
+              help.offsetTop&&
+            parseInt(cursor.style.top.split("px")) <
+              help.offsetTop + help.offsetHeight &&
+            parseInt(cursor.style.left.split("px")) >
+              help.offsetLeft &&
+            parseInt(cursor.style.left.split("px")) <
+              help.offsetLeft + help.offsetWidth 
+          ) {
+            
+            loader.style.display = "block";
+
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
+
+            contador += 20;
+
+            if (contador == 2000) {
+              overlayTutorial.style.display = "flex";
+              popUpCases = 0;
+              changePopUp(0)
+            }
+          } else if (
             parseInt(cursor.style.top.split("px")) > imageBtn.offsetTop &&
             parseInt(cursor.style.top.split("px")) <
               imageBtn.offsetTop + imageBtn.offsetHeight &&
@@ -272,3 +411,53 @@ setTimeout(() => {
     }
   });
 }, 3000);
+
+function changePopUp(cases) {
+  switch (cases) {
+    case 0:
+      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/intro.png";
+      tutorialPopUp.style.width = "50%";
+      tutorialPopUp.style.marginLeft = "0%";
+      tutorialPopUp.style.marginTop = "0%";
+      break;
+    case 1:
+      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/reject.png";
+      tutorialPopUp.style.width = "42%";
+      tutorialPopUp.style.marginLeft = "-52%";
+      tutorialPopUp.style.marginTop = "6%";
+      break;
+    case 2:
+      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/t1.png";
+      tutorialPopUp.style.width = "23%";
+      tutorialPopUp.style.marginLeft = "55%";
+      tutorialPopUp.style.marginTop = "8%";
+    break;
+    case 3:
+      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/t2.png";
+      tutorialPopUp.style.width = "23%";
+      tutorialPopUp.style.marginLeft = "42%";
+      tutorialPopUp.style.marginTop = "-2%";
+      break;
+      case 4:
+      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/t3.png";
+      tutorialPopUp.style.width = "23%";
+      tutorialPopUp.style.marginLeft = "44%";
+      tutorialPopUp.style.marginTop = "3%";
+      break;
+      case 5:
+      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/t4.png";
+      tutorialPopUp.style.width = "23%";
+      tutorialPopUp.style.marginLeft = "18%";
+      tutorialPopUp.style.marginTop = "5%";
+      break;
+      case 6:
+      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/t5.png";
+      tutorialPopUp.style.width = "23%";
+      tutorialPopUp.style.marginLeft = "19%";
+      tutorialPopUp.style.marginTop = "-2%";
+      break;
+      
+    default:
+      break;
+  }
+}

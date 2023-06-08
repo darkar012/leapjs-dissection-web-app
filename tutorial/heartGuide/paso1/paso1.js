@@ -7,12 +7,16 @@ let palmPositionOrigin = 0;
 let swipe = false;
 let YArray = [];
 let yNArray = [];
+let popUpCases = 0;
 let menuBtn = document.querySelector(".mainMenu");
 let labBtn = document.querySelector(".labBtn");
 let atlasBtn = document.querySelector(".atlasBtn");
 let tutorialBtn = document.querySelector(".tutorial");
 let atlasAcces = document.querySelector(".atlasAccess");
-let gesture = document.querySelector(".gestures");
+let help = document.querySelector(".help");
+
+let overlayTutorial = document.querySelector(".overlayTutorial");
+let tutorialPopUp = document.querySelector(".tutorialPopUp");
 
 for (let i = 0; i < 300; i++) {
   YArray.push(300 - i);
@@ -33,13 +37,13 @@ setTimeout(() => {
       // Iterate through each finger in the hand
       for (var j = 0; j < frame.hands[i].fingers.length; j++) {
         // Check if the finger is extended
-  
+
         if (frame.hands[i].fingers[j].extended) {
           extendedFingers++;
         }
       }
     }
-  
+
     // Check if all five fingers are extended
     if (extendedFingers >= 1 && extendedFingers <= 5) {
       frame.hands.forEach(function (hand) {
@@ -59,11 +63,12 @@ setTimeout(() => {
             }
           }
         };
-  
+
         var cursor = document.getElementById("cursor");
         var cursorMini = document.getElementById("cursorMini");
         var loader = document.querySelector(".loader");
-  
+
+
         if (indexFingerX > 0) {
           cursor.style.left = indexFingerX * 4 + window.screen.width / 2 + "px";
           cursorMini.style.left =
@@ -73,7 +78,7 @@ setTimeout(() => {
           cursorMini.style.left =
             indexFingerX * 4 + window.screen.width / 2 + "px";
         }
-  
+
         if (
           window.screen.height / 2 + cursoY(indexFingerY) >
           window.screen.height
@@ -86,13 +91,13 @@ setTimeout(() => {
           cursorMini.style.top =
             window.screen.height / 2 + cursoY(indexFingerY) * 4 + "px";
         }
-  
+
         if (extendedFingers >= 5) {
           for (var i = 0; i < frame.hands.length; i++) {
             var hand = frame.hands[i];
             var palmPosition = hand.palmPosition[0];
             var velocity = hand.palmVelocity[0];
-            var vertical = hand.palmNormal[0]
+            var vertical = hand.palmNormal[0];
 
             if (i === 5) {
               palmPositionOrigin = palmPosition;
@@ -100,8 +105,7 @@ setTimeout(() => {
             let difPosition = palmPosition - palmPositionOrigin;
             if (difPosition <= -30 && velocity < -200 && vertical < -0.9) {
               console.log("right");
-              window.location.href = "../paso1_1/paso1.html"
-              
+              window.location.href = "../paso1_1/paso1.html";
             }
           }
         } else {
@@ -114,17 +118,151 @@ setTimeout(() => {
               menuBtn.offsetLeft + menuBtn.offsetWidth
           ) {
             loader.style.display = "block";
-            console.log(cursor.style.width);
+
             loader.style.top =
               parseInt(cursor.style.top.split("px")) - 12.5 + "px";
             loader.style.left =
               parseInt(cursor.style.left.split("px")) - 12.5 + "px";
             loader.style.zIndex = 12;
-  
+
             contador += 20;
-  
+
             if (contador == 2000) {
               window.location.href = "../mainpage/mainpage.html";
+            }
+          } else if (
+            parseInt(cursor.style.top.split("px")) >
+              tutorialPopUp.offsetTop + tutorialPopUp.offsetHeight * 0.55 &&
+            parseInt(cursor.style.top.split("px")) <
+              tutorialPopUp.offsetTop + tutorialPopUp.offsetHeight &&
+            parseInt(cursor.style.left.split("px")) >
+              tutorialPopUp.offsetLeft + tutorialPopUp.offsetWidth * 0.52 &&
+            parseInt(cursor.style.left.split("px")) <
+              tutorialPopUp.offsetLeft + tutorialPopUp.offsetWidth &&
+            popUpCases == 0
+          ) {
+
+            loader.style.display = "block";
+
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
+
+            contador += 20;
+
+            if (contador == 2000) {
+              
+              popUpCases = 2;
+              changePopUp(popUpCases);
+            }
+          } else if (
+            parseInt(cursor.style.top.split("px")) >
+              tutorialPopUp.offsetTop + tutorialPopUp.offsetHeight * 0.55 &&
+            parseInt(cursor.style.top.split("px")) <
+              tutorialPopUp.offsetTop + tutorialPopUp.offsetHeight &&
+            parseInt(cursor.style.left.split("px")) >
+              tutorialPopUp.offsetLeft &&
+            parseInt(cursor.style.left.split("px")) <
+              tutorialPopUp.offsetLeft + tutorialPopUp.offsetWidth * 0.52 &&
+            popUpCases == 0
+          ) {
+            loader.style.display = "block";
+
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
+
+            contador += 20;
+
+            if (contador == 2000) {
+              
+              popUpCases = 1;
+              changePopUp(popUpCases);
+            }
+          }else if (
+            parseInt(cursor.style.top.split("px")) >
+              tutorialPopUp.offsetTop &&
+            parseInt(cursor.style.top.split("px")) <
+              tutorialPopUp.offsetTop + tutorialPopUp.offsetHeight &&
+            parseInt(cursor.style.left.split("px")) >
+              tutorialPopUp.offsetLeft &&
+            parseInt(cursor.style.left.split("px")) <
+              tutorialPopUp.offsetLeft + tutorialPopUp.offsetWidth &&
+            popUpCases >= 2
+          ) {
+            loader.style.display = "block";
+
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
+
+            contador += 20;
+
+            if (contador == 2000) {
+              popUpCases += 1;
+              changePopUp(popUpCases);
+              if (popUpCases == 7){
+                overlayTutorial.style.display = "none";
+                changePopUp(0)
+            }
+          }
+          } else if (
+            parseInt(cursor.style.top.split("px")) >
+              tutorialPopUp.offsetTop + tutorialPopUp.offsetHeight * 0.55 &&
+            parseInt(cursor.style.top.split("px")) <
+              tutorialPopUp.offsetTop + tutorialPopUp.offsetHeight &&
+            parseInt(cursor.style.left.split("px")) >
+              tutorialPopUp.offsetLeft &&
+            parseInt(cursor.style.left.split("px")) <
+              tutorialPopUp.offsetLeft + tutorialPopUp.offsetWidth &&
+            popUpCases == 1
+          ) {
+            
+            loader.style.display = "block";
+
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
+
+            contador += 20;
+
+            if (contador == 2000) {
+              overlayTutorial.style.display = "none";
+              changePopUp(0)
+            }
+          }else if (
+            parseInt(cursor.style.top.split("px")) >
+              help.offsetTop&&
+            parseInt(cursor.style.top.split("px")) <
+              help.offsetTop + help.offsetHeight &&
+            parseInt(cursor.style.left.split("px")) >
+              help.offsetLeft &&
+            parseInt(cursor.style.left.split("px")) <
+              help.offsetLeft + help.offsetWidth 
+          ) {
+            
+            loader.style.display = "block";
+
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
+
+            contador += 20;
+
+            if (contador == 2000) {
+              overlayTutorial.style.display = "flex";
+              popUpCases = 0;
+              changePopUp(0)
             }
           } else if (
             parseInt(cursor.style.top.split("px")) > labBtn.offsetTop &&
@@ -135,15 +273,15 @@ setTimeout(() => {
               labBtn.offsetLeft + labBtn.offsetWidth
           ) {
             loader.style.display = "block";
-            console.log(cursor.style.width);
+
             loader.style.top =
               parseInt(cursor.style.top.split("px")) - 12.5 + "px";
             loader.style.left =
               parseInt(cursor.style.left.split("px")) - 12.5 + "px";
             loader.style.zIndex = 12;
-  
+
             contador += 20;
-  
+
             if (contador == 2000) {
               console.log("hola");
             }
@@ -156,17 +294,17 @@ setTimeout(() => {
               tutorialBtn.offsetLeft + tutorialBtn.offsetWidth
           ) {
             loader.style.display = "block";
-            console.log(cursor.style.width);
+            
             loader.style.top =
               parseInt(cursor.style.top.split("px")) - 12.5 + "px";
             loader.style.left =
               parseInt(cursor.style.left.split("px")) - 12.5 + "px";
             loader.style.zIndex = 12;
-  
+
             contador += 20;
-  
+
             if (contador == 2000) {
-              window.location.href = "../index.html";
+              window.location.href = "../../index.html";
             }
           } else if (
             parseInt(cursor.style.top.split("px")) > atlasBtn.offsetTop &&
@@ -177,38 +315,17 @@ setTimeout(() => {
               atlasBtn.offsetLeft + atlasBtn.offsetWidth
           ) {
             loader.style.display = "block";
-            console.log(cursor.style.width);
+            
             loader.style.top =
               parseInt(cursor.style.top.split("px")) - 12.5 + "px";
             loader.style.left =
               parseInt(cursor.style.left.split("px")) - 12.5 + "px";
             loader.style.zIndex = 12;
-  
+
             contador += 20;
-  
+
             if (contador == 2000) {
               window.location.href = "../atlas/atlas.html";
-            }
-          } else if (
-            parseInt(cursor.style.top.split("px")) > gesture.offsetTop &&
-            parseInt(cursor.style.top.split("px")) <
-              gesture.offsetTop + gesture.offsetHeight &&
-            parseInt(cursor.style.left.split("px")) > gesture.offsetLeft &&
-            parseInt(cursor.style.left.split("px")) <
-              gesture.offsetLeft + gesture.offsetWidth
-          ) {
-            loader.style.display = "block";
-            console.log(cursor.style.width);
-            loader.style.top =
-              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
-            loader.style.left =
-              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
-            loader.style.zIndex = 12;
-  
-            contador += 20;
-  
-            if (contador == 2000) {
-              console.log("hola");
             }
           } else if (
             parseInt(cursor.style.top.split("px")) > atlasAcces.offsetTop &&
@@ -219,15 +336,15 @@ setTimeout(() => {
               atlasAcces.offsetLeft + atlasAcces.offsetWidth
           ) {
             loader.style.display = "block";
-            console.log(cursor.style.width);
+           
             loader.style.top =
               parseInt(cursor.style.top.split("px")) - 12.5 + "px";
             loader.style.left =
               parseInt(cursor.style.left.split("px")) - 12.5 + "px";
             loader.style.zIndex = 12;
-  
+
             contador += 20;
-  
+
             if (contador == 2000) {
               window.location.href = "../../atlas/atlas.html";
             }
@@ -239,6 +356,250 @@ setTimeout(() => {
       });
     }
   });
-},3000);
+}, 3000);
+
+function changePopUp(cases) {
+  switch (cases) {
+    case 0:
+      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/intro.png";
+      tutorialPopUp.style.width = "50%";
+      tutorialPopUp.style.marginLeft = "0%";
+      tutorialPopUp.style.marginTop = "0%";
+      break;
+    case 1:
+      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/reject.png";
+      tutorialPopUp.style.width = "42%";
+      tutorialPopUp.style.marginLeft = "-52%";
+      tutorialPopUp.style.marginTop = "6%";
+      break;
+    case 2:
+      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/t1.png";
+      tutorialPopUp.style.width = "23%";
+      tutorialPopUp.style.marginLeft = "55%";
+      tutorialPopUp.style.marginTop = "8%";
+    break;
+    case 3:
+      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/t2.png";
+      tutorialPopUp.style.width = "23%";
+      tutorialPopUp.style.marginLeft = "42%";
+      tutorialPopUp.style.marginTop = "-2%";
+      break;
+      case 4:
+      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/t3.png";
+      tutorialPopUp.style.width = "23%";
+      tutorialPopUp.style.marginLeft = "44%";
+      tutorialPopUp.style.marginTop = "3%";
+      break;
+      case 5:
+      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/t4.png";
+      tutorialPopUp.style.width = "23%";
+      tutorialPopUp.style.marginLeft = "18%";
+      tutorialPopUp.style.marginTop = "5%";
+      break;
+      case 6:
+      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/t5.png";
+      tutorialPopUp.style.width = "23%";
+      tutorialPopUp.style.marginLeft = "19%";
+      tutorialPopUp.style.marginTop = "-2%";
+      break;
+      
+    default:
+      break;
+  }
+}
+
+/*copiar 
+
+let popUpCases = 0;
+let help = document.querySelector(".help");
+let overlayTutorial = document.querySelector(".overlayTutorial");
+let tutorialPopUp = document.querySelector(".tutorialPopUp");
 
 
+ else if (
+            parseInt(cursor.style.top.split("px")) >
+              tutorialPopUp.offsetTop + tutorialPopUp.offsetHeight * 0.55 &&
+            parseInt(cursor.style.top.split("px")) <
+              tutorialPopUp.offsetTop + tutorialPopUp.offsetHeight &&
+            parseInt(cursor.style.left.split("px")) >
+              tutorialPopUp.offsetLeft + tutorialPopUp.offsetWidth * 0.52 &&
+            parseInt(cursor.style.left.split("px")) <
+              tutorialPopUp.offsetLeft + tutorialPopUp.offsetWidth &&
+            popUpCases == 0
+          ) {
+
+            loader.style.display = "block";
+
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
+
+            contador += 20;
+
+            if (contador == 2000) {
+              
+              popUpCases = 2;
+              changePopUp(popUpCases);
+            }
+          } else if (
+            parseInt(cursor.style.top.split("px")) >
+              tutorialPopUp.offsetTop + tutorialPopUp.offsetHeight * 0.55 &&
+            parseInt(cursor.style.top.split("px")) <
+              tutorialPopUp.offsetTop + tutorialPopUp.offsetHeight &&
+            parseInt(cursor.style.left.split("px")) >
+              tutorialPopUp.offsetLeft &&
+            parseInt(cursor.style.left.split("px")) <
+              tutorialPopUp.offsetLeft + tutorialPopUp.offsetWidth * 0.52 &&
+            popUpCases == 0
+          ) {
+            loader.style.display = "block";
+
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
+
+            contador += 20;
+
+            if (contador == 2000) {
+              
+              popUpCases = 1;
+              changePopUp(popUpCases);
+            }
+          }else if (
+            parseInt(cursor.style.top.split("px")) >
+              tutorialPopUp.offsetTop &&
+            parseInt(cursor.style.top.split("px")) <
+              tutorialPopUp.offsetTop + tutorialPopUp.offsetHeight &&
+            parseInt(cursor.style.left.split("px")) >
+              tutorialPopUp.offsetLeft &&
+            parseInt(cursor.style.left.split("px")) <
+              tutorialPopUp.offsetLeft + tutorialPopUp.offsetWidth &&
+            popUpCases >= 2
+          ) {
+            loader.style.display = "block";
+
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
+
+            contador += 20;
+
+            if (contador == 2000) {
+              popUpCases += 1;
+              changePopUp(popUpCases);
+              if (popUpCases == 7){
+                overlayTutorial.style.display = "none";
+                changePopUp(0)
+            }
+          }
+          } else if (
+            parseInt(cursor.style.top.split("px")) >
+              tutorialPopUp.offsetTop + tutorialPopUp.offsetHeight * 0.55 &&
+            parseInt(cursor.style.top.split("px")) <
+              tutorialPopUp.offsetTop + tutorialPopUp.offsetHeight &&
+            parseInt(cursor.style.left.split("px")) >
+              tutorialPopUp.offsetLeft &&
+            parseInt(cursor.style.left.split("px")) <
+              tutorialPopUp.offsetLeft + tutorialPopUp.offsetWidth &&
+            popUpCases == 1
+          ) {
+            
+            loader.style.display = "block";
+
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
+
+            contador += 20;
+
+            if (contador == 2000) {
+              overlayTutorial.style.display = "none";
+              changePopUp(0)
+            }
+          }else if (
+            parseInt(cursor.style.top.split("px")) >
+              help.offsetTop&&
+            parseInt(cursor.style.top.split("px")) <
+              help.offsetTop + help.offsetHeight &&
+            parseInt(cursor.style.left.split("px")) >
+              help.offsetLeft &&
+            parseInt(cursor.style.left.split("px")) <
+              help.offsetLeft + help.offsetWidth 
+          ) {
+            
+            loader.style.display = "block";
+
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
+
+            contador += 20;
+
+            if (contador == 2000) {
+              overlayTutorial.style.display = "flex";
+              popUpCases = 0;
+              changePopUp(0)
+            }
+          }
+
+
+          function changePopUp(cases) {
+  switch (cases) {
+    case 0:
+      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/intro.png";
+      tutorialPopUp.style.width = "50%";
+      tutorialPopUp.style.marginLeft = "0%";
+      tutorialPopUp.style.marginTop = "0%";
+      break;
+    case 1:
+      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/reject.png";
+      tutorialPopUp.style.width = "42%";
+      tutorialPopUp.style.marginLeft = "-52%";
+      tutorialPopUp.style.marginTop = "6%";
+      break;
+    case 2:
+      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/t1.png";
+      tutorialPopUp.style.width = "23%";
+      tutorialPopUp.style.marginLeft = "55%";
+      tutorialPopUp.style.marginTop = "8%";
+    break;
+    case 3:
+      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/t2.png";
+      tutorialPopUp.style.width = "23%";
+      tutorialPopUp.style.marginLeft = "42%";
+      tutorialPopUp.style.marginTop = "-2%";
+      break;
+      case 4:
+      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/t3.png";
+      tutorialPopUp.style.width = "23%";
+      tutorialPopUp.style.marginLeft = "44%";
+      tutorialPopUp.style.marginTop = "3%";
+      break;
+      case 5:
+      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/t4.png";
+      tutorialPopUp.style.width = "23%";
+      tutorialPopUp.style.marginLeft = "18%";
+      tutorialPopUp.style.marginTop = "5%";
+      break;
+      case 6:
+      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/t5.png";
+      tutorialPopUp.style.width = "23%";
+      tutorialPopUp.style.marginLeft = "19%";
+      tutorialPopUp.style.marginTop = "-2%";
+      break;
+      
+    default:
+      break;
+  }
+}
+*/

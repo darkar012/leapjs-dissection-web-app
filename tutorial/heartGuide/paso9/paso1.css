@@ -147,6 +147,20 @@ a {
 .container .overlay img {
   width: 50%;
 }
+.container .overlayTutorial {
+  width: 100%;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(12, 15, 19, 0.9);
+}
+.container .overlayTutorial img {
+  width: 50%;
+}
 
 .cursor {
   position: fixed;
