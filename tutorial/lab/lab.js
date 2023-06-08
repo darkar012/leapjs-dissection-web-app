@@ -8,14 +8,12 @@ let swipe = false;
 let YArray = [];
 let yNArray = [];
 let menuBtn = document.querySelector(".mainMenu");
-let labBtn = document.querySelector(".labBtn");
+let guideBtn = document.querySelector(".guiasBtn");
 let atlasBtn = document.querySelector(".atlasBtn");
 let tutorialBtn = document.querySelector(".tutorial");
-let continuarBtn = document.querySelector(".continuarBtn");
-let ubicacionBtn = document.querySelector(".ubicacion");
-let vasosBtn = document.querySelector(".vasos");
-let configuracionBtn = document.querySelector(".config");
-let quizBtn = document.querySelector(".quiz");
+
+let instrumental = document.querySelector(".instrumental");
+let reglas = document.querySelector(".reglas");
 let gesture = document.querySelector(".gestures");
 for (let i = 0; i < 300; i++) {
   YArray.push(300 - i);
@@ -122,10 +120,10 @@ controller.on("frame", function (frame) {
             window.location.href = "../mainpage/mainpage.html";
           }
         }  else if (
-          parseInt(cursor.style.top.split("px")) > labBtn.offsetTop &&
-          parseInt(cursor.style.top.split("px")) < labBtn.offsetTop + labBtn.offsetHeight &&
-          parseInt(cursor.style.left.split("px")) > labBtn.offsetLeft &&
-          parseInt(cursor.style.left.split("px")) < labBtn.offsetLeft + labBtn.offsetWidth
+          parseInt(cursor.style.top.split("px")) > guideBtn.offsetTop &&
+          parseInt(cursor.style.top.split("px")) < guideBtn.offsetTop + guideBtn.offsetHeight &&
+          parseInt(cursor.style.left.split("px")) > guideBtn.offsetLeft &&
+          parseInt(cursor.style.left.split("px")) < guideBtn.offsetLeft + guideBtn.offsetWidth
         ) {
           loader.style.display = "block";
           console.log(cursor.style.width);
@@ -138,7 +136,7 @@ controller.on("frame", function (frame) {
           contador += 20;
 
           if (contador == 2000) {
-            window.location.href = "../lab/lab.html";
+            window.location.href = "../guides/guides.html";
           }
         } else if (
           parseInt(cursor.style.top.split("px")) > tutorialBtn.offsetTop &&
@@ -179,25 +177,6 @@ controller.on("frame", function (frame) {
             window.location.href = "../atlas/atlas.html";
           }
         } else if (
-          parseInt(cursor.style.top.split("px")) > continuarBtn.offsetTop &&
-          parseInt(cursor.style.top.split("px")) < continuarBtn.offsetTop + continuarBtn.offsetHeight &&
-          parseInt(cursor.style.left.split("px")) > continuarBtn.offsetLeft &&
-          parseInt(cursor.style.left.split("px")) < continuarBtn.offsetLeft + continuarBtn.offsetWidth
-        ) {
-          loader.style.display = "block";
-          console.log(cursor.style.width);
-          loader.style.top =
-            parseInt(cursor.style.top.split("px")) - 12.5 + "px";
-          loader.style.left =
-            parseInt(cursor.style.left.split("px")) - 12.5 + "px";
-          loader.style.zIndex = 12;
-
-          contador += 20;
-
-          if (contador == 2000) {
-            window.location.href="./paso1/paso1.html"
-          }
-        } else if (
           parseInt(cursor.style.top.split("px")) > gesture.offsetTop &&
           parseInt(cursor.style.top.split("px")) < gesture.offsetTop + gesture.offsetHeight &&
           parseInt(cursor.style.left.split("px")) > gesture.offsetLeft &&
@@ -216,49 +195,11 @@ controller.on("frame", function (frame) {
           if (contador == 2000) {
            console.log('hola');
           }
-        } else if (
-          parseInt(cursor.style.top.split("px")) > ubicacionBtn.offsetTop &&
-          parseInt(cursor.style.top.split("px")) < ubicacionBtn.offsetTop + ubicacionBtn.offsetHeight &&
-          parseInt(cursor.style.left.split("px")) > ubicacionBtn.offsetLeft &&
-          parseInt(cursor.style.left.split("px")) < ubicacionBtn.offsetLeft + ubicacionBtn.offsetWidth
-        ) {
-          loader.style.display = "block";
-          console.log(cursor.style.width);
-          loader.style.top =
-            parseInt(cursor.style.top.split("px")) - 12.5 + "px";
-          loader.style.left =
-            parseInt(cursor.style.left.split("px")) - 12.5 + "px";
-          loader.style.zIndex = 12;
-
-          contador += 20;
-
-          if (contador == 2000) {
-            window.location.href="./paso1/paso1.html"
-          }
-        } else if (
-          parseInt(cursor.style.top.split("px")) > configuracionBtn.offsetTop &&
-          parseInt(cursor.style.top.split("px")) < configuracionBtn.offsetTop + configuracionBtn.offsetHeight &&
-          parseInt(cursor.style.left.split("px")) > configuracionBtn.offsetLeft &&
-          parseInt(cursor.style.left.split("px")) < configuracionBtn.offsetLeft + configuracionBtn.offsetWidth
-        ) {
-          loader.style.display = "block";
-          console.log(cursor.style.width);
-          loader.style.top =
-            parseInt(cursor.style.top.split("px")) - 12.5 + "px";
-          loader.style.left =
-            parseInt(cursor.style.left.split("px")) - 12.5 + "px";
-          loader.style.zIndex = 12;
-
-          contador += 20;
-
-          if (contador == 2000) {
-           // window.location.href = "../index.html";
-          }
         }else if (
-          parseInt(cursor.style.top.split("px")) > vasosBtn.offsetTop &&
-          parseInt(cursor.style.top.split("px")) < vasosBtn.offsetTop + vasosBtn.offsetHeight &&
-          parseInt(cursor.style.left.split("px")) > vasosBtn.offsetLeft &&
-          parseInt(cursor.style.left.split("px")) < vasosBtn.offsetLeft + vasosBtn.offsetWidth
+          parseInt(cursor.style.top.split("px")) > instrumental.offsetTop &&
+          parseInt(cursor.style.top.split("px")) < instrumental.offsetTop + instrumental.offsetHeight &&
+          parseInt(cursor.style.left.split("px")) > instrumental.offsetLeft &&
+          parseInt(cursor.style.left.split("px")) < instrumental.offsetLeft + instrumental.offsetWidth
         ) {
           loader.style.display = "block";
           console.log(cursor.style.width);
@@ -271,13 +212,13 @@ controller.on("frame", function (frame) {
           contador += 20;
 
           if (contador == 2000) {
-            //window.location.href = "../index.html";
+            window.location.href = "./instrumental/instrumental.html";
           }
         } else if (
-          parseInt(cursor.style.top.split("px")) > quizBtn.offsetTop &&
-          parseInt(cursor.style.top.split("px")) < quizBtn.offsetTop + quizBtn.offsetHeight &&
-          parseInt(cursor.style.left.split("px")) > quizBtn.offsetLeft &&
-          parseInt(cursor.style.left.split("px")) < quizBtn.offsetLeft + quizBtn.offsetWidth
+          parseInt(cursor.style.top.split("px")) > reglas.offsetTop &&
+          parseInt(cursor.style.top.split("px")) < reglas.offsetTop + reglas.offsetHeight &&
+          parseInt(cursor.style.left.split("px")) > reglas.offsetLeft &&
+          parseInt(cursor.style.left.split("px")) < reglas.offsetLeft + reglas.offsetWidth
         ) {
           loader.style.display = "block";
           console.log(cursor.style.width);
@@ -288,9 +229,9 @@ controller.on("frame", function (frame) {
           loader.style.zIndex = 12;
 
           contador += 20;
- 
+
           if (contador == 2000) {
-            //window.location.href = "../index.html";
+            window.location.href = "./reglas/reglas.html";
           }
         }else {
           loader.style.display = "none";

@@ -131,7 +131,7 @@ controller.on("frame", function (frame) {
         contador += 20;
 
         if (contador == 2000) {
-          console.log("hola");
+          window.location.href = "../lab/lab.html";
         }
       } else if (
         parseInt(cursor.style.top.split("px")) > yAtlas &&
