@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  background-color: #f3f3f3;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+.container .menu {
+  background: linear-gradient(180deg, rgba(141, 168, 200, 0.38) 0%, rgba(193, 213, 251, 0.38) 45.83%, rgba(169, 181, 194, 0.38) 100%);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  height: 95%;
+  margin-top: 1.5%;
+  margin-left: 1.5%;
+  padding: 10px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.container .menu .options {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  align-items: center;
+}
+.container .menu .options .mainOptions {
+  margin-top: 7%;
+  width: 100%;
+  height: 59%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.container .menu .options .mainOptions .guiasBtn {
+  transform: scale3d(1.23, 1.23, 1);
+  margin-bottom: -9px;
+}
+.container .menu .options .mainOptions img {
+  width: 92%;
+}
+.container .menu .options .tutorial {
+  width: 92%;
+  margin-bottom: 5%;
+}
+.container .menu .options .help {
+  margin-bottom: -155%;
+}
+.container .gestures {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+}
+.container .content {
+  display: flex;
+  margin-top: -53%;
+  margin-left: 20%;
+  width: 68%;
+  justify-content: space-between;
+}
+.container .content img {
+  width: 50%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.container .content .questions {
+  margin-top: 9%;
+  width: 45%;
+}
+.container .content .questions .options {
+  width: 100%;
+}
+.container .content .questions .options img {
+  margin-top: 20px;
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.container .content .buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 5%;
+}
+.container .content .buttons img {
+  height: 100%;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.container .overlayTutorial {
+  width: 100%;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(12, 15, 19, 0.9);
+}
+.container .overlayTutorial img {
+  width: 50%;
+}
+.container .overlayResult {
+  width: 100%;
+  height: 100vh;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(12, 15, 19, 0.9);
+}
+.container .overlayResult div {
+  width: 50%;
+}
+.container .overlayResult div h1 {
+  font-family: "urbanist";
+  color: #00C7AF;
+  font-size: 50px;
+  position: absolute;
+  top: 40%;
+  left: 37%;
+  z-index: 7;
+}
+.container .overlayResult div img {
+  width: 100%;
+}
+
+.cursor {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  left: -100px;
+  top: 50%;
+  background-color: #5642ce;
+  z-index: 10000;
+  border: 2px solid white;
+  height: 30px;
+  width: 30px;
+  transition: all 300ms ease-out;
+}
+
+.loader {
+  width: 55px;
+  height: 55px;
+  border: 8px solid transparent;
+  border-top-color: rgb(0, 190, 223);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  transition: all 500ms ease-out;
+  animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    border-top-color: rgb(0, 190, 223);
+    border-bottom-color: transparent;
+  }
+  25% {
+    transform: rotate(90deg);
+    border-top-color: rgb(0, 190, 223);
+    border-left-color: rgb(0, 190, 223);
+    border-bottom-color: transparent;
+  }
+  50% {
+    transform: rotate(270deg);
+    border-top-color: rgb(0, 190, 223);
+    border-left-color: rgb(0, 190, 223);
+    border-bottom-color: rgb(0, 190, 223);
+    border-right-color: transparent;
+  }
+  100% {
+    transform: rotate(270deg);
+    border-top-color: rgb(0, 190, 223);
+    border-left-color: rgb(0, 190, 223);
+    border-bottom-color: rgb(0, 190, 223);
+    border-right-color: rgb(0, 190, 223);
+  }
+}/*# sourceMappingURL=quiz.css.map */

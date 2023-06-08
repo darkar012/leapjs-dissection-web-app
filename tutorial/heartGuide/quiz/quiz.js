@@ -1,4 +1,4 @@
-import "../../../node_modules/leapjs/leap-1.1.1.js";
+import "../../../../node_modules/leapjs/leap-1.1.1.js";
 let indexFingerX = 0;
 let indexFingerY = 0;
 var contador = 0;
@@ -11,23 +11,10 @@ let menuBtn = document.querySelector(".mainMenu");
 let labBtn = document.querySelector(".labBtn");
 let atlasBtn = document.querySelector(".atlasBtn");
 let tutorialBtn = document.querySelector(".tutorial");
-let atlasAcces = document.querySelector(".atlasAccess");
 let gesture = document.querySelector(".gestures");
-let visual = document.querySelector(".visual");
-let swipeBtn = document.querySelector(".swipeBtn");
-let video = document.querySelector(".videoMask");
-let videoPaso = document.querySelector(".videoPaso");
-let videoBtn = document.querySelector(".videoBtn");
-let videoPass = document.querySelector(".videoPassBtn");
-let popUp = document.querySelector(".overlayImg");
-let overlay = document.querySelector(".overlay");
-let popUpBtn = document.querySelector(".popUpBtn");
-let note = document.querySelector(".note");
-let visualChange = false;
-let videoChange = false;
-let play = false;
-let imageBtn = document.querySelector(".imageBtn");
 
+let iniciarBtn = document.querySelector(".iniciarBtn");
+let cerrarBtn = document.querySelector(".cerrarBtn");
 
 let popUpCases = 0;
 let help = document.querySelector(".help");
@@ -45,7 +32,6 @@ for (let i = 0; i < 300; i++) {
 var controller = new Leap.Controller();
 controller.connect();
 
-setTimeout(() => {
   controller.on("frame", function (frame) {
     var extendedFingers = 0;
     // Iterate through each hand in the frame
@@ -107,25 +93,7 @@ setTimeout(() => {
             window.screen.height / 2 + cursoY(indexFingerY) * 4 + "px";
         }
 
-        if (extendedFingers >= 4) {
-          for (var i = 0; i < frame.hands.length; i++) {
-            var hand = frame.hands[i];
-            var palmPosition = hand.palmPosition[0];
-            var velocity = hand.palmVelocity[0];
-            var vertical = hand.palmNormal[0];
-
-            if (i === 5) {
-              palmPositionOrigin = palmPosition;
-            }
-            let difPosition = palmPosition - palmPositionOrigin;
-            if (difPosition <= -30 && velocity < -200 && vertical < -0.9) {
-              console.log("right");
-              window.location.href = "../quiz/quiz.html";
-            } else if (difPosition > 30 && velocity > 200 && vertical < -0.9) {
-              window.location.href = "../paso8/paso1.html";
-            }
-          }
-        } else {
+       
           if (
             parseInt(cursor.style.top.split("px")) > menuBtn.offsetTop &&
             parseInt(cursor.style.top.split("px")) <
@@ -145,49 +113,7 @@ setTimeout(() => {
             contador += 20;
 
             if (contador == 2000) {
-              window.location.href = "../mainpage/mainpage.html";
-            }
-          } else if (
-            parseInt(cursor.style.top.split("px")) > popUp.offsetTop &&
-            parseInt(cursor.style.top.split("px")) <
-              popUp.offsetTop + popUp.offsetHeight * 0.2 &&
-            parseInt(cursor.style.left.split("px")) > popUp.offsetLeft + popUp.offsetWidth*0.8 &&
-            parseInt(cursor.style.left.split("px")) <
-              popUp.offsetLeft + popUp.offsetWidth
-          ) {
-            loader.style.display = "block";
-            console.log("close");
-            loader.style.top =
-              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
-            loader.style.left =
-              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
-            loader.style.zIndex = 12;
-
-            contador += 20;
-
-            if (contador == 2000) {
-              overlay.style.display = "none";
-            }
-          } else if (
-            parseInt(cursor.style.top.split("px")) > popUpBtn.offsetTop &&
-            parseInt(cursor.style.top.split("px")) <
-              popUpBtn.offsetTop + popUpBtn.offsetHeight &&
-            parseInt(cursor.style.left.split("px")) > popUpBtn.offsetLeft &&
-            parseInt(cursor.style.left.split("px")) <
-              popUpBtn.offsetLeft + popUpBtn.offsetWidth
-          ) {
-            loader.style.display = "block";
-            console.log(cursor.style.width);
-            loader.style.top =
-              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
-            loader.style.left =
-              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
-            loader.style.zIndex = 12;
-
-            contador += 20;
-
-            if (contador == 2000) {
-              overlay.style.display = "flex";
+              window.location.href = "../../../mainpage/mainpage.html";
             }
           } else if (
             parseInt(cursor.style.top.split("px")) > labBtn.offsetTop &&
@@ -229,7 +155,7 @@ setTimeout(() => {
             contador += 20;
 
             if (contador == 2000) {
-              window.location.href = "../index.html";
+              window.location.href = "../../../index.html";
             }
           } else if (
             parseInt(cursor.style.top.split("px")) > atlasBtn.offsetTop &&
@@ -250,7 +176,7 @@ setTimeout(() => {
             contador += 20;
 
             if (contador == 2000) {
-              window.location.href = "../atlas/atlas.html";
+              window.location.href = "../../../atlas/atlas.html";
             }
           } else if (
             parseInt(cursor.style.top.split("px")) > gesture.offsetTop &&
@@ -272,27 +198,6 @@ setTimeout(() => {
 
             if (contador == 2000) {
               console.log("hola");
-            }
-          } else if (
-            parseInt(cursor.style.top.split("px")) > atlasAcces.offsetTop &&
-            parseInt(cursor.style.top.split("px")) <
-              atlasAcces.offsetTop + atlasAcces.offsetHeight &&
-            parseInt(cursor.style.left.split("px")) > atlasAcces.offsetLeft &&
-            parseInt(cursor.style.left.split("px")) <
-              atlasAcces.offsetLeft + atlasAcces.offsetWidth
-          ) {
-            loader.style.display = "block";
-            console.log(cursor.style.width);
-            loader.style.top =
-              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
-            loader.style.left =
-              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
-            loader.style.zIndex = 12;
-
-            contador += 20;
-
-            if (contador == 2000) {
-              window.location.href = "../../atlas/atlas.html";
             }
           } else if (
             parseInt(cursor.style.top.split("px")) >
@@ -428,85 +333,19 @@ setTimeout(() => {
               popUpCases = 0;
               changePopUp(0)
             }
-          } else if (
-            parseInt(cursor.style.top.split("px")) > imageBtn.offsetTop &&
+          }else if (
+            parseInt(cursor.style.top.split("px")) >
+              iniciarBtn.offsetTop&&
             parseInt(cursor.style.top.split("px")) <
-              imageBtn.offsetTop + imageBtn.offsetHeight &&
-            parseInt(cursor.style.left.split("px")) > imageBtn.offsetLeft &&
-            parseInt(cursor.style.left.split("px")) <
-              imageBtn.offsetLeft + imageBtn.offsetWidth
-          ) {
-            loader.style.display = "block";
-            console.log(cursor.style.width);
-            loader.style.top =
-              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
-            loader.style.left =
-              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
-            loader.style.zIndex = 12;
-
-            contador += 20;
-
-            if (contador == 2000) {
-              if (!visualChange) {
-                imageBtn.src = "../../../imgs/heartGuide/paso1/imageBtnAlt.png";
-                visual.src = "../../../imgs/heartGuide/paso9/visualAlt.png";
-                visualChange = true;
-              } else {
-                imageBtn.src = "../../../imgs/heartGuide/paso1/imageBtn.png";
-                visual.src = "../../../imgs/heartGuide/paso9/visual.png";
-                visualChange = false;
-              }
-            }
-          } else if (
-            parseInt(cursor.style.top.split("px")) > videoBtn.offsetTop &&
-            parseInt(cursor.style.top.split("px")) <
-              videoBtn.offsetTop + videoBtn.offsetHeight &&
-            parseInt(cursor.style.left.split("px")) > videoBtn.offsetLeft &&
-            parseInt(cursor.style.left.split("px")) <
-              videoBtn.offsetLeft + videoBtn.offsetWidth
-          ) {
-            loader.style.display = "block";
-            console.log(cursor.style.width);
-            loader.style.top =
-              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
-            loader.style.left =
-              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
-            loader.style.zIndex = 12;
-
-            contador += 20;
-
-            if (contador == 2000) {
-              if (!videoChange) {
-                videoBtn.src = "../../../imgs/heartGuide/paso5/videoBtnAlt.png";
-                visual.style.display = "none";
-                video.style.display = "flex";
-                videoPass.style.display = "flex";
-                imageBtn.style.display = "none";
-                swipeBtn.style.display = "flex";
-                note.style.display = "flex";
-                videoChange = true;
-              } else {
-                videoBtn.src = "../../../imgs/heartGuide/paso5/videoBtn.png";
-                visual.style.display = "flex";
-                video.style.display = "none";
-                videoPass.style.display = "none";
-                imageBtn.style.display = "flex";
-                swipeBtn.style.display = "none";
-                note.style.display = "none";
-                videoChange = false;
-              }
-            }
-          } else if (
-            parseInt(cursor.style.top.split("px")) > videoPass.offsetTop &&
-            parseInt(cursor.style.top.split("px")) <
-              videoPass.offsetTop + videoPass.offsetHeight &&
+              iniciarBtn.offsetTop + iniciarBtn.offsetHeight &&
             parseInt(cursor.style.left.split("px")) >
-              videoBtn.offsetLeft + videoBtn.offsetWidth / 2 &&
+              iniciarBtn.offsetLeft &&
             parseInt(cursor.style.left.split("px")) <
-              videoBtn.offsetLeft + videoBtn.offsetWidth
+              iniciarBtn.offsetLeft + iniciarBtn.offsetWidth 
           ) {
+            
             loader.style.display = "block";
-            console.log(cursor.style.width);
+
             loader.style.top =
               parseInt(cursor.style.top.split("px")) - 12.5 + "px";
             loader.style.left =
@@ -516,70 +355,89 @@ setTimeout(() => {
             contador += 20;
 
             if (contador == 2000) {
-              if (!play) {
-                videoPaso.pause();
-                play = true;
-              } else {
-                videoPaso.play();
-                play = false;
-              }
+              window.location.href = "./quizQuestion/quiz.html";
             }
-          } else {
+          }else if (
+            parseInt(cursor.style.top.split("px")) >
+              cerrarBtn.offsetTop&&
+            parseInt(cursor.style.top.split("px")) <
+              cerrarBtn.offsetTop + cerrarBtn.offsetHeight &&
+            parseInt(cursor.style.left.split("px")) >
+              cerrarBtn.offsetLeft &&
+            parseInt(cursor.style.left.split("px")) <
+              cerrarBtn.offsetLeft + cerrarBtn.offsetWidth 
+          ) {
+            
+            loader.style.display = "block";
+
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
+
+            contador += 20;
+
+            if (contador == 2000) {
+              window.location.href = "../final/final.html";
+            }
+          } 
+          else {
             loader.style.display = "none";
             contador = 0;
           }
-        }
+        
       });
     }
   });
-}, 3000);
 
-function changePopUp(cases) {
-  switch (cases) {
-    case 0:
-      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/intro.png";
-      tutorialPopUp.style.width = "50%";
-      tutorialPopUp.style.marginLeft = "0%";
-      tutorialPopUp.style.marginTop = "0%";
+
+  function changePopUp(cases) {
+    switch (cases) {
+      case 0:
+        tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/intro.png";
+        tutorialPopUp.style.width = "50%";
+        tutorialPopUp.style.marginLeft = "0%";
+        tutorialPopUp.style.marginTop = "0%";
+        break;
+      case 1:
+        tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/reject.png";
+        tutorialPopUp.style.width = "42%";
+        tutorialPopUp.style.marginLeft = "-52%";
+        tutorialPopUp.style.marginTop = "6%";
+        break;
+      case 2:
+        tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/t1.png";
+        tutorialPopUp.style.width = "23%";
+        tutorialPopUp.style.marginLeft = "55%";
+        tutorialPopUp.style.marginTop = "8%";
       break;
-    case 1:
-      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/reject.png";
-      tutorialPopUp.style.width = "42%";
-      tutorialPopUp.style.marginLeft = "-52%";
-      tutorialPopUp.style.marginTop = "6%";
-      break;
-    case 2:
-      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/t1.png";
-      tutorialPopUp.style.width = "23%";
-      tutorialPopUp.style.marginLeft = "55%";
-      tutorialPopUp.style.marginTop = "8%";
-    break;
-    case 3:
-      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/t2.png";
-      tutorialPopUp.style.width = "23%";
-      tutorialPopUp.style.marginLeft = "42%";
-      tutorialPopUp.style.marginTop = "-2%";
-      break;
-      case 4:
-      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/t3.png";
-      tutorialPopUp.style.width = "23%";
-      tutorialPopUp.style.marginLeft = "44%";
-      tutorialPopUp.style.marginTop = "3%";
-      break;
-      case 5:
-      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/t4.png";
-      tutorialPopUp.style.width = "23%";
-      tutorialPopUp.style.marginLeft = "18%";
-      tutorialPopUp.style.marginTop = "5%";
-      break;
-      case 6:
-      tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/t5.png";
-      tutorialPopUp.style.width = "23%";
-      tutorialPopUp.style.marginLeft = "19%";
-      tutorialPopUp.style.marginTop = "-2%";
-      break;
-      
-    default:
-      break;
+      case 3:
+        tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/t2.png";
+        tutorialPopUp.style.width = "23%";
+        tutorialPopUp.style.marginLeft = "42%";
+        tutorialPopUp.style.marginTop = "-2%";
+        break;
+        case 4:
+        tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/t3.png";
+        tutorialPopUp.style.width = "23%";
+        tutorialPopUp.style.marginLeft = "44%";
+        tutorialPopUp.style.marginTop = "3%";
+        break;
+        case 5:
+        tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/t4.png";
+        tutorialPopUp.style.width = "23%";
+        tutorialPopUp.style.marginLeft = "18%";
+        tutorialPopUp.style.marginTop = "5%";
+        break;
+        case 6:
+        tutorialPopUp.src = "../../../imgs/heartGuide/tutorial/t5.png";
+        tutorialPopUp.style.width = "23%";
+        tutorialPopUp.style.marginLeft = "19%";
+        tutorialPopUp.style.marginTop = "-2%";
+        break;
+        
+      default:
+        break;
+    }
   }
-}
