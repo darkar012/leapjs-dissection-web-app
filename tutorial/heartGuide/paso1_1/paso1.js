@@ -132,7 +132,7 @@ setTimeout(() => {
             contador += 20;
 
             if (contador == 2000) {
-              window.location.href = "../mainpage/mainpage.html";
+              window.location.href = "../../mainpage/mainpage.html";
             }
           } else if (
             parseInt(cursor.style.top.split("px")) > labBtn.offsetTop &&
@@ -195,7 +195,7 @@ setTimeout(() => {
             contador += 20;
 
             if (contador == 2000) {
-              window.location.href = "../atlas/atlas.html";
+              window.location.href = "../../atlas/atlas.html";
             }
           } else if (
             parseInt(cursor.style.top.split("px")) > gesture.offsetTop &&
