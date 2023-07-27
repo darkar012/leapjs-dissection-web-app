@@ -9,6 +9,64 @@ body {
     overflow: hidden;
 }
 
+
+
+.cursor {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    left: -100px;
+    top: 50%;
+    background-color: #5642ce;
+  
+    z-index: 10000;
+    border: 2px solid white;
+    height: 30px;
+    width: 30px;
+    transition: all 300ms ease-out;
+  }
+  
+  .loader {
+    width: 55px;
+    height: 55px;
+    border: 8px solid transparent;
+    border-top-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    transition: all 500ms ease-out;
+    animation: spin 4s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+      border-top-color: white;
+      border-bottom-color: transparent;
+    }
+    25% {
+      transform: rotate(90deg);
+      border-top-color: white;
+      border-left-color: white;
+      border-bottom-color: transparent;
+    }
+    50% {
+      transform: rotate(270deg);
+      border-top-color: white;
+      border-left-color: white;
+      border-bottom-color: white;
+      border-right-color: transparent;
+    }
+    100% {
+      transform: rotate(270deg);
+      border-top-color: white;
+      border-left-color: white;
+      border-bottom-color: white;
+      border-right-color: white;
+    }
+  }
 .content{
     width: 100%;
     height: 100vh;
