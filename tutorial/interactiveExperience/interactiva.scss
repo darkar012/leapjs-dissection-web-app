@@ -277,30 +277,26 @@ button {
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
-
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 2%;
+    border-radius: 20px;
+    border: 1px solid #888;
+    width: fit-content; /* Could be more or less, depending on screen size */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    h3 {
+      color: #00c7af;
+      font-size: 1.5em;
+      width: 70%;
+      margin-bottom: 5%;
+      text-align: center;
+    }
+  }
 }
 
 //loader
@@ -386,5 +382,309 @@ button {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+.tutorial1 {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  position: relative;
+  transition: opacity 0.5s ease-in-out;
+
+  .addLeap {
+    margin-top: -2%;
+    margin-right: -160%;
+    opacity: 0.16;
+    mix-blend-mode: hard-light;
+    margin-left: 25%;
+    z-index: 5;
+    font-size: 220px;
+    font-family: "Urbanist";
+    font-style: normal;
+    font-weight: 700;
+    color: #c2c8dd;
+
+    transform: rotate(-90deg);
+  }
+
+  .addLeapBG {
+    position: absolute;
+    left: 56.5%;
+    top: 41.4%;
+    z-index: 2;
+    font-size: 220px;
+    font-family: "Urbanist";
+    font-style: normal;
+    font-weight: 700;
+    color: #c2c8dd;
+
+    transform: rotate(-90deg);
+  }
+  .getOutBtn {
+    margin-top: 42%;
+    margin-right: -160%;
+    margin-left: 18%;
+    width: 15%;
+    height: 5%;
+  }
+
+  .texto {
+    margin-top: -10%;
+    margin-left: 7%;
+    padding: 810px 70px;
+    width: 45%;
+  }
+  .grid {
+    mix-blend-mode: color-dodge;
+    width: 100%;
+    object-fit: contain;
+    padding: 10px 0px;
+  }
+
+  .continuarBtn {
+    position: absolute;
+    left: 16%;
+    top: 57%;
+    width: 15%;
+  }
+  .timeline {
+    position: absolute;
+    left: 16%;
+    top: 63%;
+    width: 25%;
+  }
+  .frame {
+    height: 100%;
+    margin-top: 45%;
+    margin-left: 13%;
+    z-index: 2;
+    overflow: hidden;
+
+    img {
+      height: 30%;
+      width: 100%;
+    }
+
+    .animation1 {
+      width: 120%;
+      margin-left: 0;
+    }
+
+    .animation2 {
+      width: 100%;
+      margin-left: 0;
+    }
+    .animation3 {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+  .marginFrame {
+    margin-left: -100% !important;
+  }
+}
+
+.tutorial3 {
+  flex-direction: column;
+  height: 91vh;
+  .getOutBtn {
+    margin-top: 2%;
+    margin-right: 0%;
+    margin-left: 7%;
+    width: 15%;
+    height: auto;
+  }
+  .texto {
+    margin-top: -4%;
+    margin-left: 21%;
+    padding: 0;
+    width: 61%;
+  }
+  .frame {
+    width: 50%;
+    margin-top: -14%;
+    margin-left: 25%;
+    z-index: 2;
+    img {
+      height: auto;
+      width: 100%;
+    }
+  }
+  .timeline {
+    top: 85%;
+  }
+  .continuarBtn {
+    opacity: 1;
+    left: 52%;
+    top: 17%;
+  }
+}
+.tutorial4 {
+  .texto {
+    margin-top: -8%;
+    margin-left: 34%;
+    padding: 0;
+    width: 56%;
+  }
+}
+.tutorial7 {
+  position: relative;
+  .yellowsign {
+    position: absolute;
+    width: 20%;
+    top: 2%;
+    right: 6%;
+  }
+  .texto {
+    margin-top: 2%;
+    margin-left: 24%;
+    padding: 0;
+    width: 45%;
+  }
+  .continuarBtn {
+    opacity: 1;
+    left: 43%;
+    top: 67%;
+  }
+}
+
+.tutorial9 {
+  .texto {
+    margin-top: 14%;
+    margin-left: 29%;
+  }
+  .dot {
+    position: absolute;
+    width: fit-content;
+    height: fit-content;
+    top: 50%;
+    left: 50%;
+  }
+  .dot1 {
+    top: 20%;
+    left: 15%;
+  }
+  .dot2 {
+    top: 75%;
+    left: 15%;
+  }
+  .dot3 {
+    top: 35%;
+  }
+  .dot4 {
+    top: 75%;
+    left: 80%;
+  }
+}
+.tutorial15 {
+  margin-top: 5%;
+  .texto {
+    margin-top: -2%;
+    margin-left: 29%;
+    width: 43%;
+  }
+  .continuarBtn {
+    left: 43%;
+    top: 78%;
+  }
+  .swipeOverflow {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    width: 26%;
+    height: fit-content;
+    position: absolute;
+    top: 42%;
+    left: 37.7%;
+    z-index: 2;
+    .swipe {
+      width: 100%;
+      margin-right: 20px;
+      height: fit-content;
+      transition: all 800ms ease-in-out;
+    }
+    .swipe1 {
+      margin-left: -375px;
+    }
+  }
+  .arrows {
+    display: flex;
+    width: 10%;
+    height: fit-content;
+    flex-direction: row;
+    position: absolute;
+    top: 68%;
+    left: 46%;
+    .arrowR {
+      transform: rotateY(180deg);
+      width: 50%;
+      height: fit-content;
+    }
+    .arrowL {
+      width: 50%;
+      height: fit-content;
+    }
+  }
+}
+.container {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: opacity 0.5s ease-in-out;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(
+    208.53deg,
+    #36069a 1.77%,
+    #3c2168 101.57%,
+    #4704b5 101.57%
+  );
+  padding: 0;
+}
+
+.finish {
+  padding: 5% 0;
+  flex-direction: column;
+  align-items: start;
+  #introBtn {
+    margin-top: 50px;
+  }
+  span {
+    color: #00c7af;
+  }
+  h2 {
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+    color: #00c7af;
+  }
+  .steps {
+    justify-content: space-between;
+    width: 100%;
+    flex-direction: row;
+    display: flex;
+  }
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    h3 {
+      font-size: 1.5em;
+      text-align: left;
+      margin-bottom: 5%;
+    }
+    img {
+      border-radius: 20px;
+      width: 80%;
+    }
+  }
+
+  .swipeStep{
+    font-size: 2em;
+    margin-top: 50px;
   }
 }

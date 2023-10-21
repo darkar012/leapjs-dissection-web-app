@@ -264,29 +264,27 @@ button {
   background-color: rgb(0, 0, 0); /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
-
-/* Modal Content/Box */
-.modal-content {
+.modal .modal-content {
   background-color: #fefefe;
   margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
+  padding: 2%;
+  border-radius: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: -moz-fit-content;
+  width: fit-content; /* Could be more or less, depending on screen size */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: -moz-fit-content;
+  height: fit-content;
 }
-
-/* The Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+.modal .modal-content h3 {
+  color: #00c7af;
+  font-size: 1.5em;
+  width: 70%;
+  margin-bottom: 5%;
+  text-align: center;
 }
 
 .lds-roller {
@@ -391,4 +389,299 @@ button {
   100% {
     transform: rotate(360deg);
   }
+}
+.tutorial1 {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  position: relative;
+  transition: opacity 0.5s ease-in-out;
+}
+.tutorial1 .addLeap {
+  margin-top: -2%;
+  margin-right: -160%;
+  opacity: 0.16;
+  mix-blend-mode: hard-light;
+  margin-left: 25%;
+  z-index: 5;
+  font-size: 220px;
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 700;
+  color: #c2c8dd;
+  transform: rotate(-90deg);
+}
+.tutorial1 .addLeapBG {
+  position: absolute;
+  left: 56.5%;
+  top: 41.4%;
+  z-index: 2;
+  font-size: 220px;
+  font-family: "Urbanist";
+  font-style: normal;
+  font-weight: 700;
+  color: #c2c8dd;
+  transform: rotate(-90deg);
+}
+.tutorial1 .getOutBtn {
+  margin-top: 42%;
+  margin-right: -160%;
+  margin-left: 18%;
+  width: 15%;
+  height: 5%;
+}
+.tutorial1 .texto {
+  margin-top: -10%;
+  margin-left: 7%;
+  padding: 810px 70px;
+  width: 45%;
+}
+.tutorial1 .grid {
+  mix-blend-mode: color-dodge;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  padding: 10px 0px;
+}
+.tutorial1 .continuarBtn {
+  position: absolute;
+  left: 16%;
+  top: 57%;
+  width: 15%;
+}
+.tutorial1 .timeline {
+  position: absolute;
+  left: 16%;
+  top: 63%;
+  width: 25%;
+}
+.tutorial1 .frame {
+  height: 100%;
+  margin-top: 45%;
+  margin-left: 13%;
+  z-index: 2;
+  overflow: hidden;
+}
+.tutorial1 .frame img {
+  height: 30%;
+  width: 100%;
+}
+.tutorial1 .frame .animation1 {
+  width: 120%;
+  margin-left: 0;
+}
+.tutorial1 .frame .animation2 {
+  width: 100%;
+  margin-left: 0;
+}
+.tutorial1 .frame .animation3 {
+  width: 100%;
+  margin-left: 0;
+}
+.tutorial1 .marginFrame {
+  margin-left: -100% !important;
+}
+
+.tutorial3 {
+  flex-direction: column;
+  height: 91vh;
+}
+.tutorial3 .getOutBtn {
+  margin-top: 2%;
+  margin-right: 0%;
+  margin-left: 7%;
+  width: 15%;
+  height: auto;
+}
+.tutorial3 .texto {
+  margin-top: -4%;
+  margin-left: 21%;
+  padding: 0;
+  width: 61%;
+}
+.tutorial3 .frame {
+  width: 50%;
+  margin-top: -14%;
+  margin-left: 25%;
+  z-index: 2;
+}
+.tutorial3 .frame img {
+  height: auto;
+  width: 100%;
+}
+.tutorial3 .timeline {
+  top: 85%;
+}
+.tutorial3 .continuarBtn {
+  opacity: 1;
+  left: 52%;
+  top: 17%;
+}
+
+.tutorial4 .texto {
+  margin-top: -8%;
+  margin-left: 34%;
+  padding: 0;
+  width: 56%;
+}
+
+.tutorial7 {
+  position: relative;
+}
+.tutorial7 .yellowsign {
+  position: absolute;
+  width: 20%;
+  top: 2%;
+  right: 6%;
+}
+.tutorial7 .texto {
+  margin-top: 2%;
+  margin-left: 24%;
+  padding: 0;
+  width: 45%;
+}
+.tutorial7 .continuarBtn {
+  opacity: 1;
+  left: 43%;
+  top: 67%;
+}
+
+.tutorial9 .texto {
+  margin-top: 14%;
+  margin-left: 29%;
+}
+.tutorial9 .dot {
+  position: absolute;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  top: 50%;
+  left: 50%;
+}
+.tutorial9 .dot1 {
+  top: 20%;
+  left: 15%;
+}
+.tutorial9 .dot2 {
+  top: 75%;
+  left: 15%;
+}
+.tutorial9 .dot3 {
+  top: 35%;
+}
+.tutorial9 .dot4 {
+  top: 75%;
+  left: 80%;
+}
+
+.tutorial15 {
+  margin-top: 5%;
+}
+.tutorial15 .texto {
+  margin-top: -2%;
+  margin-left: 29%;
+  width: 43%;
+}
+.tutorial15 .continuarBtn {
+  left: 43%;
+  top: 78%;
+}
+.tutorial15 .swipeOverflow {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  width: 26%;
+  height: -moz-fit-content;
+  height: fit-content;
+  position: absolute;
+  top: 42%;
+  left: 37.7%;
+  z-index: 2;
+}
+.tutorial15 .swipeOverflow .swipe {
+  width: 100%;
+  margin-right: 20px;
+  height: -moz-fit-content;
+  height: fit-content;
+  transition: all 800ms ease-in-out;
+}
+.tutorial15 .swipeOverflow .swipe1 {
+  margin-left: -375px;
+}
+.tutorial15 .arrows {
+  display: flex;
+  width: 10%;
+  height: -moz-fit-content;
+  height: fit-content;
+  flex-direction: row;
+  position: absolute;
+  top: 68%;
+  left: 46%;
+}
+.tutorial15 .arrows .arrowR {
+  transform: rotateY(180deg);
+  width: 50%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+.tutorial15 .arrows .arrowL {
+  width: 50%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: opacity 0.5s ease-in-out;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(208.53deg, #36069a 1.77%, #3c2168 101.57%, #4704b5 101.57%);
+  padding: 0;
+}
+
+.finish {
+  padding: 5% 0;
+  flex-direction: column;
+  align-items: start;
+}
+.finish #introBtn {
+  margin-top: 50px;
+}
+.finish span {
+  color: #00c7af;
+}
+.finish h2 {
+  width: 100%;
+  text-align: center;
+  font-size: 2em;
+  color: #00c7af;
+}
+.finish .steps {
+  justify-content: space-between;
+  width: 100%;
+  flex-direction: row;
+  display: flex;
+}
+.finish .step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+.finish .step h3 {
+  font-size: 1.5em;
+  text-align: left;
+  margin-bottom: 5%;
+}
+.finish .step img {
+  border-radius: 20px;
+  width: 80%;
+}
+.finish .swipeStep {
+  font-size: 2em;
+  margin-top: 50px;
 }/*# sourceMappingURL=interactiva.css.map */

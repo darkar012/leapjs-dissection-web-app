@@ -2,13 +2,17 @@ import "../../node_modules/leapjs/leap-1.1.1.js";
 let indexFingerX = 0;
 let indexFingerY = 0;
 var contador = 0;
-let counterSwipe = 0;
+var swipeCounter = 0;
 let palmPositionOrigin = 0;
 let swipe = false;
 let YArray = [];
 let yNArray = [];
-let casesTest = 6;
+let casesTest = 0;
+let seconds = 6; // Cantidad inicial de segundos
+let countdown; // Variable para almacenar el contador
 let actionsArr = [];
+let introBtn;
+let continueBtn;
 
 let setOneOptions = [
   {
@@ -128,8 +132,6 @@ for (let i = 0; i < 300; i++) {
 
 function render(caseNumber) {
   const content = document.querySelector(".content");
-  let introBtn;
-  let continueBtn;
 
   switch (caseNumber) {
     case 0:
@@ -324,7 +326,7 @@ function render(caseNumber) {
   <!-- Modal content -->
   <div class="modal-content">
 
-    
+    <h3 class='warningText'></h3>
     <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
   </div>
   </div>
@@ -379,30 +381,137 @@ function render(caseNumber) {
         continueBtn = document.getElementById("introBtn");
         console.log(continueBtn);
         continueBtn.addEventListener("click", () => {
+          let total = 0;
+          for (let i = 0; i < actionsArr.length; i++) {
+            total += actionsArr[i].value;
+          }
+          const average = total / actionsArr.length;
+
+          const badLimit = 1;
+          const avgLimit = 2;
+
+          let message;
+
+          if (average <= badLimit) {
+            message =
+              "Vemos que hay que corregir tu código, espera mientras los corregimos";
+          } else if (average <= avgLimit) {
+            message =
+              "Genial, vemos que hay mínimas correcciones, las haremos y podrás probar tu código";
+          } else {
+            message =
+              "Aquí hay potencial, en breve podrás probar este magnífico código";
+          }
+
+          let modalMessage = document.querySelector(".warningText");
+          modalMessage.innerText = message;
           modal.style.display = "block";
+          if (!countdown) {
+            countdown = setInterval(updateCounter, 1000);
+            render(casesTest);
+          }
         });
       }
-      // Get the <span> element that closes the modal
-      // var span = document.getElementsByClassName("close")[0];
 
-      // // When the user clicks on <span> (x), close the modal
-      // span.onclick = function () {
-      //   modal.style.display = "none";
-      // };
-
-      // // When the user clicks anywhere outside of the modal, close it
-      // window.onclick = function (event) {
-      //   if (event.target == modal) {
-      //     modal.style.display = "none";
-      //   }
-      // };
       break;
 
+    case 7:
+      content.classList = ["content"];
+      content.classList.add("container");
+
+      content.innerHTML = `
+  
+      <div class="tutorial1 tutorial3 tutorial4 tutorial7 tutorial9 tutorial15" id="tutorial1">
+         
+        <img class="texto"  src="../../imgs/tutorialCase15.png">
+            
+            <div class="swipeOverflow">
+<img class="swipe swipe1"  src="../../imgs/swipeTest1.png">
+<img class="swipe swipe2"  src="../../imgs/swipeTest2.png">
+<img class="swipe swipe3"  src="../../imgs/swipeTest3.png">
+</div>
+<div class="arrows">
+<img class="arrowL"  src="../../imgs/arrow.png">
+<img class="arrowR"  src="../../imgs/arrow.png">
+</div>
+<img class="continuarBtn" src="../../imgs/continueBtnIn.png">
+
+            </div>
+        
+   `;
+
+      continueBtn = document.querySelector(".continuarBtn");
+      continueBtn.addEventListener("click", (e) => {
+        casesTest = 8;
+        render(casesTest);
+      });
+      break;
+
+    case 8:
+      content.classList = ["content"];
+      content.innerHTML = `
+        <h2>Este es el código real que realizamos</h2>
+<div class='steps'>
+<div class="step">
+        <h3>1. Crear las <span>variables</span></h3>
+        <img src="../../imgs/interactive/variables.png" alt="">
+        <button id="introBtn">
+       Continuar
+  </button>
+      </div>
+      
+      <div class="step">
+        <h3>2. Activar el <span>sensor</span></h3>
+        <img src="../../imgs/interactive/activate.png" alt="">
+      </div>
+
+      
+</div>
+        
+        `;
+
+      content.classList.add("finish");
+
+      continueBtn = document.querySelector("#introBtn");
+      continueBtn.addEventListener("click", (e) => {
+        let steps = document.querySelector(".steps");
+        steps.innerHTML = `
+        <div class="step">
+        <h3>3. Reconocer nuestra <span>posición</span></h3>
+        <img src="../../imgs/interactive/recognize.png" alt="">
+      </div>
+
+      <div class="step">
+        <h3>4. Compararla con nuestros <span>elementos interactivos</span></h3>
+        <img src="../../imgs/interactive/follow.png" alt="">
+        <div class="step swipeStep">
+        <h3><span>5. Explorar con el swipe!</span></h3>
+      </div>
+      </div>
+        `
+      });
+
+      break;
     default:
       break;
   }
 }
 
+{
+  /* <div class="step">
+        <h3>3. Reconocer nuestra <span>posición</span></h3>
+        <img src="../../imgs/interactive/recognize.png" alt="">
+      </div>
+
+      <div class="step">
+        <h3>4. Compararla con nuestros <span>elementos interactivos</span></h3>
+        <img src="../../imgs/interactive/folow.png" alt="">
+      </div>
+
+      <div class="step">
+        <h3>5. <span>Explorar con el swipe!</span></h3>
+      </div> */
+}
 render(casesTest);
 
 var controller = new Leap.Controller();
@@ -468,32 +577,109 @@ controller.on("frame", function (frame) {
           window.screen.height / 2 + cursoY(indexFingerY) * 4 + "px";
       }
 
-      if (casesTest === 0) {
-        let introBtn = document.getElementById("introBtn");
-        if (
-          parseInt(cursor.style.top.split("px")) > introBtn.offsetTop &&
-          parseInt(cursor.style.top.split("px")) <
-            introBtn.offsetTop + introBtn.offsetHeight &&
-          parseInt(cursor.style.left.split("px")) > introBtn.offsetLeft &&
-          parseInt(cursor.style.left.split("px")) <
-            introBtn.offsetLeft + introBtn.offsetWidth
-        ) {
-          loader.style.display = "block";
-          console.log(cursor.style.width);
-          loader.style.top =
-            parseInt(cursor.style.top.split("px")) - 12.5 + "px";
-          loader.style.left =
-            parseInt(cursor.style.left.split("px")) - 12.5 + "px";
-          loader.style.zIndex = 12;
+      switch (casesTest) {
+        case 0:
+          let introBtn = document.getElementById("introBtn");
+          if (
+            parseInt(cursor.style.top.split("px")) > introBtn.offsetTop &&
+            parseInt(cursor.style.top.split("px")) <
+              introBtn.offsetTop + introBtn.offsetHeight &&
+            parseInt(cursor.style.left.split("px")) > introBtn.offsetLeft &&
+            parseInt(cursor.style.left.split("px")) <
+              introBtn.offsetLeft + introBtn.offsetWidth
+          ) {
+            loader.style.display = "block";
+            console.log(cursor.style.width);
+            loader.style.top =
+              parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+            loader.style.left =
+              parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+            loader.style.zIndex = 12;
 
-          contador += 20;
+            contador += 20;
 
-          if (contador == 2000) {
-            casesTest = 1;
-            render(casesTest);
+            if (contador == 2000) {
+              casesTest = 1;
+              render(casesTest);
+            }
           }
-        }
-      } else if (casesTest === 1) {
+          break;
+        case 7:
+          let swipe1 = document.querySelector(".swipe1");
+          let arrowR = document.querySelector(".arrowR");
+          let arrowL = document.querySelector(".arrowL");
+          if (extendedFingers >= 4) {
+            for (var i = 0; i < frame.hands.length; i++) {
+              var hand = frame.hands[i];
+              var palmPosition = hand.palmPosition[0];
+              var velocity = hand.palmVelocity[0];
+
+              if (i === 5) {
+                palmPositionOrigin = palmPosition;
+              }
+              let difPosition = palmPosition - palmPositionOrigin;
+              if (difPosition <= -30 && velocity < -200) {
+                swipe1.style.marginLeft = -375 - 375 + "px";
+                var imgSrc = arrowR.getAttribute("src");
+                var imgFileName = imgSrc.substring(imgSrc.lastIndexOf("/") + 1);
+                if (imgFileName === "arrow.png") {
+                  swipeCounter += 1;
+                  arrowR.style.transform = "rotateY(0deg)";
+                  arrowR.style.marginTop = "-4px";
+                  arrowR.style.padding = "10px";
+                  arrowR.src = "../../imgs/arrowCheck.png";
+                }
+              } else if (difPosition > 30 && velocity > 200) {
+                swipe1.style.marginLeft = 0 + "px";
+                var imgSrc = arrowL.getAttribute("src");
+                var imgFileName = imgSrc.substring(imgSrc.lastIndexOf("/") + 1);
+                if (imgFileName === "arrow.png") {
+                  swipeCounter += 1;
+                  arrowL.style.transform = "rotateY(0deg)";
+                  arrowL.style.marginTop = "-4px";
+                  arrowL.style.padding = "10px";
+                  arrowL.src = "../../imgs/arrowCheck.png";
+                }
+              }
+            }
+            if (swipeCounter == 2) {
+              continueBtn.src = "../../imgs/continueBtnAlt.png";
+            }
+          } else {
+            if (swipeCounter == 2) {
+              let y14 = continueBtn.getBoundingClientRect().top;
+              let x14 = continueBtn.getBoundingClientRect().left;
+
+              if (
+                parseInt(cursor.style.top.split("px")) > y14 &&
+                parseInt(cursor.style.top.split("px")) < y14 + 70 &&
+                parseInt(cursor.style.left.split("px")) > x14 &&
+                parseInt(cursor.style.left.split("px")) < x14 + 230
+              ) {
+                loader.style.display = "block";
+                loader.style.top =
+                  parseInt(cursor.style.top.split("px")) - 12.5 + "px";
+                loader.style.left =
+                  parseInt(cursor.style.left.split("px")) - 12.5 + "px";
+                loader.style.zIndex = 12;
+
+                contador += 20;
+
+                console.log(contador == 2000);
+
+                if (contador === 2000) {
+                  console.log("hola");
+                  casesTest = 8;
+                  render(casesTest);
+                }
+              } else {
+                loader.style.display = "none";
+                contador = 0;
+              }
+            }
+          }
+        default:
+          break;
       }
     });
   }
@@ -551,5 +737,16 @@ function optionsByLength() {
     } else if (actionsArr.length >= 4) {
       return setOptions(setFiveOptions, false);
     }
+  }
+}
+
+function updateCounter() {
+  if (seconds < 0) {
+    clearInterval(countdown);
+    casesTest = 7;
+    render(casesTest);
+  } else {
+    console.log(seconds);
+    seconds--;
   }
 }
