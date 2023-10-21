@@ -7,12 +7,12 @@ let palmPositionOrigin = 0;
 let swipe = false;
 let YArray = [];
 let yNArray = [];
-let casesTest = 3;
+let casesTest = 6;
 let actionsArr = [];
 
 let setOneOptions = [
   {
-    description: "Crear variables de mi mano",
+    description: "Reconocer las partes de mi mano",
     value: 3,
   },
   {
@@ -20,21 +20,21 @@ let setOneOptions = [
     value: 1,
   },
   {
-    description: "Crear un método para leer mis manos",
+    description: "Detectar el movimiento de mi mano",
     value: 2,
   },
 ];
 let setTwoOptions = [
   {
-    description: "Llamar a los elementos de la web",
+    description: "Agregar elementos interactivos al código",
     value: 2,
   },
   {
-    description: "Crear un método para reconocer la posición de mi mano",
+    description: "Crear un método para reconocer el movimiento de mi mano",
     value: 3,
   },
   {
-    description: "Hacer un swipe y ver si responde",
+    description: "Hacer un swipe de prueba",
     value: 1,
   },
 ];
@@ -44,7 +44,7 @@ let setThreeOptions = [
     value: 2,
   },
   {
-    description: "Llamar a los elementos de la web",
+    description: "Agregar elementos interactivos al código",
     value: 3,
   },
   {
@@ -67,6 +67,56 @@ let setFourOptions = [
     value: 3,
   },
 ];
+let setFiveOptions = [
+  {
+    description: "Hacer un swipe, ya deberia funcionar",
+    value: 1,
+  },
+  {
+    description: "Detectar el movimiento de mi palma",
+    value: 2,
+  },
+  {
+    description: "Crear un metodo para modificar mis objetos con mi mano",
+    value: 3,
+  },
+];
+let exampleOptions = [
+  {
+    description: "Te mostraremos opciones de pasos a seguir",
+    value: 3,
+  },
+  {
+    description: "Escoge la mejor combinación de pasos y agregar el gesto",
+    value: 1,
+  },
+  {
+    description: "Tendrás retroalimentación paso a paso",
+    value: 2,
+  },
+];
+let exampleResponse = [
+  {
+    description: "Aqui van tus respuestas",
+    value: 3,
+  },
+  {
+    description: "Tendrán un color segun la calidad de tus pasos",
+    value: 3,
+  },
+  {
+    description: "Rojo es un error",
+    value: 1,
+  },
+  {
+    description: "Amarillo puede mejorar",
+    value: 2,
+  },
+  {
+    description: "Verde esta genial",
+    value: 3,
+  },
+];
 
 for (let i = 0; i < 300; i++) {
   YArray.push(300 - i);
@@ -79,9 +129,7 @@ for (let i = 0; i < 300; i++) {
 function render(caseNumber) {
   const content = document.querySelector(".content");
   let introBtn;
-  let threeBtn;
-  let twoBtn;
-  let oneBtn;
+  let continueBtn;
 
   switch (caseNumber) {
     case 0:
@@ -122,7 +170,7 @@ function render(caseNumber) {
     case 2:
       content.innerHTML = `
   <div class="intro-description">
-    <h2>Escoge el gesto que deseas integrar</h2>
+    <h2>El gesto que realizaremos será un:</h2>
 
   </div>     
   <div class='gestures'>
@@ -130,12 +178,6 @@ function render(caseNumber) {
   <img class="hand"  src="../../imgs/handSwipe.png">
       <button id="swipeBtn">
          Swipe
-    </button>
-  </div> 
-  <div class='pointer-btn'>
-  <img class="hand"  src="../../imgs/interactive/pointer.png">
-      <button id="pointerBtn">
-         Apuntar
     </button>
   </div> 
   </div>
@@ -161,6 +203,102 @@ function render(caseNumber) {
       });
       break;
     case 3:
+      content.classList = ["content"];
+      content.innerHTML = `
+      <div class='onboardingImg'>
+     
+      <img class= 'intro-image'src="../../imgs/interactive/programer.webp" alt="" />
+      <button id='continueBtn'>continuar</button>
+      </div>
+      <div class="info-description">
+  <h1>Para tener en cuenta:</h1>
+  <div class="data-info">
+    <h2>Variables</h2>
+    <p>
+      Son un espacio en la memoria del ordenador que sé
+      utiliza para almacenar un valor. 
+      Las variables se identifican por un
+      nombre.
+    </p>
+    <div>
+      <h3>Ejemplo</h3>
+      <p>x = posición de mi dedo</p>
+    </div>
+  </div>
+  <div class="data-info">
+    <h2>Métodos</h2>
+    <p>
+      Son secuencias de instrucciones que se usan para realizar tareas específicas.
+    </p>
+    <div>
+      <h3>Ejemplo</h3>
+      <p>Calcular el movimiento de mi mano</p>
+    </div>
+  </div>
+</div>`;
+      content.classList.add("onboarding1");
+      continueBtn = document.getElementById("continueBtn");
+      continueBtn.addEventListener("click", () => {
+        casesTest = 4;
+        render(casesTest);
+      });
+      break;
+
+    case 4:
+      content.classList = ["content"];
+      content.innerHTML = `
+      <h2>Así que ten siempre en cuenta esta <span>secuencia<span></h2>
+      <div class="equation">
+        <h1>Variables</h1>
+        <p>&#8674;</p>
+        <h1>Métodos</h1>
+        <p>&#8674;</p>
+        <h1>Códigos</h1>
+      </div>
+      
+    </div>
+    <button id='continueBtn'>continuar</button>`;
+      content.classList.add("equationContent");
+      continueBtn = document.getElementById("continueBtn");
+      continueBtn.addEventListener("click", () => {
+        casesTest = 5;
+        render(casesTest);
+      });
+      break;
+
+    case 5:
+      content.classList = ["content"];
+      content.innerHTML = `
+        <div class='dummie-dev'>
+        <div class="intro-description tutorial1">
+    <h2>¿Cómo funciona nuestra actividad?</h2>
+    ${optionsByLength()}
+  </div>   
+        </div>
+        <div class='blocks'>
+        <h2>Aqui ira tu retroalimentación</h2>
+        ${setOptions(exampleResponse, true)}
+        ${
+          exampleResponse.length > 3
+            ? `<button id="introBtn">
+       Iniciar la prueba
+  </button>`
+            : ``
+        }
+        <div>
+  `;
+      content.style.backgroundColor = "#29292a";
+      content.classList.add("dummie-dev-content");
+
+      continueBtn = document.getElementById("introBtn");
+      continueBtn.addEventListener("click", () => {
+        casesTest = 6;
+        render(casesTest);
+      });
+      break;
+    //inicio de interaccion
+    case 6:
+      content.classList = ["content"];
       content.innerHTML = `
         <div class='dummie-dev'>
         <div class="intro-description tutorial1">
@@ -172,13 +310,26 @@ function render(caseNumber) {
         <h2>Asi va tu código</h2>
         ${setOptions(actionsArr, true)}
         ${
-          actionsArr.length > 3
+          actionsArr.length > 4
             ? `<button id="introBtn">
        Probar mi código
   </button>`
             : ``
         }
-        <div>
+      </div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+
+    
+    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+  </div>
+</div>
+
   `;
       content.style.backgroundColor = "#29292a";
       content.classList.add("dummie-dev-content");
@@ -210,13 +361,43 @@ function render(caseNumber) {
             );
             actionsArr.push(optionSelected);
             render(casesTest);
+          } else if (actionsArr.length == 4) {
+            let optionSelected = setFiveOptions.find(
+              (option) => option.description === options[i].innerText
+            );
+            actionsArr.push(optionSelected);
+            render(casesTest);
           } else {
             render(casesTest);
           }
         });
       }
+      // Get the modal
+      var modal = document.getElementById("myModal");
 
+      if (actionsArr.length > 4) {
+        continueBtn = document.getElementById("introBtn");
+        console.log(continueBtn);
+        continueBtn.addEventListener("click", () => {
+          modal.style.display = "block";
+        });
+      }
+      // Get the <span> element that closes the modal
+      // var span = document.getElementsByClassName("close")[0];
+
+      // // When the user clicks on <span> (x), close the modal
+      // span.onclick = function () {
+      //   modal.style.display = "none";
+      // };
+
+      // // When the user clicks anywhere outside of the modal, close it
+      // window.onclick = function (event) {
+      //   if (event.target == modal) {
+      //     modal.style.display = "none";
+      //   }
+      // };
       break;
+
     default:
       break;
   }
@@ -319,11 +500,10 @@ controller.on("frame", function (frame) {
 });
 
 function setOptions(array, isActions) {
-  let options = `<div></div>`;
+  let options = ``;
 
   if (isActions) {
     array.forEach((option) => {
-      console.log(option);
       if (option.value == 1) {
         options =
           options +
@@ -357,13 +537,19 @@ function setOptions(array, isActions) {
 }
 
 function optionsByLength() {
-  if (actionsArr.length == 0) {
-    return setOptions(setOneOptions, false);
-  } else if (actionsArr.length == 1) {
-    return setOptions(setTwoOptions, false);
-  } else if (actionsArr.length == 2) {
-    return setOptions(setThreeOptions, false);
-  } else if (actionsArr.length >= 3) {
-    return setOptions(setFourOptions, false);
+  if (casesTest == 5) {
+    return setOptions(exampleOptions, false);
+  } else {
+    if (actionsArr.length == 0) {
+      return setOptions(setOneOptions, false);
+    } else if (actionsArr.length == 1) {
+      return setOptions(setTwoOptions, false);
+    } else if (actionsArr.length == 2) {
+      return setOptions(setThreeOptions, false);
+    } else if (actionsArr.length == 3) {
+      return setOptions(setFourOptions, false);
+    } else if (actionsArr.length >= 4) {
+      return setOptions(setFiveOptions, false);
+    }
   }
 }
